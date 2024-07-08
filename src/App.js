@@ -95,17 +95,17 @@ function App() {
             ))}
           </select>
         </div>
-        {isFileUploadVisible && (
+        <div className={`${isFileUploadVisible? "":"invisible"}`}>
           <div
-            className={`fixed top-0 right-0 h-full bg-white shadow-lg z-50 transition duration-1000 ease-in-out ${
-              isFileUploadVisible ? "translate-x-0" : "-translate-x-full"
+            className={`fixed top-0 right-0 h-full bg-white shadow-lg z-50 duration-300 ease-out  transition-all ${
+              isFileUploadVisible ? "translate-x-0" : "translate-x-full"
             }`}
             style={{ width: "80%" }}
             ref={fileUploadRef}
           >
             <FileUpload onClose={closeFileUpload} onFileUpload={handleFileUpload} />
           </div>
-        )}
+        </div>
       </div>
     </div>
   );
