@@ -56,7 +56,7 @@ function App() {
   };
   const sortByBank = () => {
 
-    asc?setFiles(files.sort((a, b) => a.name.localeCompare(b.name))): setFiles(files.sort((a, b) => b.name.localeCompare(a.name)));
+    asc?setFiles(files.sort((a, b) => {return new Date(b.date) - new Date(a.date);})): setFiles(files.sort((a, b) => {return new Date(a.date) - new Date(b.date);}));
     
     setasc(!asc);
   
