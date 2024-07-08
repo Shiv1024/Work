@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "./modals";
 
-const FileUpload = ({ onClose, onFileUpload }) => {
+const FileUpload = ({ onFileUpload }) => {
   const [uploadMessage, setUploadMessage] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
