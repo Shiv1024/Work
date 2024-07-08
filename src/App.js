@@ -7,6 +7,8 @@ function App() {
   const [isFileUploadVisible, setIsFileUploadVisible] = useState(false);
   const [files, setFiles] = useState([]); // State to hold files data
 
+  const[asc, setasc]=useState(true);
+
   const handleItemsPerPageChange = (event) => {
     setItemsPerPage(event.target.value);
   };
@@ -44,6 +46,26 @@ function App() {
     };
   }, [isFileUploadVisible]);
 
+
+  const sortByClient = () => {
+
+    asc?setFiles(files.sort((a, b) => a.name.localeCompare(b.name))): setFiles(files.sort((a, b) => b.name.localeCompare(a.name)));
+    
+    setasc(!asc);
+  
+  };
+  const sortByBank = () => {
+
+    asc?setFiles(files.sort((a, b) => {return new Date(b.date) - new Date(a.date);})): setFiles(files.sort((a, b) => {return new Date(a.date) - new Date(b.date);}));
+    
+    setasc(!asc);
+  
+  };
+
+  const sortByStatus = () => {}
+  const sortByParser = () => {}
+  const sortByDate = () => {}
+
   return (
     <div>
       <Navbar />
@@ -51,21 +73,21 @@ function App() {
         <table className="min-w-full bg-gray-200 border border-gray-400 relative shadow-lg">
           <thead>
             <tr className="bg-bcgClr text-white">
-              <th className="py-3 px-4 border-b border-gray-200 text-left">Client Name</th>
-              <th className="py-3 px-4 border-b border-gray-200 text-left">Bank</th>
-              <th className="py-3 px-4 border-b border-gray-200 text-left">Status</th>
-              <th className="py-3 px-4 border-b border-gray-200 text-left">Parsed By</th>
-              <th className="py-3 px-4 border-b border-gray-200 text-left">Uploaded Date</th>
+              <th className="py-3 px-4 border-b border-gray-200 text-left hover:cursor-pointer" onClick={()=>{sortByClient()}}>Client Name</th>
+              <th className="py-3 px-4 border-b border-gray-200 text-left hover:cursor-pointer" onClick={()=>{sortByBank()}}>Bank</th>
+              <th className="py-3 px-4 border-b border-gray-200 text-left hover:cursor-pointer" onClick={()=>{sortByStatus()}}>Status</th>
+              <th className="py-3 px-4 border-b border-gray-200 text-left hover:cursor-pointer" onClick={()=>{sortByParser()}}>Parsed By</th>
+              <th className="py-3 px-4 border-b border-gray-200 text-left hover:cursor-pointer" onClick={()=>{sortByDate()}}>Uploaded Date</th>
             </tr>
           </thead>
           <tbody>
-
+              
               {files.map((file, index) => (
                 <tr key={index} className="text-center">
-                  <td className="py-3 px-4 border-b border-gray-200 text-left">Random Client</td>
+                  <td className="py-3 px-4 border-b border-gray-200 text-left" >{file.name}</td>
                   <td className="py-3 px-4 border-b border-gray-200 text-left">Random Bank</td>
                   <td className="py-3 px-4 border-b border-gray-200 text-left text-green-600">SUCCESS</td>
-                  <td className="py-3 px-4 border-b border-gray-200 text-left">Random Person</td>
+                  <td className="py-3 px-4 border-b border-gray-200 text-left">Random Person </td>
                   <td className="py-3 px-4 border-b border-gray-200 text-left">{file.dateAdded}</td>
                 </tr>
               ))}
