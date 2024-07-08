@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Charts from "./Components/Charts";
 import Landing from './Components/Landing';
-
+import Cards from './Components/card';
 function App() {
   const fileUploadRef = useRef();
   const [isFileUploadVisible, setIsFileUploadVisible] = useState(false);
@@ -36,8 +36,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/charts" element={<Charts/>}/>
-          
-        <Route path="/" element={<Landing isFileUploadVisible={isFileUploadVisible} closeFileUpload={closeFileUpload} setIsFileUploadVisible={setIsFileUploadVisible} fileUploadRef={fileUploadRef}/>}/>
+          <Route path="/" element={<Landing isFileUploadVisible={isFileUploadVisible} closeFileUpload={closeFileUpload} setIsFileUploadVisible={setIsFileUploadVisible} fileUploadRef={fileUploadRef}/>}/>
+          <Route path="/cards" element={<Cards/>}/>
       </Routes>
       </Router>
     </div>
