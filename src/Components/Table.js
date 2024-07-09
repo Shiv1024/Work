@@ -2,19 +2,17 @@ import React, { useState } from 'react';
 import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import TablePagination from '@mui/material/TablePagination';
-import './TableStyle.css';
 
 const Table = () => {
   const [data, setData] = useState([
-    { ctin: '123456', partyName: 'ABC Corp', sumInvoiceValue: 5000, countMonth: 3 },
-    { ctin: '654321', partyName: 'XYZ Inc', sumInvoiceValue: 7000, countMonth: 2 },
+    { ctin: '1234567777777777777', partyName: 'ABC Corp', sumInvoiceValue: 5000, countMonth: 3 },
+    { ctin: '654321', partyName: 'XYZ Inchsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss', sumInvoiceValue: 7000, countMonth: 2 },
     { ctin: '112233', partyName: 'DEF Ltd', sumInvoiceValue: 3000, countMonth: 1 },
     { ctin: '445566', partyName: 'GHI Pvt', sumInvoiceValue: 4500, countMonth: 4 },
     { ctin: '828456', partyName: 'KSG Corp', sumInvoiceValue: 3000, countMonth: 5 },
     { ctin: '682921', partyName: 'SBS Inc', sumInvoiceValue: 6000, countMonth: 3 },
     { ctin: '116233', partyName: 'UCG Ltd', sumInvoiceValue: 4000, countMonth: 3 },
     { ctin: '447286', partyName: 'JHJ Pvt', sumInvoiceValue: 5500, countMonth: 6 },
-    // Add more rows as needed
   ]);
 
   const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
@@ -123,11 +121,32 @@ const Table = () => {
         </thead>
         <tbody>
           {sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-            <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-blue-300'}>
-              <td className="py-1 px-4 border-r-2 border-red-500 text-left">{row.ctin}</td>
-              <td className="py-1 px-4 border-r-2 border-red-500 text-left">{row.partyName}</td>
-              <td className="py-1 px-4 border-r-2 border-red-500 text-right">{row.sumInvoiceValue}</td>
-              <td className="py-1 px-4 border-r-2 border-red-500 text-right">{row.countMonth}</td>
+            <tr key={index} className={(page*rowsPerPage + index) % 2 === 0 ? 'bg-white' : 'bg-blue-300'}>
+              <td className="py-1 px-4 border-r-2 border-red-500 text-left">
+                <div className="relative w-40">
+                  <div className="truncate">{row.ctin}</div>
+                  {row.ctin.length > 14 &&
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-90 text-white text-xl font-bold opacity-0 hover:opacity-100 w-64 h-10 overflow-auto">
+                    {row.ctin}
+                  </div>
+                    }
+                </div>
+              </td>
+              <td className="py-1 px-4 border-r-2 border-red-500 text-left">
+                <div className="relative w-104">
+                  <div className="truncate">{row.partyName}</div>
+                  {row.partyName.length > 50 &&
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-90 text-white text-xl font-bold opacity-0 hover:opacity-100 w-180 h-10 overflow-auto">
+                    {row.partyName}
+                  </div>}
+                </div>
+              </td>
+              <td className="py-1 px-4 border-r-2 border-red-500 text-right">
+                <div className="truncate">{row.sumInvoiceValue}</div>
+              </td>
+              <td className="py-1 px-4 border-r-2 border-red-500 text-right">
+                <div className="truncate">{row.countMonth}</div>
+              </td>
             </tr>
           ))}
         </tbody>
@@ -148,7 +167,6 @@ const Table = () => {
                 page={page}
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
-                className="pagination"
               />
             </td>
           </tr>
