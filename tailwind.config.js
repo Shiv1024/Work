@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'bcgClr': '#002a40'
+        bcgClr: '#002a40'
+
       },
       width: {
         '104': '26rem',

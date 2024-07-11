@@ -6,6 +6,7 @@ import Charts from "./Components/Charts";
 import Landing from './Components/Landing';
 import Cards from './Components/card';
 import Table from "./Components/Table";
+import Clients from './Components/Clients';
 function App() {
   const fileUploadRef = useRef();
   const [isFileUploadVisible, setIsFileUploadVisible] = useState(false);
@@ -40,6 +41,7 @@ function App() {
           <Route path="/" element={<Landing isFileUploadVisible={isFileUploadVisible} closeFileUpload={closeFileUpload} setIsFileUploadVisible={setIsFileUploadVisible} fileUploadRef={fileUploadRef}/>}/>
           <Route path="/cards" element={<Cards/>}/>
           <Route path = "/table" element = {<Table />} />
+          <Route path="/clients" element={<Clients/>}/>
       </Routes>
       </Router>
     </div>
