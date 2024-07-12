@@ -62,11 +62,11 @@ const Table = () => {
 
   return (
     <div className="overflow-x-auto">
-      <table className="mx-auto mt-8 bg-white border-collapse border-4 border-black">
+      <table className="mx-auto mt-8 bg-white border-collapse border-4 shadow-lg border-black">
         <thead>
           <tr className="border-b-4 border-black">
             <th
-              className="py-2 px-4 bg-gray-200 w-40 border-r-2 border-red-500 text-left cursor-pointer"
+              className="py-2 px-4 w-40 border-r-4 border-black text-left cursor-pointer"
               onClick={() => handleSort('ctin')}
             >
               ctin
@@ -80,7 +80,7 @@ const Table = () => {
             </th>
             <th
               onClick={() => handleSort('partyName')}
-              className="py-2 px-4 bg-gray-200 w-104 border-r-2 border-red-500 text-left cursor-pointer"
+              className="py-2 px-4 w-104 border-r-4 border-black text-left cursor-pointer"
             >
               partyName
               {sortConfig.key === 'partyName' && (
@@ -93,7 +93,7 @@ const Table = () => {
             </th>
             <th
               onClick={() => handleSort('sumInvoiceValue')}
-              className="py-2 px-4 bg-gray-200 w-48 border-r-2 border-red-500 text-center cursor-pointer"
+              className="py-2 px-4 w-48 border-r-4 border-black text-center cursor-pointer"
             >
               Sum of invoice value
               {sortConfig.key === 'sumInvoiceValue' && (
@@ -106,7 +106,7 @@ const Table = () => {
             </th>
             <th
               onClick={() => handleSort('countMonth')}
-              className="py-2 px-4 bg-gray-200 w-40 border-r-2 border-red-500 text-center cursor-pointer"
+              className="py-2 px-4 w-40 border-r-4 border-black text-center cursor-pointer"
             >
               Count of Month
               {sortConfig.key === 'countMonth' && (
@@ -121,8 +121,8 @@ const Table = () => {
         </thead>
         <tbody>
           {sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-            <tr key={index} className={(page*rowsPerPage + index) % 2 === 0 ? 'bg-white' : 'bg-blue-300'}>
-              <td className="py-1 px-4 border-r-2 border-red-500 text-left">
+            <tr key={index} className='bg-white'>
+              <td className="py-1 px-4 border-r-4 border-black text-left">
                 <div className="relative w-40">
                   <div className="truncate">{row.ctin}</div>
                   {row.ctin.length > 14 &&
@@ -132,7 +132,7 @@ const Table = () => {
                     }
                 </div>
               </td>
-              <td className="py-1 px-4 border-r-2 border-red-500 text-left">
+              <td className="py-1 px-4 border-r-4 border-black text-left">
                 <div className="relative w-104">
                   <div className="truncate">{row.partyName}</div>
                   {row.partyName.length > 50 &&
@@ -141,7 +141,7 @@ const Table = () => {
                   </div>}
                 </div>
               </td>
-              <td className="py-1 px-4 border-r-2 border-red-500 text-right">
+              <td className="py-1 px-4 border-r-4 border-black text-right">
                 <div className="truncate">{row.sumInvoiceValue}</div>
               </td>
               <td className="py-1 px-4 border-r-2 border-red-500 text-right">
@@ -152,13 +152,13 @@ const Table = () => {
         </tbody>
         <tfoot>
           <tr className="border-t-4 border-black">
-            <td className="py-1 px-4 border-r-2 border-red-500 text-left font-bold">Total</td>
-            <td className="py-1 px-4 border-r-2 border-red-500 text-right font-bold"></td>
-            <td className="py-1 px-4 border-r-2 border-red-500 text-right font-bold">{handleTotal()}</td>
-            <td className="py-1 px-4 border-r-2 border-red-500 text-right font-bold">{handleMax()}</td>
+            <td className="py-1 px-4 border-r-4 border-black text-left font-bold">Total</td>
+            <td className="py-1 px-4 border-r-4 border-black text-right font-bold"></td>
+            <td className="py-1 px-4 border-r-4 border-black text-right font-bold">{handleTotal()}</td>
+            <td className="py-1 px-4 border-r-4 border-black text-right font-bold">{handleMax()}</td>
           </tr>
           <tr className="border-t-4 border-black">
-            <td colSpan={4} className="py-1 px-4 border-r-2 border-red-500 text-left">
+            <td colSpan={4} className="py-1 px-4 border-r-4 border-black text-left">
               <TablePagination
                 rowsPerPageOptions={[5, 10, 25]}
                 component="div"
