@@ -20,7 +20,7 @@ const VolatilityGauge = (props) => {
         <GaugeChart
           id="volatility-gauge"
           nrOfLevels={3}
-          colors={['#FF6347', '#FFD700', '#32CD32']}
+          colors={['#ADD8E6', '#4682B4', '#002a40']}
           percent={gaugeValue}
           arcWidth={0.3}
           hideText // Hides percentage text
