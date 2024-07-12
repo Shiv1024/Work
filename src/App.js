@@ -1,11 +1,14 @@
 import React, {useEffect, useRef, useState}from 'react'
 import Navbar from "./Components/Navbar";
-import {
-  BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Charts from "./Components/Charts";
 import Landing from './Components/Landing';
 import Cards from './Components/card';
 import Table from "./Components/Table";
+import Table1 from "./Components/Table1";
+import Table2 from "./Components/Table2";
+import Table3 from "./Components/Table3"
+import TablePage from './Components/TablePage';
 import Summary from './Components/summary';
 import Clients from './Components/Clients';
 function App() {
@@ -42,6 +45,10 @@ function App() {
           <Route path="/" element={<Landing isFileUploadVisible={isFileUploadVisible} closeFileUpload={closeFileUpload} setIsFileUploadVisible={setIsFileUploadVisible} fileUploadRef={fileUploadRef}/>}/>
           <Route path="/cards" element={<Cards/>}/>
           <Route path = "/table" element = {<Table />} />
+          <Route path = "/table1" element = {<Table1 />} />
+          <Route path = "/table2" element = {<Table2 />} />
+          <Route path = "/table3" element = {<Table3 />} />
+          <Route path = "/tablepage" element = {<TablePage />} />
           <Route path = "/summary" element = {<Summary/>} />
           <Route path="/clients" element={<Clients/>}/>
       </Routes>

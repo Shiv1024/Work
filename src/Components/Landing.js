@@ -57,8 +57,6 @@ const Landing = ({
     setAsc(!asc);
   };
 
-  // Implement other sort functions as needed
-
   return (
     <div className="container mx-auto mt-2 p-4 relative">
       <div className="-my-2 overflow-x-auto">
