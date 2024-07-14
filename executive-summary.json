@@ -1,0 +1,48 @@
+{
+"summary1":[
+                {
+                    "borrower": "Hughes",
+                    "dateOfReport": "2024-05-30",
+                    "gstTenure": "Dec 2023 to Mar 2024",
+                    "activeGSTTotalGSTN": "3 out of 23",
+                    "loanSanction": null,
+                    "limitUsed": null,
+                    "noOfMajorFlags": 2,
+                    "flagDescription": "Single Customer, Extremely skewed Qtr & Year End",
+                    "invoiceMatchingYN": null,
+                    "invoiceMatchingAmount": null,
+                    "credableContriToOverallBusiness": null,
+                    "trendDeclineIncreaseConstant": "Increase",
+                    "remarks": "Quarter end / Year End Boost",
+                    "volatilityScale": "Medium",
+                    "additionalRemarks": "Single Customer Dependency",
+                    "volatility": "High",
+                    "filingHygiene": "Medium",
+                    "profiling": "Medium",
+                    "credableEWSFlag": null,
+                    "action": "No Immediate Action"
+                },
+                {
+                    "borrower": "Breezalit Electricals",
+                    "dateOfReport": "2024-07-03",
+                    "gstTenure": "Oct 2023 to Feb 2024",
+                    "activeGSTTotalGSTN": "1 out of 2",
+                    "loanSanction": 200.0,
+                    "limitUsed": 17.81,
+                    "noOfMajorFlags": 1,
+                    "flagDescription": "GST 3B Filing Hygiene",
+                    "invoiceMatchingYN": "28 out of 28",
+                    "invoiceMatchingAmount": 156.502456,
+                    "credableContriToOverallBusiness": 0.09,
+                    "trendDeclineIncreaseConstant": "Increase",
+                    "remarks": "Year End Boost",
+                    "additionalRemarks": "Diversified Customer Base but overdependency on Top 5",
+                    "volatilityScale": "Medium",
+                    "volatility": "Medium",
+                    "filingHygiene": "Low",
+                    "profiling": "Green",
+                    "credableEWSFlag": "Green",
+                    "action": "Check March GST for 7 invoices dated March 12 in Credable list. Partially in Feb data. Highlighted in Invoice Match Sheet."
+                }
+]
+}
