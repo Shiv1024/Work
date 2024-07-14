@@ -1,117 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import TablePagination from '@mui/material/TablePagination';
 
 const SecondTable = () => {
-  const [data, setData] = useState([
-    {
-      serialNumber: 1,
-      source: 'Source A',
-      invoiceDisbursementDate: '2023-01-15',
-      gstDate: '2023-01-20',
-      value: 5000,
-      invoiceNumber: 'INV001',
-      status: 'Paid',
-      differenceInInvoiceAmount: 200,
-      remarks: 'No issues',
-      alerts: 'None',
-      partyName: 'ABC Corp'
-    },
-    {
-      serialNumber: 2,
-      source: 'Source B',
-      invoiceDisbursementDate: '2022-12-05',
-      gstDate: '2022-12-10',
-      value: 7000,
-      invoiceNumber: 'INV002',
-      status: 'Pending',
-      differenceInInvoiceAmount: -300,
-      remarks: 'Pending approval',
-      alerts: 'High',
-      partyName: 'XYZ Inc'
-    },
-    {
-      serialNumber: 3,
-      source: 'Source C',
-      invoiceDisbursementDate: '2023-03-20',
-      gstDate: '2023-03-25',
-      value: 3000,
-      invoiceNumber: 'INV003',
-      status: 'Paid',
-      differenceInInvoiceAmount: 100,
-      remarks: 'Completed',
-      alerts: 'Low',
-      partyName: 'DEF Ltd'
-    },
-    {
-      serialNumber: 4,
-      source: 'Source D',
-      invoiceDisbursementDate: '2022-05-10',
-      gstDate: '2022-05-15',
-      value: 4500,
-      invoiceNumber: 'INV004',
-      status: 'In Progress',
-      differenceInInvoiceAmount: 500,
-      remarks: 'In progress',
-      alerts: 'Medium',
-      partyName: 'GHI Pvt'
-    },
-    {
-      serialNumber: 5,
-      source: 'Source E',
-      invoiceDisbursementDate: '2021-07-25',
-      gstDate: '2021-08-01',
-      value: 3000,
-      invoiceNumber: 'INV005',
-      status: 'Paid',
-      differenceInInvoiceAmount: -200,
-      remarks: 'Overdue',
-      alerts: 'High',
-      partyName: 'KLM Corporation'
-    },
-    {
-      serialNumber: 6,
-      source: 'Source F',
-      invoiceDisbursementDate: '2023-02-10',
-      gstDate: '2023-02-15',
-      value: 6000,
-      invoiceNumber: 'INV006',
-      status: 'Pending',
-      differenceInInvoiceAmount: 400,
-      remarks: 'Pending',
-      alerts: 'Low',
-      partyName: 'PQR Inc'
-    },
-    {
-      serialNumber: 7,
-      source: 'Source G',
-      invoiceDisbursementDate: '2022-04-15',
-      gstDate: '2022-04-20',
-      value: 4000,
-      invoiceNumber: 'INV007',
-      status: 'Paid',
-      differenceInInvoiceAmount: 300,
-      remarks: 'Completed',
-      alerts: 'None',
-      partyName: 'STU Ltd'
-    },
-    {
-      serialNumber: 8,
-      source: 'Source H',
-      invoiceDisbursementDate: '2021-09-20',
-      gstDate: '2021-09-25',
-      value: 5500,
-      invoiceNumber: 'INV008',
-      status: 'Delayed',
-      differenceInInvoiceAmount: 800,
-      remarks: 'Delayed',
-      alerts: 'Medium',
-      partyName: 'VWX Pvt'
-    }
-  ]);
-
+  const [data, setData] = useState([]);
   const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
+
+  useEffect(() => {
+    fetch('http://localhost:5000/invoiceMatching')
+      .then(response => response.json())
+      .then(data => setData(data));
+  }, []);
 
   const handleSort = (key) => {
     let direction = 'ascending';
@@ -144,16 +44,16 @@ const SecondTable = () => {
   };
 
   return (
-    <div className="flex overflow-x-scroll">
+    <div className="mx-4 flex overflow-x-scroll">
         <table className="flex-shrink-0 mx-auto mt-8 border-collapse bg-gray-200 border border-gray-400 shadow-lg rounded-lg">
           <thead>
             <tr className="border-b border-gray-400 text-white bg-bcgClr">
               <th
                 className="py-2 px-4 border-r border-gray-400 w-24 text-center cursor-pointer"
-                onClick={() => handleSort('serialNumber')}
+                onClick={() => handleSort('sno')}
               >
                 S. No
-                {sortConfig.key === 'serialNumber' && (
+                {sortConfig.key === 'sno' && (
                   sortConfig.direction === 'ascending' ? (
                     <ArrowDownwardOutlinedIcon />
                   ) : (
@@ -176,10 +76,10 @@ const SecondTable = () => {
               </th>
               <th
                 className="py-2 px-4 border-r border-gray-400 w-24 text-center cursor-pointer"
-                onClick={() => handleSort('invoiceDisbursementDate')}
+                onClick={() => handleSort('invoiceDisbursmentdate')}
               >
                 Invoice Disbursement date
-                {sortConfig.key === 'invoiceDisbursementDate' && (
+                {sortConfig.key === 'invoiceDisbursmentdate' && (
                   sortConfig.direction === 'ascending' ? (
                     <ArrowDownwardOutlinedIcon />
                   ) : (
@@ -241,10 +141,10 @@ const SecondTable = () => {
               </th>
               <th
                 className="py-2 px-4 border-r border-gray-400 w-24 text-center cursor-pointer"
-                onClick={() => handleSort('differenceInInvoiceAmount')}
+                onClick={() => handleSort('differnceInInvoiceAmountCredGst')}
               >
                 Difference in invoice amount (cred - gst)
-                {sortConfig.key === 'differenceInInvoiceAmount' && (
+                {sortConfig.key === 'differnceInInvoiceAmountCredGst' && (
                   sortConfig.direction === 'ascending' ? (
                     <ArrowDownwardOutlinedIcon />
                   ) : (
@@ -267,10 +167,10 @@ const SecondTable = () => {
               </th>
               <th
                 className="py-2 px-4 border-r border-gray-400 w-24 text-center cursor-pointer"
-                onClick={() => handleSort('alerts')}
+                onClick={() => handleSort('alert')}
               >
                 Alert
-                {sortConfig.key === 'alerts' && (
+                {sortConfig.key === 'alert' && (
                   sortConfig.direction === 'ascending' ? (
                     <ArrowDownwardOutlinedIcon />
                   ) : (
@@ -299,13 +199,13 @@ const SecondTable = () => {
               .map((row, index) => (
                 <tr key={index}>
                   <td className="py-1 px-4 border-r border-gray-400 text-center">
-                    {row.serialNumber}
+                    {row.sno}
                   </td>
                   <td className="py-1 px-4 border-r border-gray-400 text-center">
                     {row.source}
                   </td>
                   <td className="py-1 px-4 border-r border-gray-400 text-center">
-                    {row.invoiceDisbursementDate}
+                    {row.invoiceDisbursmentdate}
                   </td>
                   <td className="py-1 px-4 border-r border-gray-400 text-center">
                     {row.gstDate}
@@ -320,13 +220,13 @@ const SecondTable = () => {
                     {row.status}
                   </td>
                   <td className="py-1 px-4 border-r border-gray-400 text-center">
-                    {row.differenceInInvoiceAmount}
+                    {row.differnceInInvoiceAmountCredGst}
                   </td>
                   <td className="py-1 px-4 border-r border-gray-400 text-center">
                     {row.remarks}
                   </td>
                   <td className="py-1 px-4 border-r border-gray-400 text-center">
-                    {row.alerts}
+                    {row.alert}
                   </td>
                   <td className="py-1 px-4 text-left">
                     {row.partyName}

@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar";
 import Table1 from "./Table1";
 import Table2 from "./Table2";
 
+
 const TablePage = () => {
     return (
         <div className="flex min-h-screen">
