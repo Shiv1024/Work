@@ -4,9 +4,10 @@ import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import TablePagination from '@mui/material/TablePagination';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import dataJSON from '../Assets/executive summary metis.json'
 
 const Clients = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(dataJSON);
   const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
@@ -56,12 +57,72 @@ const Clients = () => {
     navigate(`/summary`, { state: { borrowerData } });
   };
 
+    
+    // const [data, setData] = useState([
+    //     { borrower: 'Hughes', loanSanction: ' ', LimitUsed: '', MajorFlags: 2, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
+    //     { borrower: 'Brezalit Electircals', LoanSanction: 200, LimitUsed: 17.81, MajorFlags: 1, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
+    //     { borrower: 'Hughes', loanSanction:  '', LimitUsed: '', MajorFlags: 2, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
+    //     { borrower: 'Brezalit Electircals', LoanSanction: 200, LimitUsed: 17.81, MajorFlags: 1, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
+    //     { borrower: 'Hughes', loanSanction: ' ', LimitUsed: '', MajorFlags: 2, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
+    //     { borrower: 'Brezalit Electircals', LoanSanction: 200, LimitUsed: 17.81, MajorFlags: 1, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
+    //     { borrower: 'Hughes', loanSanction:  '', LimitUsed: '', MajorFlags: 2, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
+    //     { borrower: 'Brezalit Electircals', LoanSanction: 200, LimitUsed: 17.81, MajorFlags: 1, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
+    //   ]);
+    
+      // const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
+      // const navigate=useNavigate();
+    
+      // const handleSort = (key) => {
+      //   let direction = 'ascending';
+      //   if (sortConfig.key === key && sortConfig.direction === 'ascending') {
+      //     direction = 'descending';
+      //   }
+      //   setSortConfig({ key, direction });
+      // };
+    
+      // const sortedData = [...data].sort((a, b) => {
+      //   if (a[sortConfig.key] < b[sortConfig.key]) {
+      //     return sortConfig.direction === 'ascending' ? -1 : 1;
+      //   }
+      //   if (a[sortConfig.key] > b[sortConfig.key]) {
+      //     return sortConfig.direction === 'ascending' ? 1 : -1;
+      //   }
+      //   return 0;
+      // });
+    
+    //   const handleTotal = () => {
+    //     let sm = 0;
+    //     data.forEach((currData) => (sm += currData.LimitUsed));
+    //     return sm;
+    //   };
+    
+    //   const handleMax = () => {
+    //     let mx = 0;
+    //     data.forEach((currData) => (mx = currData.MajorFlags > mx ? currData.MajorFlags : mx));
+    //     return mx;
+    //   };
+    
+      // Pagination state
+      // const [page, setPage] = useState(0);
+      // const [rowsPerPage, setRowsPerPage] = useState(5);
+    
+      // const handleChangePage = (event, newPage) => {
+      //   setPage(newPage);
+      // };
+    
+      // const handleChangeRowsPerPage = (event) => {
+      //   setRowsPerPage(parseInt(event.target.value, 10));
+      //   setPage(0);
+      // };
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto p-4">
       <table className="mx-auto mt-8 bg-white border-collapse">
         <thead>
-          <tr>
-            <th className="py-2 px-4 bg-bcgClr w-104 text-white text-center cursor-pointer" onClick={() => handleSort('borrower')}>
+          <tr className="">
+            <th
+              className="py-2 px-4 bg-bcgClr w-72 text-white text-center cursor-pointer"
+              onClick={() => handleSort('borrower')}
+            >
               Borrower
               {sortConfig.key === 'borrower' && (
                 sortConfig.direction === 'ascending' ? (
@@ -71,7 +132,11 @@ const Clients = () => {
                 )
               )}
             </th>
-            <th onClick={() => handleSort('loanSanction')} className="py-2 px-4 bg-bcgClr w-40 text-white text-center cursor-pointer">
+
+            <th
+              onClick={() => handleSort('loanSanction')}
+              className="py-2 px-4 bg-bcgClr w-10 text-white text-center cursor-pointer"
+            >
               Loan Sanction
               {sortConfig.key === 'loanSanction' && (
                 sortConfig.direction === 'ascending' ? (
@@ -81,7 +146,12 @@ const Clients = () => {
                 )
               )}
             </th>
-            <th onClick={() => handleSort('limitUsed')} className="py-2 px-4 bg-bcgClr w-40 text-white text-center cursor-pointer">
+
+            <th
+              onClick={() => handleSort('limitUsed')}
+              className="py-2 px-4 bg-bcgClr w-10 text-white text-center cursor-pointer"
+            >
+              
               Limit Used
               {sortConfig.key === 'limitUsed' && (
                 sortConfig.direction === 'ascending' ? (
@@ -91,7 +161,11 @@ const Clients = () => {
                 )
               )}
             </th>
-            <th onClick={() => handleSort('noOfMajorFlags')} className="py-2 px-4 bg-bcgClr w-40 text-white text-center cursor-pointer">
+
+            <th
+              onClick={() => handleSort('noOfMajorFlags')}
+              className="py-2 px-4 bg-bcgClr w-12 text-white text-center cursor-pointer"
+            >
               No. of Major Flags
               {sortConfig.key === 'noOfMajorFlags' && (
                 sortConfig.direction === 'ascending' ? (
@@ -101,8 +175,12 @@ const Clients = () => {
                 )
               )}
             </th>
-            <th onClick={() => handleSort('flagDescription')} className="py-2 px-4 bg-bcgClr w-104 text-white text-center cursor-pointer">
-              Flag Description
+
+            <th
+              onClick={() => handleSort('flagDescription')}
+              className="py-2 px-4 bg-bcgClr w-80 text-white text-center cursor-pointer"
+            >
+              Flag description
               {sortConfig.key === 'flagDescription' && (
                 sortConfig.direction === 'ascending' ? (
                   <ArrowDownwardOutlinedIcon />
@@ -111,32 +189,123 @@ const Clients = () => {
                 )
               )}
             </th>
+
+            <th
+              onClick={() => handleSort('profiling ')}
+              className="py-2 px-4 bg-bcgClr w-20 text-white text-center cursor-pointer"
+            >
+              Profiling
+              {sortConfig.key === 'profiling ' && (
+                sortConfig.direction === 'ascending' ? (
+                  <ArrowDownwardOutlinedIcon />
+                ) : (
+                  <ArrowUpwardOutlinedIcon />
+                )
+              )}
+            </th>
+
+            <th
+              onClick={() => handleSort('credableEWSFlag')}
+              className="py-2 px-4 bg-bcgClr w-20 text-white text-center cursor-pointer"
+            >
+              Credable EWS Flag
+              {sortConfig.key === 'credableEWSFlag' && (
+                sortConfig.direction === 'ascending' ? (
+                  <ArrowDownwardOutlinedIcon />
+                ) : (
+                  <ArrowUpwardOutlinedIcon />
+                )
+              )}
+            </th>
+
+            <th
+              onClick={() => handleSort('action')}
+              className="py-2 px-4 bg-bcgClr w-80 text-white text-center cursor-pointer"
+            >
+              Action
+              {sortConfig.key === 'action' && (
+                sortConfig.direction === 'ascending' ? (
+                  <ArrowDownwardOutlinedIcon />
+                ) : (
+                  <ArrowUpwardOutlinedIcon />
+                )
+              )}
+            </th>
+
+
+
           </tr>
         </thead>
         <tbody className="shadow-lg">
           {sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-            <tr key={index} className={(page * rowsPerPage + index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-blue-300 hover:shadow-md'}>
-              <td className="py-1 px-4 text-left cursor-pointer" onClick={() => handleBorrowerClick(row)}>
-                <div className="relative w-104 truncate">{row.borrower}</div>
+            <tr key={index} className={(page*rowsPerPage + index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
+
+              <td className="py-1 px-4   text-left">
+                <div className="relative w-72">
+                  <div className="truncate hover:cursor-pointer text-blue-500" onClick={()=>{navigate(`/charts`)}}>{row.borrower}</div>
+                  {row.borrower.length > 40 &&
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-90 text-white text-xl font-bold opacity-0 hover:opacity-100 w-64 h-10 overflow-auto">
+                    {row.borrower}
+                  </div>
+                    }
+                </div>
               </td>
-              <td className="py-1 px-4 text-center">
-                <div className="relative w-40">{row.loanSanction || '-'}</div>
+
+              <td className="py-2 px-7   text-center">
+                <div className="relative w-10">
+                  <div className="truncate text-center">{row.loanSanction }</div>
+                </div>
               </td>
-              <td className="py-1 px-4 text-center">
-                <div className="relative w-40">{row.limitUsed || '-'}</div>
+
+              <td className="py-1 px-4   text-center ">
+                <div className="truncate relative w-10">{row.limitUsed}</div>
               </td>
-              <td className="py-1 px-4 text-center">
-                <div className="relative w-40">{row.noOfMajorFlags}</div>
+
+              <td className="py-1 px-4   text-center ">
+                <div className="truncate relative w-12">{row.noOfMajorFlags}</div>
               </td>
-              <td className="py-1 px-4 text-center">
-                <div className="relative w-104 truncate">{row.flagDescription}</div>
+
+              <td className="py-1 px-4   text-center">
+                <div className="relative w-80">
+                  <div className="truncate">{row.flagDescription }</div>
+                  {row.flagDescription.length > 40 &&
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-90 text-white text-l opacity-0 hover:opacity-100 w-fit h-10 overflow-hidden">
+                    {row.flagDescription}
+                  </div>}
+                </div>
               </td>
+
+              <td className="py-1 px-4   text-center ">
+                <div className="truncate relative w-20">{row.profiling  }</div>
+              </td>
+
+              <td className="py-1 px-4   text-center ">
+                <div className="truncate relative w-20">{row.credableEWSFlag}</div>
+              </td>
+
+              <td className="py-1 px-4   text-center">
+                <div className="relative w-80">
+                  <div className="truncate">{row.action }</div>
+                  {row.action.length > 40 &&
+                  <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-90 text-white text-l opacity-0 hover:opacity-100 w-fit h-fit overflow-auto">
+                    {row.action}
+                  </div>}
+                </div>
+              </td>
+
+
             </tr>
           ))}
         </tbody>
         <tfoot>
-          <tr>
-            <td colSpan={5} className="py-1 px-4 text-left">
+          {/* <tr className="">
+            <td className="py-1 px-4   text-left font-bold">Total</td>
+            <td className="py-1 px-4   text-right font-bold"></td>
+            <td className="py-1 px-4   text-right font-bold">{handleTotal()}</td>
+            <td className="py-1 px-4   text-right font-bold">{handleMax()}</td>
+          </tr> */}
+          <tr className="">
+            <td colSpan={4} className="py-1 px-4   text-center">
               <TablePagination
                 rowsPerPageOptions={[5, 10, 25]}
                 component="div"
