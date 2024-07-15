@@ -199,7 +199,7 @@ const SecondTable = () => {
               .map((row, index) => (
                 <tr key={index}>
                   <td className="py-1 px-4 border-r border-gray-400 text-center">
-                    {row.sno}
+                    {sortConfig.key === 'sno' && sortConfig.direction === 'descending' ? sortedData.length - index-page*rowsPerPage : index+1+page*rowsPerPage}
                   </td>
                   <td className="py-1 px-4 border-r border-gray-400 text-center">
                     {row.source}
