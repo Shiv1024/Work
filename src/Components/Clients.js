@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import TablePagination from '@mui/material/TablePagination';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import dataJSON from '../Assets/executive summary metis.json'
 
@@ -12,19 +11,6 @@ const Clients = () => {
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:5001/summary1');
-        setData(response.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-  
-    fetchData();
-  }, []);
 
   const handleSort = (key) => {
     let direction = 'ascending';
@@ -242,7 +228,7 @@ const Clients = () => {
 
               <td className="py-1 px-4   text-left">
                 <div className="relative w-72">
-                  <div className="truncate hover:cursor-pointer text-blue-500" onClick={()=>{navigate(`/charts`)}}>{row.borrower}</div>
+                  <div className="truncate hover:cursor-pointer text-blue-500"onClick={() => handleBorrowerClick(row)}>{row.borrower}</div>
                   {row.borrower.length > 40 &&
                   <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-90 text-white text-xl font-bold opacity-0 hover:opacity-100 w-64 h-10 overflow-auto">
                     {row.borrower}
