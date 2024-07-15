@@ -75,7 +75,20 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                className="py-2 px-4 border-r border-gray-400 w-24 text-center cursor-pointer"
+                className="py-2 px-4 border-r border-gray-400 w-60 text-center cursor-pointer"
+                onClick={() => handleSort('partyName')}
+              >
+                Party Name
+                {sortConfig.key === 'partyName' && (
+                  sortConfig.direction === 'ascending' ? (
+                    <ArrowDownwardOutlinedIcon />
+                  ) : (
+                    <ArrowUpwardOutlinedIcon />
+                  )
+                )}
+              </th>
+              <th
+                className="py-2 px-4 border-r border-gray-400 w-32 text-center cursor-pointer"
                 onClick={() => handleSort('invoiceDisbursmentdate')}
               >
                 Invoice Disbursement date
@@ -88,7 +101,7 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                className="py-2 px-4 border-r border-gray-400 w-24 text-center cursor-pointer"
+                className="py-2 px-4 border-r border-gray-400 w-32 text-center cursor-pointer"
                 onClick={() => handleSort('gstDate')}
               >
                 GST Date
@@ -114,7 +127,7 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                className="py-2 px-4 border-r border-gray-400 w-24 text-center cursor-pointer"
+                className="py-2 px-4 border-r border-gray-400 w-32 text-center cursor-pointer"
                 onClick={() => handleSort('invoiceNumber')}
               >
                 Invoice Number
@@ -127,7 +140,7 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                className="py-2 px-4 border-r border-gray-400 w-24 text-center cursor-pointer"
+                className="py-2 px-4 border-r border-gray-400 w-32 text-center cursor-pointer"
                 onClick={() => handleSort('status')}
               >
                 Status
@@ -153,7 +166,7 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                className="py-2 px-4 border-r border-gray-400 w-24 text-center cursor-pointer"
+                className="py-2 px-4 border-r border-gray-400 w-40 text-center cursor-pointer"
                 onClick={() => handleSort('remarks')}
               >
                 Remarks
@@ -166,24 +179,11 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                className="py-2 px-4 border-r border-gray-400 w-24 text-center cursor-pointer"
+                className="py-2 px-4 w-24 text-center cursor-pointer"
                 onClick={() => handleSort('alert')}
               >
                 Alert
                 {sortConfig.key === 'alert' && (
-                  sortConfig.direction === 'ascending' ? (
-                    <ArrowDownwardOutlinedIcon />
-                  ) : (
-                    <ArrowUpwardOutlinedIcon />
-                  )
-                )}
-              </th>
-              <th
-                className="py-2 px-4 w-60 text-center cursor-pointer"
-                onClick={() => handleSort('partyName')}
-              >
-                Party Name
-                {sortConfig.key === 'partyName' && (
                   sortConfig.direction === 'ascending' ? (
                     <ArrowDownwardOutlinedIcon />
                   ) : (
@@ -204,6 +204,9 @@ const SecondTable = () => {
                   <td className="py-1 px-4 border-r border-gray-400 text-center">
                     {row.source}
                   </td>
+                  <td className="py-1 px-4 border-r border-gray-400 text-left">
+                    {row.partyName}
+                  </td>
                   <td className="py-1 px-4 border-r border-gray-400 text-center">
                     {row.invoiceDisbursmentdate}
                   </td>
@@ -211,7 +214,7 @@ const SecondTable = () => {
                     {row.gstDate}
                   </td>
                   <td className="py-1 px-4 border-r border-gray-400 text-center">
-                    {row.value}
+                    ₹{row.value}
                   </td>
                   <td className="py-1 px-4 border-r border-gray-400 text-center">
                     {row.invoiceNumber}
@@ -225,11 +228,8 @@ const SecondTable = () => {
                   <td className="py-1 px-4 border-r border-gray-400 text-center">
                     {row.remarks}
                   </td>
-                  <td className="py-1 px-4 border-r border-gray-400 text-center">
+                  <td className="py-1 px-4 text-center">
                     {row.alert}
-                  </td>
-                  <td className="py-1 px-4 text-left">
-                    {row.partyName}
                   </td>
                 </tr>
               ))}
