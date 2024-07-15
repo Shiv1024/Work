@@ -1,5 +1,4 @@
 import React, {useEffect, useRef, useState}from 'react'
-import Navbar from "./Components/Navbar";
 import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Charts from "./Components/Charts";
 import Landing from './Components/Landing';

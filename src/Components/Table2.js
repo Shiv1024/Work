@@ -48,8 +48,9 @@ const SecondTable = () => {
   };
 
   return (
-    <div className="mx-4 flex overflow-x-scroll">
-        <table className="flex-shrink-0 mx-auto mt-8 border-collapse bg-gray-200 border border-gray-400 shadow-lg rounded-lg">
+    <div className="mx-8 flex flex-col">
+      <div className="flex overflow-x-scroll">
+        <table className="flex-shrink-0 mx-auto mt-4 border-collapse bg-gray-200 border border-gray-400 shadow-lg rounded-lg">
           <thead>
             <tr className="border-b border-gray-400 text-white bg-bcgClr">
               <th
@@ -238,7 +239,7 @@ const SecondTable = () => {
                 </tr>
               ))}
           </tbody>
-          <tfoot>
+          {/* <tfoot>
             <tr className="border border-gray-400">
               <td colSpan={11} className="py-1 px-4 text-center">
                 <TablePagination
@@ -252,8 +253,25 @@ const SecondTable = () => {
                 />
               </td>
             </tr>
-          </tfoot>
+          </tfoot> */}
         </table>
+
+        </div>
+
+        <div className="sticky bottom-0 bg-white w-full flex justify-start">
+          <div className="w-auto">
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 25]}
+              component="div"
+              count={sortedData.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+          </div>
+        </div>
+        
     </div>
   );
 };
