@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import FileUpload from "./FileUpload";
 import FileIcon from "./FileIcon.js";
+import Navbar from "./Navbar.js";
 
 const Landing = ({
   isFileUploadVisible,
@@ -59,6 +60,8 @@ const Landing = ({
   };
 
   return (
+    <div>
+      <Navbar />
     <div className="container mx-auto mt-2 p-4 relative">
       <div className="-my-2 overflow-x-auto">
         <table className="min-w-full bg-gray-200 border border-gray-400 shadow-lg rounded-lg">
@@ -129,6 +132,7 @@ const Landing = ({
           +
         </button>
       </div>
+    </div>
     </div>
   );
 };
