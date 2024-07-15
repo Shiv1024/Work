@@ -1,5 +1,4 @@
 import React, {useEffect, useRef, useState}from 'react'
-import Navbar from "./Components/Navbar";
 import {BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Charts from "./Components/Charts";
 import Landing from './Components/Landing';
@@ -38,7 +37,6 @@ function App() {
   }, [isFileUploadVisible]);
   return (
     <div>
-      <Navbar />
       <Router>
         <Routes>
           <Route path="/charts" element={<Charts/>}/>
@@ -48,6 +46,7 @@ function App() {
           <Route path = "/table1" element = {<Table1 />} />
           <Route path = "/table2" element = {<Table2 />} />
           <Route path = "/table3" element = {<Table3 />} />
+          <Route path = "/invoicematching" element = {<TablePage />} />
           <Route path = "/tablepage" element = {<Clients />} />
           <Route path = "/summary" element = {<Summary/>} />
           <Route path="/clients" element={<Clients/>}/>
