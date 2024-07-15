@@ -105,6 +105,10 @@ const Table = () => {
 
   const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
 
+  const formatNumber = (number) => {
+    return number.toLocaleString('en-US');
+  };
+
   const handleSort = (key) => {
     let direction = 'ascending';
     if (sortConfig.key === key && sortConfig.direction === 'ascending') {
@@ -294,7 +298,7 @@ const Table = () => {
                 {row.totalNo}
               </td>
               <td className="py-1 px-4 border-r border-gray-400 text-right">
-                ₹{row.value}
+                ₹{formatNumber(row.value)}
               </td>
               <td className="py-1 px-4 border-r border-gray-400 text-right">
                 {row.durationNo}
@@ -303,7 +307,7 @@ const Table = () => {
                 {row.durationValue}
               </td>
               <td className="py-1 px-4 border-r border-gray-400 text-right">
-                ₹{row.balance}
+                ₹{formatNumber(row.balance)}
               </td>
               <td className="py-1 px-4 border-r border-gray-400 text-left">
                 {row.remarks}
