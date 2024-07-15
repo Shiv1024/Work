@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import FileUpload from "./FileUpload";
+import FileIcon from "./FileIcon.js";
 
 const Landing = ({
   isFileUploadVisible,
@@ -78,6 +79,9 @@ const Landing = ({
               <th className="py-3 px-4 border-b border-gray-200 text-left">
                 Uploaded Date
               </th>
+              <th className="py-3 px-4 border-b border-gray-200 text-left">
+                Download
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -88,6 +92,7 @@ const Landing = ({
                 <td className="py-3 px-4 border-b border-gray-200 text-left text-green-600">SUCCESS</td>
                 <td className="py-3 px-4 border-b border-gray-200 text-left">Random Person</td>
                 <td className="py-3 px-4 border-b border-gray-200 text-left">{file.dateAdded}</td>
+                <td className="py-3 px-4 border-b border-gray-200 text-left"><FileIcon /></td>
               </tr>
             ))}
           </tbody>
