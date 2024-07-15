@@ -294,7 +294,7 @@ const Table = () => {
                 {row.totalNo}
               </td>
               <td className="py-1 px-4 border-r border-gray-400 text-right">
-                {row.value}
+                ₹{row.value}
               </td>
               <td className="py-1 px-4 border-r border-gray-400 text-right">
                 {row.durationNo}
@@ -303,7 +303,7 @@ const Table = () => {
                 {row.durationValue}
               </td>
               <td className="py-1 px-4 border-r border-gray-400 text-right">
-                {row.balance}
+                ₹{row.balance}
               </td>
               <td className="py-1 px-4 border-r border-gray-400 text-left">
                 {row.remarks}
