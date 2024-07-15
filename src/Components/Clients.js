@@ -4,6 +4,7 @@ import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import TablePagination from '@mui/material/TablePagination';
 import { useNavigate } from 'react-router-dom';
 import dataJSON from '../Assets/executive summary metis.json'
+import Sidebar from './Sidebar';
 
 const Clients = () => {
   const [data, setData] = useState(dataJSON);
@@ -44,38 +45,6 @@ const Clients = () => {
   };
 
     
-    // const [data, setData] = useState([
-    //     { borrower: 'Hughes', loanSanction: ' ', LimitUsed: '', MajorFlags: 2, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
-    //     { borrower: 'Brezalit Electircals', LoanSanction: 200, LimitUsed: 17.81, MajorFlags: 1, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
-    //     { borrower: 'Hughes', loanSanction:  '', LimitUsed: '', MajorFlags: 2, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
-    //     { borrower: 'Brezalit Electircals', LoanSanction: 200, LimitUsed: 17.81, MajorFlags: 1, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
-    //     { borrower: 'Hughes', loanSanction: ' ', LimitUsed: '', MajorFlags: 2, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
-    //     { borrower: 'Brezalit Electircals', LoanSanction: 200, LimitUsed: 17.81, MajorFlags: 1, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
-    //     { borrower: 'Hughes', loanSanction:  '', LimitUsed: '', MajorFlags: 2, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
-    //     { borrower: 'Brezalit Electircals', LoanSanction: 200, LimitUsed: 17.81, MajorFlags: 1, flagDesc: 'flag description about client comes here', profiling:'Medium', CredableEWS:'None', Action:'check MArch GST for 7 invoices dated March 12 in credable list.' },
-    //   ]);
-    
-      // const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
-      // const navigate=useNavigate();
-    
-      // const handleSort = (key) => {
-      //   let direction = 'ascending';
-      //   if (sortConfig.key === key && sortConfig.direction === 'ascending') {
-      //     direction = 'descending';
-      //   }
-      //   setSortConfig({ key, direction });
-      // };
-    
-      // const sortedData = [...data].sort((a, b) => {
-      //   if (a[sortConfig.key] < b[sortConfig.key]) {
-      //     return sortConfig.direction === 'ascending' ? -1 : 1;
-      //   }
-      //   if (a[sortConfig.key] > b[sortConfig.key]) {
-      //     return sortConfig.direction === 'ascending' ? 1 : -1;
-      //   }
-      //   return 0;
-      // });
-    
     //   const handleTotal = () => {
     //     let sm = 0;
     //     data.forEach((currData) => (sm += currData.LimitUsed));
@@ -87,26 +56,18 @@ const Clients = () => {
     //     data.forEach((currData) => (mx = currData.MajorFlags > mx ? currData.MajorFlags : mx));
     //     return mx;
     //   };
-    
-      // Pagination state
-      // const [page, setPage] = useState(0);
-      // const [rowsPerPage, setRowsPerPage] = useState(5);
-    
-      // const handleChangePage = (event, newPage) => {
-      //   setPage(newPage);
-      // };
-    
-      // const handleChangeRowsPerPage = (event) => {
-      //   setRowsPerPage(parseInt(event.target.value, 10));
-      //   setPage(0);
-      // };
+  
   return (
-    <div className="overflow-x-auto p-4">
-      <table className="mx-auto mt-8 bg-white border-collapse">
+    <div className="overflow-x-auto flex">
+      <div className='flex-none'>
+      <Sidebar/>
+      </div>
+      <div className='flex-1 p-2 flex-wrap'>
+      <table className="mx-auto mt-8 bg-white border-collapses">
         <thead>
           <tr className="">
             <th
-              className="py-2 px-4 bg-bcgClr w-72 text-white text-center cursor-pointer"
+              className="py-2 px-4 bg-bcgClr w-52 text-white text-center cursor-pointer"
               onClick={() => handleSort('borrower')}
             >
               Borrower
@@ -164,7 +125,7 @@ const Clients = () => {
 
             <th
               onClick={() => handleSort('flagDescription')}
-              className="py-2 px-4 bg-bcgClr w-80 text-white text-center cursor-pointer"
+              className="py-2 px-4 bg-bcgClr w-64 text-white text-center cursor-pointer"
             >
               Flag description
               {sortConfig.key === 'flagDescription' && (
@@ -227,7 +188,7 @@ const Clients = () => {
             <tr key={index} className={(page*rowsPerPage + index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
 
               <td className="py-1 px-4   text-left">
-                <div className="relative w-72">
+                <div className="relative w-56">
                   <div className="truncate hover:cursor-pointer text-blue-500"onClick={() => handleBorrowerClick(row)}>{row.borrower}</div>
                   {row.borrower.length > 40 &&
                   <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-90 text-white text-xl font-bold opacity-0 hover:opacity-100 w-64 h-10 overflow-auto">
@@ -238,7 +199,7 @@ const Clients = () => {
               </td>
 
               <td className="py-2 px-7   text-center">
-                <div className="relative w-10">
+                <div className="relative w-9">
                   <div className="truncate text-center">{row.loanSanction }</div>
                 </div>
               </td>
@@ -252,7 +213,7 @@ const Clients = () => {
               </td>
 
               <td className="py-1 px-4   text-center">
-                <div className="relative w-80">
+                <div className="relative w-64">
                   <div className="truncate">{row.flagDescription }</div>
                   {row.flagDescription.length > 40 &&
                   <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-90 text-white text-l opacity-0 hover:opacity-100 w-fit h-10 overflow-hidden">
@@ -262,15 +223,15 @@ const Clients = () => {
               </td>
 
               <td className="py-1 px-4   text-center ">
-                <div className="truncate relative w-20">{row.profiling  }</div>
+                <div className="truncate relative w-15">{row.profiling  }</div>
               </td>
 
               <td className="py-1 px-4   text-center ">
-                <div className="truncate relative w-20">{row.credableEWSFlag}</div>
+                <div className="truncate relative w-15">{row.credableEWSFlag}</div>
               </td>
 
               <td className="py-1 px-4   text-center">
-                <div className="relative w-80">
+                <div className="relative w-64">
                   <div className="truncate">{row.action }</div>
                   {row.action.length > 40 &&
                   <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-90 text-white text-l opacity-0 hover:opacity-100 w-fit h-fit overflow-auto">
@@ -291,7 +252,7 @@ const Clients = () => {
             <td className="py-1 px-4   text-right font-bold">{handleMax()}</td>
           </tr> */}
           <tr className="">
-            <td colSpan={4} className="py-1 px-4   text-center">
+            <td colSpan={8} className="py-1 px-4   text-right">
               <TablePagination
                 rowsPerPageOptions={[5, 10, 25]}
                 component="div"
@@ -305,6 +266,8 @@ const Clients = () => {
           </tr>
         </tfoot>
       </table>
+      </div>
+      
     </div>
   );
 }
