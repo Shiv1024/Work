@@ -6,10 +6,10 @@ const VolatilityGauge = (props) => {
   let gaugeText = 'Medium';
 
   // Set gauge value and text based on volatility scale (low, medium, high)
-  if (props.value === 'low') {
+  if (props.value === 'Low') {
     gaugeValue = 0.2;
     gaugeText = 'Low';
-  } else if (props.value === 'high') {
+  } else if (props.value === 'High') {
     gaugeValue = 0.8;
     gaugeText = 'High';
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import VolatilityGauge from './VolatilityGauge';
 
 const CustomerChunks = (props) => {
+  console.log(props.data)
   return (
     <div>
       <div className="flex flex-col md:flex-row justify-between items-start">
@@ -21,13 +22,13 @@ const CustomerChunks = (props) => {
                 <tbody>
                   <tr>
                     <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
-                      {props.data.additionalRemarks}
+                      {props.data.remark}
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <div className="w-full md:w-1/2 flex justify-center items-center mt-5 md:mt-0">
+            <div className="w-full md:w-1/3 flex justify-center items-center mt-5 md:mt-0">
               <VolatilityGauge value={props.data.volatility} />
             </div>
           </div>
@@ -40,6 +41,7 @@ const CustomerChunks = (props) => {
           </div>
           <div className="p-4 border-t border-gray-300">
             <div className="w-full flex justify-center items-center mt-5 md:mt-0">
+              {console.log(props.data.filingHygiene)}
               <VolatilityGauge value={props.data.filingHygiene} />
             </div>
           </div>

@@ -9,7 +9,7 @@ const Summary = () => {
   const { state } = location;
 
   if (!state || !state.borrowerData) {
-    return null; // Handle case where no data is passed
+    return null;
   }
 
   const { borrowerData } = state;
@@ -20,7 +20,7 @@ const Summary = () => {
         <h1 className="text-2xl py-4 px-4 mb-4 text-center font-bold">{borrowerData.borrower}</h1>
       </div>
       <CompanySection data={borrowerData} />
-      <SalesSection data={borrowerData} />
+      {/* <SalesSection data={borrowerData} /> */}
       <CustomerChunks data={borrowerData} />
     </div>
   );
