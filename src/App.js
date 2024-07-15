@@ -48,7 +48,7 @@ function App() {
           <Route path = "/table1" element = {<Table1 />} />
           <Route path = "/table2" element = {<Table2 />} />
           <Route path = "/table3" element = {<Table3 />} />
-          <Route path = "/tablepage" element = {<TablePage />} />
+          <Route path = "/tablepage" element = {<Clients />} />
           <Route path = "/summary" element = {<Summary/>} />
           <Route path="/clients" element={<Clients/>}/>
       </Routes>
