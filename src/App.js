@@ -38,7 +38,7 @@ function App() {
   }, [isFileUploadVisible]);
   return (
     <div>
-      <Navbar />
+      
       <Router>
         <Routes>
           <Route path="/charts" element={<Charts/>}/>

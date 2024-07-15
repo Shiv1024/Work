@@ -13,9 +13,9 @@ const SalesAndInvoiceSection = (props) => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row justify-between items-stretch gap-4 mb-5 g">
+    <div className="flex flex-col lg:flex-row justify-between items-stretch gap-4 mb-5 ">
       {/* Sales Section */}
-      <div className="border border-gray-300 rounded-md shadow-sm w-full lg:w-1/2 flex flex-col">
+      <div className="border border-gray-300 rounded-md shadow-sm  w-full lg:w-1/2 flex flex-col">
         <div className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md">
           <span>{"Sales"}</span>
         </div>

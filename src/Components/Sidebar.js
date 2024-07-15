@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 const Sidebar = () => {
     return (
         <div className="bg-bcgClr w-56 min-h-screen p-4 text-white flex flex-col">
@@ -20,5 +19,4 @@ const Sidebar = () => {
         </div>
     );
 };
-
 export default Sidebar;
