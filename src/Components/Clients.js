@@ -63,7 +63,7 @@ const Clients = () => {
       <Sidebar/>
       </div>
       <div className='flex-1 p-2 flex-wrap'>
-      <table className="mx-auto mt-8 bg-white border-collapses">
+      <table className="mx-auto mt-4 bg-white border-collapses">
         <thead>
           <tr className="">
             <th

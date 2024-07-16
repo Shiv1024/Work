@@ -24,7 +24,7 @@ const Summary = () => {
     <div className="flex min-h-screen">
       <Sidebar /> {/* Fixed width for Sidebar */}
       <div className="flex-grow p-4 ml-32 md:ml-48 lg:ml-56"> {/* Main content with margin to accommodate Sidebar */}
-        <div className="bg-bcgClr text-white mb-8 flex items-center">
+        <div className="bg-bcgClr text-white mb-8  flex items-center">
           <div className="py-2 px-4 mb-4">
             <button className="mt-2 px-2 py-2 hover:scale-105 active:scale-95" onClick={handleBackClick}>
               <ArrowBackIosIcon />
