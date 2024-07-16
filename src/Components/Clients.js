@@ -58,7 +58,7 @@ const Clients = () => {
     //   };
   
   return (
-    <div className="overflow-x-auto flex">
+    <div className="overflow-x-auto ml-32 md:ml-48 lg:ml-56 flex">
       <div className='flex-none'>
       <Sidebar/>
       </div>

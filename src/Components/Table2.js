@@ -50,7 +50,7 @@ const SecondTable = () => {
   return (
     <div className="mx-8 flex flex-col">
       <div className="flex overflow-x-scroll">
-        <table className="flex-shrink-0 mx-auto mt-4 border-collapse bg-gray-200 border border-gray-400 shadow-lg rounded-lg">
+        <table className="flex-shrink-0 mx-auto mt-4 border-collapse border border-gray-400 shadow-lg rounded-lg">
           <thead>
             <tr className="border-b border-gray-400 text-white bg-bcgClr">
               <th
