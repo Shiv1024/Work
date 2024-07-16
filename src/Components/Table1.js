@@ -143,7 +143,7 @@ const Table = () => {
   return (
     <div className="mx-8 flex flex-col">
       <div className="flex overflow-x-scroll">
-        <table className="flex-shrink-0 mx-auto mt-6 border-collapse border border-gray-400 shadow-lg rounded-lg">
+      <table className="flex-shrink-0 mx-auto mt-6 border-collapse border border-gray-400 shadow-lg rounded-lg">
         <thead>
           <tr className="border-b border-gray-400 text-white bg-bcgClr">
             <th
@@ -334,7 +334,7 @@ const Table = () => {
             </td>
           </tr>
         </tfoot> */}
-        </table>
+      </table>
       </div>
 
       <div className="sticky bottom-0 bg-white w-full flex justify-start">
@@ -349,7 +349,7 @@ const Table = () => {
               onRowsPerPageChange={handleChangeRowsPerPage}
             />
           </div>
-      </div>
+        </div>
 
     </div>
   );
