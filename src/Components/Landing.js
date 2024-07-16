@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import FileUpload from "./FileUpload";
 import FileIcon from "./FileIcon.js";
+import MainSidebar from "./Mainsidebar.js";
 import Navbar from "./Navbar.js";
 
 const Landing = ({
@@ -17,7 +18,6 @@ const Landing = ({
   useEffect(() => {
     // Function to close modal when clicking outside
     const handleClickOutside = (event) => {
-      console.log(event)
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         setIsFileUploadVisible(false);
       }
@@ -60,47 +60,50 @@ const Landing = ({
   };
 
   return (
-    <div>
-      <Navbar />
-    <div className="container mx-auto mt-2 p-4 relative">
-      <div className="-my-2 overflow-x-auto">
-        <table className="min-w-full bg-gray-200 border border-gray-400 shadow-lg rounded-lg">
-          <thead>
-            <tr className="bg-bcgClr text-white">
-              <th className="py-3 px-4 border-b border-gray-200 text-left cursor-pointer" onClick={sortByClient}>
-                Client Name
-              </th>
-              <th className="py-3 px-4 border-b border-gray-200 text-left cursor-pointer" onClick={sortByBank}>
-                Bank
-              </th>
-              <th className="py-3 px-4 border-b border-gray-200 text-left">
-                Status
-              </th>
-              <th className="py-3 px-4 border-b border-gray-200 text-left">
-                Parsed By
-              </th>
-              <th className="py-3 px-4 border-b border-gray-200 text-left">
-                Uploaded Date
-              </th>
-              <th className="py-3 px-4 border-b border-gray-200 text-left">
-                Download
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {files.map((file, index) => (
-              <tr key={index} className="text-center">
-                <td className="py-3 px-4 border-b border-gray-200 text-left">{file.name}</td>
-                <td className="py-3 px-4 border-b border-gray-200 text-left">Random Bank</td>
-                <td className="py-3 px-4 border-b border-gray-200 text-left text-green-600">SUCCESS</td>
-                <td className="py-3 px-4 border-b border-gray-200 text-left">Random Person</td>
-                <td className="py-3 px-4 border-b border-gray-200 text-left">{file.dateAdded}</td>
-                <td className="py-3 px-4 border-b border-gray-200 text-left"><FileIcon /></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+    <div className="flex-row">
+      <MainSidebar />
+      <div className="flex flex-col flex-1 w-full">
+        <Navbar />
+        <div className="mt-4 ml-32 lg:ml-56 md:ml-48 p-4 relative flex-1">
+          <div className="-my-2 overflow-x-auto ">
+            <table className="w-full bg-gray-200 border border-gray-400 shadow-lg rounded-lg">
+              <thead>
+                <tr className="bg-bcgClr text-white">
+                  <th className="py-3 px-4 w-1/5 border-b border-gray-200 text-left cursor-pointer" onClick={sortByClient}>
+                    Client Name
+                  </th>
+                  <th className="py-3 px-4 border-b border-gray-200 text-left cursor-pointer" onClick={sortByBank}>
+                    Bank
+                  </th>
+                  <th className="py-3 px-4 border-b border-gray-200 text-left">
+                    Status
+                  </th>
+                  <th className="py-3 px-4 border-b border-gray-200 text-left">
+                    Parsed By
+                  </th>
+                  <th className="py-3 px-4 border-b border-gray-200 text-left">
+                    Uploaded Date
+                  </th>
+                  <th className="py-3 px-4 border-b border-gray-200 text-left">
+                    Download
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {files.map((file, index) => (
+                  <tr key={index} className="text-center">
+                    <td className="py-3 px-2 border-b border-gray-200 text-left">{file.name}</td>
+                    <td className="py-3 px-4 border-b border-gray-200 text-left">Random Bank</td>
+                    <td className="py-3 px-4 border-b border-gray-200 text-left text-green-600">SUCCESS</td>
+                    <td className="py-3 px-4 border-b border-gray-200 text-left">Random Person</td>
+                    <td className="py-3 px-4 border-b border-gray-200 text-left">{file.dateAdded}</td>
+                    <td className="py-3 px-4 border-b border-gray-200 text-left"><FileIcon /></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
 
       <div className="mt-4 flex items-center">
         <label htmlFor="itemsPerPage" className="mr-2 text-gray-700">
@@ -124,15 +127,17 @@ const Landing = ({
         <FileUpload  onFileUpload={handleFileUpload} />
       </div>
 
-      <div className="absolute top-0 right-0">
-        <button
-          onClick={toggleFileUpload}
-          className="w-14 h-14 bg-bcgClr pb-1 text-white shadow-md rounded-full flex items-center justify-center text-4xl"
-        >
-          +
-        </button>
+
+          <div className="absolute top-0 right-0 ">
+            <button
+              onClick={toggleFileUpload}
+              className="w-14 h-14 bg-bcgClr pb-1 text-white shadow-md rounded-full flex items-center justify-center text-4xl"
+            >
+              +
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
