@@ -65,7 +65,7 @@ const Clients = () => {
 
       <div className='flex-1 p-2 pl-60 flex flex-col overflow-x-hidden'>
         <div className="flex overflow-x-scroll overflow-y-hidden">
-          <table className="lg:ml-56 md:ml-48 ml-32 flex-shrink-0 mx-auto mt-4 bg-white border-collapses overflow-x-auto">
+          <table className="mx-auto flex-shrink-0 mt-4 bg-white border-collapses overflow-x-auto">
 
         <thead>
           <tr className="">
