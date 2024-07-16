@@ -58,12 +58,15 @@ const Clients = () => {
     //   };
   
   return (
-    <div className="overflow-x-auto flex">
-      <div className='flex-none'>
+    <div className="overflow-y-hidden flex">
+      <div className='flex-none '>
       <Sidebar/>
       </div>
-      <div className='flex-1 p-4 flex-wrap overflow-auto'>
-      <table className="lg:ml-56 md:ml-48 ml-32 mt-4 bg-white border-collapses">
+
+      <div className='flex-1 p-2 pl-60 flex flex-col overflow-x-hidden'>
+        <div className="flex overflow-x-scroll overflow-y-hidden">
+          <table className="lg:ml-56 md:ml-48 ml-32 flex-shrink-0 mx-auto mt-4 bg-white border-collapses overflow-x-auto">
+
         <thead>
           <tr className="">
             <th
@@ -253,7 +256,24 @@ const Clients = () => {
           </tr> */}
           <tr className="">
             <td colSpan={3} className="py-1 px-4   text-left">
-              <TablePagination
+              {/* <TablePagination
+                rowsPerPageOptions={[5, 10, 25]}
+                component="div"
+                count={sortedData.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+              /> */}
+            </td>
+          </tr>
+        </tfoot>
+          </table>
+        </div>
+       
+        <div className="sticky bottom-0 w-full flex justify-start" >
+          <div className="w-auto">
+            <TablePagination
                 rowsPerPageOptions={[5, 10, 25]}
                 component="div"
                 count={sortedData.length}
@@ -262,13 +282,14 @@ const Clients = () => {
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
               />
-            </td>
-          </tr>
-        </tfoot>
-      </table>
+          </div>
+      
+        </div>
       </div>
       
+      
     </div>
+
   );
 }
 
