@@ -18,7 +18,7 @@
         "volatility": "High",
         "filingHygiene": "Medium",
         "profiling": "Medium",
-        "credableEWSFlag": null,
+        "credableEWSFlag": "Bad",
         "action": "No Immediate Action"
     },
     {
@@ -40,7 +40,7 @@
         "volatility": "Medium",
         "filingHygiene": "Low",
         "profiling": "Green",
-        "credableEWSFlag": "Green",
+        "credableEWSFlag": "Average",
         "action": "Check March GST for 7 invoices dated March 12 in Credable list. Partially in Feb data. Highlighted in Invoice Match Sheet."
     },
     {
@@ -62,7 +62,7 @@
         "volatility": "High",
         "filingHygiene": "Medium",
         "profiling": "Medium",
-        "credableEWSFlag": null,
+        "credableEWSFlag": "Bad",
         "action": "No Immediate Action"
     },
     {
@@ -84,7 +84,7 @@
         "volatility": "Medium",
         "filingHygiene": "Low",
         "profiling": "Green",
-        "credableEWSFlag": "Green",
+        "credableEWSFlag": "Good",
         "action": "Check March GST for 7 invoices dated March 12 in Credable list. Partially in Feb data. Highlighted in Invoice Match Sheet."
     },
     {
@@ -106,7 +106,7 @@
         "volatility": "High",
         "filingHygiene": "Medium",
         "profiling": "Medium",
-        "credableEWSFlag": null,
+        "credableEWSFlag": "Bad",
         "action": "No Immediate Action"
     },
     {
@@ -128,7 +128,7 @@
         "volatility": "Medium",
         "filingHygiene": "Low",
         "profiling": "Green",
-        "credableEWSFlag": "Green",
+        "credableEWSFlag": "Good",
         "action": "Check March GST for 7 invoices dated March 12 in Credable list. Partially in Feb data. Highlighted in Invoice Match Sheet."
     }
 ]

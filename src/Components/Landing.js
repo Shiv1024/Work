@@ -119,8 +119,8 @@ const Landing = ({
           ))}
         </select>
       </div>
-
-      <div className={`${isFileUploadVisible ? "" : "hidden"} fixed top-0 right-0 h-full bg-white shadow-lg z-50 duration-300 ease-out transition-all w-4/5`} ref={modalRef}>
+          
+      <div className={`${isFileUploadVisible ? "-translate-x-0" : "translate-x-full"} fixed top-0 right-0 h-full bg-white shadow-lg z-50 duration-300 ease-out transition-all w-4/5`} ref={modalRef}>
         <FileUpload  onFileUpload={handleFileUpload} />
       </div>
 
