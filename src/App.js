@@ -10,6 +10,7 @@ import Table3 from "./Components/Table3"
 import TablePage from './Components/TablePage';
 import Summary from './Components/summary';
 import Clients from './Components/Clients';
+import Page from './Components/page3';
 function App() {
   const fileUploadRef = useRef();
   const [isFileUploadVisible, setIsFileUploadVisible] = useState(false);
@@ -50,6 +51,7 @@ function App() {
           <Route path = "/tablepage" element = {<Clients />} />
           <Route path = "/summary" element = {<Summary/>} />
           <Route path="/clients" element={<Clients/>}/>
+          <Route path="/page" element={<Page/>}/>
       </Routes>
       </Router>
     </div>

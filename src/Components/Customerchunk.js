@@ -9,7 +9,7 @@ const CustomerChunks = (props) => {
         {/* Customer Chunks Section */}
        <div className="border border-gray-300 rounded-md shadow-sm w-full lg:w-1/2 flex flex-col">
           <div className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md">
-            <span>{"Customer Churns"}</span>
+            <span>{"Customer Churn"}</span>
           </div>
           <div className="flex flex-col lg:flex-row justify-between p-4 flex-grow">
             <div className="w-full lg:w-2/3">

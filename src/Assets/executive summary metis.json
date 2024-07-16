@@ -1,6 +1,6 @@
 [
     {
-        "borrower": "Hughes",
+        "borrower": "Company ABC",
         "dateOfReport": "2024-05-30",
         "gstTenure": "Dec 2023 to Mar 2024",
         "activeGSTTotalGSTN": "3 out of 23 ",
@@ -22,7 +22,7 @@
         "action": "No Immediate Action"
     },
     {
-        "borrower": "Breezalit Electricals",
+        "borrower": "Company XYZ",
         "dateOfReport": "2024-07-03",
         "gstTenure": "Oct 2023 to Feb 2024",
         "activeGSTTotalGSTN": "1 out of 2",
@@ -44,7 +44,7 @@
         "action": "Check March GST for 7 invoices dated March 12 in Credable list. Partially in Feb data. Highlighted in Invoice Match Sheet."
     },
     {
-        "borrower": "Hughes",
+        "borrower": "Company ABC",
         "dateOfReport": "2024-05-30",
         "gstTenure": "Dec 2023 to Mar 2024",
         "activeGSTTotalGSTN": "3 out of 23 ",
@@ -66,7 +66,7 @@
         "action": "No Immediate Action"
     },
     {
-        "borrower": "Breezalit Electricals",
+        "borrower": "Company XYZ",
         "dateOfReport": "2024-07-03",
         "gstTenure": "Oct 2023 to Feb 2024",
         "activeGSTTotalGSTN": "1 out of 2",
@@ -88,7 +88,7 @@
         "action": "Check March GST for 7 invoices dated March 12 in Credable list. Partially in Feb data. Highlighted in Invoice Match Sheet."
     },
     {
-        "borrower": "Hughes",
+        "borrower": "Company ABC",
         "dateOfReport": "2024-05-30",
         "gstTenure": "Dec 2023 to Mar 2024",
         "activeGSTTotalGSTN": "3 out of 23 ",
@@ -110,7 +110,7 @@
         "action": "No Immediate Action"
     },
     {
-        "borrower": "Breezalit Electricals",
+        "borrower": "Company XYZ",
         "dateOfReport": "2024-07-03",
         "gstTenure": "Oct 2023 to Feb 2024",
         "activeGSTTotalGSTN": "1 out of 2",
