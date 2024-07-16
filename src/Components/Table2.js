@@ -50,7 +50,7 @@ const SecondTable = () => {
   return (
     <div className="mx-8 flex flex-col">
       <div className="flex overflow-x-scroll">
-        <table className="flex-shrink-0 mx-auto mt-4 border-collapse bg-gray-200 border border-gray-400 shadow-lg rounded-lg">
+        <table className="flex-shrink-0 mx-auto mt-4 border-collapse border border-gray-400 shadow-lg rounded-lg">
           <thead>
             <tr className="border-b border-gray-400 text-white bg-bcgClr">
               <th
@@ -202,38 +202,38 @@ const SecondTable = () => {
             {sortedData
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row, index) => (
-                <tr key={index}>
-                  <td className="py-1 px-4 border-r border-gray-400 text-center">
+                <tr key={index} className={(page*rowsPerPage + index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
+                  <td className="py-2 px-4 border-r border-gray-400 text-center">
                     {sortConfig.key === 'sno' && sortConfig.direction === 'descending' ? sortedData.length - index-page*rowsPerPage : index+1+page*rowsPerPage}
                   </td>
-                  <td className="py-1 px-4 border-r border-gray-400 text-center">
+                  <td className="py-2 px-4 border-r border-gray-400 text-center">
                     {row.source}
                   </td>
-                  <td className="py-1 px-4 border-r border-gray-400 text-left">
+                  <td className="py-2 px-4 border-r border-gray-400 text-left">
                     {row.partyName}
                   </td>
-                  <td className="py-1 px-4 border-r border-gray-400 text-center">
+                  <td className="py-2 px-4 border-r border-gray-400 text-center">
                     {row.invoiceDisbursmentdate}
                   </td>
-                  <td className="py-1 px-4 border-r border-gray-400 text-center">
+                  <td className="py-2 px-4 border-r border-gray-400 text-center">
                     {row.gstDate}
                   </td>
-                  <td className="py-1 px-4 border-r border-gray-400 text-center">
+                  <td className="py-2 px-4 border-r border-gray-400 text-center">
                     ₹{formatNumber(row.value)}
                   </td>
-                  <td className="py-1 px-4 border-r border-gray-400 text-center">
+                  <td className="py-2 px-4 border-r border-gray-400 text-center">
                     {row.invoiceNumber}
                   </td>
-                  <td className="py-1 px-4 border-r border-gray-400 text-center">
+                  <td className="py-2 px-4 border-r border-gray-400 text-center">
                     {row.status}
                   </td>
-                  <td className="py-1 px-4 border-r border-gray-400 text-center">
+                  <td className="py-2 px-4 border-r border-gray-400 text-center">
                     {row.differnceInInvoiceAmountCredGst}
                   </td>
-                  <td className="py-1 px-4 border-r border-gray-400 text-center">
+                  <td className="py-2 px-4 border-r border-gray-400 text-center">
                     {row.remarks}
                   </td>
-                  <td className="py-1 px-4 text-center">
+                  <td className="py-2 px-4 text-center">
                     {row.alert}
                   </td>
                 </tr>

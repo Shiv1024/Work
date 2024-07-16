@@ -143,7 +143,7 @@ const Table = () => {
   return (
     <div className="mx-8 flex flex-col">
       <div className="flex overflow-x-scroll">
-      <table className="flex-shrink-0 mx-auto mt-6 border-collapse bg-gray-200 border border-gray-400 shadow-lg rounded-lg">
+      <table className="flex-shrink-0 mx-auto mt-6 border-collapse border border-gray-400 shadow-lg rounded-lg">
         <thead>
           <tr className="border-b border-gray-400 text-white bg-bcgClr">
             <th
@@ -279,41 +279,41 @@ const Table = () => {
         </thead>
         <tbody>
           {sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-            <tr key={index} className='bg-gray-200'>
-              <td className="py-1 px-4 border-r border-gray-400 text-left">
+            <tr key={index} className={(page*rowsPerPage + index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
+              <td className="py-2 px-4 border-r border-gray-400 text-left">
                 <div className="relative w-24">
                   {row.categoryName}
                 </div>
               </td>
-              <td className="py-1 px-4 border-r border-gray-400 text-left">
+              <td className="py-2 px-4 border-r border-gray-400 text-left">
                 <div className="relative w-24">
                   {row.tenureStart}
                 </div>
               </td>
-              <td className="py-1 px-4 border-r border-gray-400 text-left">
+              <td className="py-2 px-4 border-r border-gray-400 text-left">
                 <div className="relative w-24">
                   {row.tenureEnd}
                 </div>
               </td>
-              <td className="py-1 px-4 border-r border-gray-400 text-right">
+              <td className="py-2 px-4 border-r border-gray-400 text-right">
                 {row.totalNo}
               </td>
-              <td className="py-1 px-4 border-r border-gray-400 text-right">
+              <td className="py-2 px-4 border-r border-gray-400 text-right">
                 ₹{formatNumber(row.value)}
               </td>
-              <td className="py-1 px-4 border-r border-gray-400 text-right">
+              <td className="py-2 px-4 border-r border-gray-400 text-right">
                 {row.durationNo}
               </td>
-              <td className="py-1 px-4 border-r border-gray-400 text-right">
+              <td className="py-2 px-4 border-r border-gray-400 text-right">
                 {row.durationValue}
               </td>
-              <td className="py-1 px-4 border-r border-gray-400 text-right">
+              <td className="py-2 px-4 border-r border-gray-400 text-right">
                 ₹{formatNumber(row.balance)}
               </td>
-              <td className="py-1 px-4 border-r border-gray-400 text-left">
+              <td className="py-2 px-4 border-r border-gray-400 text-left">
                 {row.remarks}
               </td>
-              <td className="py-1 px-4 text-left">
+              <td className="py-2 px-4 text-left">
                 {row.alerts}
               </td>
             </tr>
@@ -350,7 +350,7 @@ const Table = () => {
             />
           </div>
         </div>
-        
+
     </div>
   );
 };
