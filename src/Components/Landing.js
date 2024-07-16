@@ -128,7 +128,7 @@ const Landing = ({
       </div>
 
 
-          <div className="absolute top-0 right-0 ">
+          <div className="absolute top-0 right-1 ">
             <button
               onClick={toggleFileUpload}
               className="w-14 h-14 bg-bcgClr pb-1 text-white shadow-md rounded-full flex items-center justify-center text-4xl"
