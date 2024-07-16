@@ -104,27 +104,29 @@ const Landing = ({
             </table>
           </div>
 
-          <div className="mt-4 flex items-center">
-            <label htmlFor="itemsPerPage" className="mr-2 text-gray-700">
-              Items per page:
-            </label>
-            <select
-              id="itemsPerPage"
-              value={itemsPerPage}
-              onChange={handleItemsPerPageChange}
-              className="py-2 px-3 bg-white border-b-2 border-gray-300 focus:outline-none focus:border-bcgClr cursor-pointer"
-            >
-              {[10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map((number) => (
-                <option key={number} value={number}>
-                  {number}
-                </option>
-              ))}
-            </select>
-          </div>
 
-          <div className={`${isFileUploadVisible ? "" : "hidden"} fixed top-0 right-0 h-full bg-white shadow-lg z-50 duration-300 ease-out transition-all w-4/5`} ref={modalRef}>
-            <FileUpload onFileUpload={handleFileUpload} />
-          </div>
+      <div className="mt-4 flex items-center">
+        <label htmlFor="itemsPerPage" className="mr-2 text-gray-700">
+          Items per page:
+        </label>
+        <select
+          id="itemsPerPage"
+          value={itemsPerPage}
+          onChange={handleItemsPerPageChange}
+          className="py-2 px-3 bg-white border-b-2 border-gray-300 focus:outline-none focus:border-bcgClr cursor-pointer"
+        >
+          {[10, 20, 30, 40, 50, 60, 70, 80, 90, 100].map((number) => (
+            <option key={number} value={number}>
+              {number}
+            </option>
+          ))}
+        </select>
+      </div>
+          
+      <div className={`${isFileUploadVisible ? "-translate-x-0" : "translate-x-full"} fixed top-0 right-0 h-full bg-white shadow-lg z-50 duration-300 ease-out transition-all w-4/5`} ref={modalRef}>
+        <FileUpload  onFileUpload={handleFileUpload} />
+      </div>
+
 
           <div className="absolute top-0 right-0 ">
             <button

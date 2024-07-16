@@ -15,6 +15,7 @@ module.exports = {
         '180': '45rem'
       },
       
+      
     },
   },
   plugins: [],

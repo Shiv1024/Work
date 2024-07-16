@@ -58,12 +58,12 @@ const Clients = () => {
     //   };
   
   return (
-    <div className="overflow-x-auto ml-32 md:ml-48 lg:ml-56 flex">
+    <div className="overflow-x-auto flex">
       <div className='flex-none'>
       <Sidebar/>
       </div>
-      <div className='flex-1 p-2 flex-wrap'>
-      <table className="mx-auto mt-4 bg-white border-collapses">
+      <div className='flex-1 p-2 pl-60 flex-wrap overflow-auto'>
+      <table className="mx-auto mt-8 bg-white border-collapses">
         <thead>
           <tr className="">
             <th
@@ -138,11 +138,11 @@ const Clients = () => {
             </th>
 
             <th
-              onClick={() => handleSort('profiling ')}
+              onClick={() => handleSort('profiling')}
               className="py-2 px-4 bg-bcgClr w-20 text-white text-center cursor-pointer"
             >
               Profiling
-              {sortConfig.key === 'profiling ' && (
+              {sortConfig.key === 'profiling' && (
                 sortConfig.direction === 'ascending' ? (
                   <ArrowDownwardOutlinedIcon />
                 ) : (
@@ -227,7 +227,7 @@ const Clients = () => {
               </td>
 
               <td className="py-1 px-4   text-center ">
-                <div className="truncate relative w-15">{row.credableEWSFlag}</div>
+                <div className={`truncate relative w-15  font-bold ${row.credableEWSFlag==="Good"?'text-green-600':(row.credableEWSFlag==="Bad"?'text-red-600':'text-amber-600')}`}>{row.credableEWSFlag}</div>
               </td>
 
               <td className="py-1 px-4   text-center">
@@ -252,7 +252,7 @@ const Clients = () => {
             <td className="py-1 px-4   text-right font-bold">{handleMax()}</td>
           </tr> */}
           <tr className="">
-            <td colSpan={8} className="py-1 px-4   text-right">
+            <td colSpan={3} className="py-1 px-4   text-left">
               <TablePagination
                 rowsPerPageOptions={[5, 10, 25]}
                 component="div"
