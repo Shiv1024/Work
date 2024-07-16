@@ -147,7 +147,7 @@ const Table = () => {
         <thead>
           <tr className="border-b border-gray-400 text-white bg-bcgClr">
             <th
-              className="py-2 px-4 border-r border-gray-400 w-24 text-left cursor-pointer"
+              className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
               onClick={() => handleSort('categoryName')}
             >
               {sortConfig.key === 'categoryName' && (
@@ -159,7 +159,7 @@ const Table = () => {
               )}
             </th>
             <th
-              className="py-2 px-4 border-r border-gray-400 w-24 text-left cursor-pointer"
+              className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
               onClick={() => handleSort('tenureStart')}
             >
               Tenure Start
@@ -172,7 +172,7 @@ const Table = () => {
               )}
             </th>
             <th
-              className="py-2 px-4 border-r border-gray-400 w-24 text-left cursor-pointer"
+              className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
               onClick={() => handleSort('tenureEnd')}
             >
               Tenure End
@@ -185,7 +185,7 @@ const Table = () => {
               )}
             </th>
             <th
-              className="py-2 px-4 border-r border-gray-400 w-24 text-left cursor-pointer"
+              className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
               onClick={() => handleSort('totalNo')}
             >
               Total No
@@ -198,7 +198,7 @@ const Table = () => {
               )}
             </th>
             <th
-              className="py-2 px-4 border-r border-gray-400 w-24text-left cursor-pointer"
+              className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
               onClick={() => handleSort('value')}
             >
               Value INR Lakhs
@@ -211,7 +211,7 @@ const Table = () => {
               )}
             </th>
             <th
-              className="py-2 px-4 border-r border-gray-400 w-24 text-left cursor-pointer"
+              className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
               onClick={() => handleSort('durationNo')}
             >
               Common Duration Nos
@@ -224,7 +224,7 @@ const Table = () => {
               )}
             </th>
             <th
-              className="py-2 px-4 border-r border-gray-400 w-24 text-left cursor-pointer"
+              className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
               onClick={() => handleSort('durationValue')}
             >
               Common Duration Value
@@ -237,7 +237,7 @@ const Table = () => {
               )}
             </th>
             <th
-              className="py-2 px-4 border-r border-gray-400 w-24 text-left cursor-pointer"
+              className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
               onClick={() => handleSort('balance')}
             >
               Balance
@@ -250,7 +250,7 @@ const Table = () => {
               )}
             </th>
             <th
-              className="py-2 px-4 border-r border-gray-400 w-24 text-left cursor-pointer"
+              className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
               onClick={() => handleSort('remarks')}
             >
               Remarks
@@ -263,7 +263,7 @@ const Table = () => {
               )}
             </th>
             <th
-              className="py-2 px-4 w-24 text-left cursor-pointer"
+              className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base w-16 md:w-20 lg:w-24 text-center cursor-pointer"
               onClick={() => handleSort('alerts')}
             >
               Alert
