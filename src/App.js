@@ -11,6 +11,8 @@ import TablePage from './Components/TablePage';
 import Summary from './Components/summary';
 import Clients from './Components/Clients';
 import Page from './Components/page3';
+import Landingpage from './Components/Landingpage';
+import Creditscore from './Components/Creditscorepage';
 function App() {
   const fileUploadRef = useRef();
   const [isFileUploadVisible, setIsFileUploadVisible] = useState(false);
@@ -51,7 +53,9 @@ function App() {
           <Route path = "/tablepage" element = {<Clients />} />
           <Route path = "/summary" element = {<Summary/>} />
           <Route path="/clients" element={<Clients/>}/>
+          <Route path="/creditscorepage" element={<Creditscore/>}/>
           <Route path="/page" element={<Page/>}/>
+          <Route path="/credit" element={<Landingpage isFileUploadVisible={isFileUploadVisible} closeFileUpload={closeFileUpload} setIsFileUploadVisible={setIsFileUploadVisible} fileUploadRef={fileUploadRef}/>}/>
       </Routes>
       </Router>
     </div>
