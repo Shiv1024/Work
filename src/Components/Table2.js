@@ -216,7 +216,7 @@ const SecondTable = () => {
                     {row.invoiceDisbursmentdate}
                   </td>
                   <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 text-center">
-                    {row.gstDate}
+                    {row.gstDate === 'NaT' ? null : row.gstDate}
                   </td>
                   <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 text-center">
                     ₹{formatNumber(row.value)}
