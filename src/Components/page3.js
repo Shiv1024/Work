@@ -12,6 +12,7 @@ const Page = () => {
 
   const [isPeriodTableVisible, setIsPeriodTableVisible] = useState(false);
   const [isFillingTableVisible, setIsFillingTableVisible] = useState(false);
+  const [isInvoiceTableVisible, setIsInvoiceTableVisible] = useState(false);
 
   const togglePeriodTableVisibility = () => {
     setIsPeriodTableVisible(!isPeriodTableVisible);
@@ -19,6 +20,9 @@ const Page = () => {
 
   const toggleFillingTableVisibility = () => {
     setIsFillingTableVisible(!isFillingTableVisible);
+  };
+  const toggleInvoiceTableVisibility = () => {
+    setIsInvoiceTableVisible(!isInvoiceTableVisible);
   };
   const fillingData = [
     { inclusions: 'Timely filings', measure: 'GST 1B', historicalTrend: 'On Time', currentMonthResponse: 'On Time', remarks: 'IRIS Data' },
@@ -32,6 +36,11 @@ const Page = () => {
     { inclusions: 'Total No.GSTINs', measure: 'No. of total GST associated with Borrower', historicalTrend: '2', currentMonthResponse: '1', remarks: '' },
     { inclusions: 'No. of GSTINs turned to inactive', measure: 'No. of total GST status as inactive', historicalTrend: '1', currentMonthResponse: '1', remarks: '09AAIFB4104G1ZS is inactive' },
     { inclusions: 'No. of new GSTIN added by borrower', measure: '', historicalTrend: '', currentMonthResponse: '', remarks: 'None' },
+  ];
+  const InvoicesData = [
+    { inclusions: 'Invoice Count of Borrower ', measure: 'By count', historicalTrend: '1368', currentMonthResponse: '309', remarks: 'Breezalit AA GST Data' },
+    { inclusions: 'Match invoice number of Borrower with input from Credable', measure: 'No. of matches by count', historicalTrend: '28', currentMonthResponse: '9', remarks: '' },
+    { inclusions: 'Match invoice Value of Borrower with input from Credable', measure: 'Amount matched', historicalTrend: '15650245.6', currentMonthResponse: '5993680.2', remarks: '' }  
   ];
   
 
@@ -93,7 +102,7 @@ const Page = () => {
         {/* {Filling Section} */}
         <div className="border border-gray-300 rounded-md shadow-sm w-full flex flex-col mb-4">
           <div className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer " onClick={toggleFillingTableVisibility}>
-            <span>Filling</span>
+            <span>Filings</span>
             <ArrowDropDownIcon className={`transition-transform transform ${isFillingTableVisible ? 'rotate-180' : 'rotate-0'}`} />
           </div>
           {isFillingTableVisible && (
@@ -135,6 +144,52 @@ const Page = () => {
             </div>
           )}
         </div>
+        {/* {invoice section} */}
+        <div className="border border-gray-300 rounded-md shadow-sm w-full flex flex-col mb-4">
+          <div className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer " onClick={toggleInvoiceTableVisibility}>
+            <span>Invoices</span>
+            <ArrowDropDownIcon className={`transition-transform transform ${isInvoiceTableVisible ? 'rotate-180' : 'rotate-0'}`} />
+          </div>
+          {isInvoiceTableVisible && (
+            <div className="flex flex-col lg:flex-row justify-between p-4 flex-grow">
+              <div className="w-full">
+                <table className="my-auto border-collapse border border-slate-400 w-full">
+                  <thead>
+                    <tr>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Inclusions</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Measure</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Historical trend</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Current Month Response</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Remarks</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {InvoicesData.map((row, index) => (
+                      <tr key={index}>
+                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                          {row.inclusions}
+                        </td>
+                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                          {row.measure}
+                        </td>
+                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                          {row.historicalTrend}
+                        </td>
+                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                          {row.currentMonthResponse}
+                        </td>
+                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                          {row.remarks}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+        </div>
+
       </div>
     </div>
   );
