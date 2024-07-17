@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Sidebar from './Sidebar';
+import DiffTable from "./DiffTables.js";
 
 const Page = () => {
   const navigate = useNavigate();
@@ -10,16 +10,10 @@ const Page = () => {
     navigate(`/clients`);
   };
 
-  const [isPeriodTableVisible, setIsPeriodTableVisible] = useState(false);
-  const [isFillingTableVisible, setIsFillingTableVisible] = useState(false);
+  const periodData = [
+    { inclusions: 'Oct 2023 to Feb 2024', measure: null, historicalTrend: 'Oct 2023 to Jan 2024', currentMonthResponse: 'Feb 2024', remarks: 'If Feb 2024 NA, last available month data used' }
+  ];
 
-  const togglePeriodTableVisibility = () => {
-    setIsPeriodTableVisible(!isPeriodTableVisible);
-  };
-
-  const toggleFillingTableVisibility = () => {
-    setIsFillingTableVisible(!isFillingTableVisible);
-  };
   const fillingData = [
     { inclusions: 'Timely filings', measure: 'GST 1B', historicalTrend: 'On Time', currentMonthResponse: 'On Time', remarks: 'IRIS Data' },
     { inclusions: 'Timely filings', measure: 'GST 3B', historicalTrend: 'All Delayed', currentMonthResponse: 'Late', remarks: 'IRIS Data' },
@@ -33,12 +27,47 @@ const Page = () => {
     { inclusions: 'No. of GSTINs turned to inactive', measure: 'No. of total GST status as inactive', historicalTrend: '1', currentMonthResponse: '1', remarks: '09AAIFB4104G1ZS is inactive' },
     { inclusions: 'No. of new GSTIN added by borrower', measure: '', historicalTrend: '', currentMonthResponse: '', remarks: 'None' },
   ];
-  
+
+  const customersData = [
+    { inclusions: 'Top Customers by Value', measure: 'By Invoice amount', historicalTrend: '5 (around 60% Value, 40% Count)', currentMonthResponse: 'In line', remarks: '58% Saliency' },
+    { inclusions: 'PANASONIC LIFE SOLUTIONS INDIA PRIVATE LIMITED', measure: 'AAECA2190C', historicalTrend: '13%', currentMonthResponse: '13%', remarks: 'Saliency for the month' },
+    { inclusions: 'R D ENTERPRISES', measure: 'AARFR5825K', historicalTrend: '14%', currentMonthResponse: '11%', remarks: 'Saliency for the month' },
+    { inclusions: 'DHANVANTI ENTERPRISES', measure: 'ABXPK6909J', historicalTrend: '16%', currentMonthResponse: '15%', remarks: 'Saliency for the month' },
+    { inclusions: 'A.R.D. ENTERPRISES', measure: 'BQBPK9912M', historicalTrend: '12%', currentMonthResponse: '16%', remarks: 'Saliency for the month' },
+    { inclusions: 'MATHAJI MARKETING', measure: 'CEOPC6626N', historicalTrend: '6%', currentMonthResponse: '3%', remarks: 'Saliency for the month' },
+    { inclusions: 'Top Customers by Frequency', measure: 'Appearing in maximum number of months', historicalTrend: '26 (Sales in All Months, 78% by Count)', currentMonthResponse: 'In line', remarks: '74% by count' },
+    { inclusions: 'Customer churn', measure: 'Probability of customer to leave', historicalTrend: '11%', currentMonthResponse: '-29%', remarks: 'Monthly crest and trough' },
+    { inclusions: 'No. of unique customers per month', measure: 'Number of customers per month', historicalTrend: '41', currentMonthResponse: '16', remarks: null },
+    { inclusions: 'Forecast number of customers', measure: 'M1', historicalTrend: null, currentMonthResponse: '65', remarks: 'Limited Input.' },
+    { inclusions: 'Forecast number of customers', measure: 'M2', historicalTrend: null, currentMonthResponse: '45', remarks: 'Limited Input.' },
+    { inclusions: 'Forecast number of customers', measure: 'M3', historicalTrend: null, currentMonthResponse: '55', remarks: 'Limited Input.' }
+  ];
+
+  const salesData = [
+    { inclusions: 'Turnover (Total Value)', measure: 'Outward Supplies basis 3B, net of returns, credit / debit etc', historicalTrend: '21,86,01,914.19', currentMonthResponse: '###########', remarks: '32% Saliency, Jan\'24' },
+    { inclusions: 'Turnover (Average Value)', measure: 'Outward Supplies basis 3B, net of returns, credit / debit etc', historicalTrend: '4,98,16,905.21', currentMonthResponse: '###########', remarks: 'Increasing Trend, Jan\'24' },
+    { inclusions: 'Invoice value Total', measure: 'Cumulative Monthly Invoice value shared INR Lakhs', historicalTrend: '1787.94', currentMonthResponse: '449.22', remarks: '5 Months' },
+    { inclusions: 'Invoice value Total', measure: 'Average Monthly Invoice value in INR Lakhs', historicalTrend: '357.59', currentMonthResponse: '449.22', remarks: null },
+    { inclusions: 'Monthwise Invoice value', measure: 'Average', historicalTrend: '1,30,697.70', currentMonthResponse: '1,45,378.96', remarks: null },
+    { inclusions: 'Monthwise Invoice value', measure: 'Average without outlier value', historicalTrend: '1,24,792.76', currentMonthResponse: '1,40,105.91', remarks: null },
+    { inclusions: 'Outlier Months', measure: 'Month with very high crest or trough', historicalTrend: 'Quarter end, year End', currentMonthResponse: 'Yes', remarks: 'High Year End General Practise' },
+    { inclusions: 'Outlier Months Count', measure: 'Number of months with very high crest or trough', historicalTrend: '0', currentMonthResponse: '2', remarks: 'Jan, Feb' },
+    { inclusions: 'Sales trend- volatility', measure: 'Standard deviation', historicalTrend: null, currentMonthResponse: '0.53', remarks: 'Medium Variance' },
+    { inclusions: 'Forecast', measure: 'Forecast for next 3 months - M1, INR Lakhs', historicalTrend: '430 - 460', currentMonthResponse: null, remarks: 'Tentative, Limited Data' },
+    { inclusions: 'Forecast', measure: 'Forecast for next 3 months - M2, INR Lakhs', historicalTrend: '260 - 300', currentMonthResponse: null, remarks: 'Tentative, Limited Data' },
+    { inclusions: 'Forecast', measure: 'Forecast for next 3 months - M3, INR Lakhs', historicalTrend: '310 - 340', currentMonthResponse: null, remarks: 'Tentative, Limited Data' }
+  ];
+
+  const invoicesData = [
+    { inclusions: 'Invoice Count of Borrower', measure: 'By count', historicalTrend: '1368', currentMonthResponse: '309', remarks: 'Breezalit AA GST Data' },
+    { inclusions: 'Match invoice number of Borrower with input from Credable', measure: 'No. of matches by count', historicalTrend: '28', currentMonthResponse: '9', remarks: null },
+    { inclusions: 'Match invoice Value of Borrower with input from Credable', measure: 'Amount matched', historicalTrend: '1,56,50,245.60', currentMonthResponse: '59,93,680.20', remarks: null }
+  ];
 
   return (
     <div className="flex min-h-screen">
-      <Sidebar /> {/* Fixed width for Sidebar */}
-      <div className="flex-grow p-4 ml-32 md:ml-48 lg:ml-56"> {/* Main content with margin to accommodate Sidebar */}
+      <Sidebar />
+      <div className="flex-grow p-4 ml-32 md:ml-48 lg:ml-56">
         <div className="bg-bcgClr text-white mb-8 flex items-center">
           <div className="py-2 px-4 mb-4">
             <button className="mt-2 px-2 py-2 hover:scale-105 active:scale-95" onClick={handleBackClick}>
@@ -47,94 +76,31 @@ const Page = () => {
           </div>
           <h1 className="text-2xl py-4 px-4 mb-4 font-bold mx-auto">Company XYZ</h1>
         </div>
-        {/* {Period section} */}
-        <div className="border border-gray-300 rounded-md shadow-sm w-full flex flex-col mb-4">
-          <div className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer " onClick={togglePeriodTableVisibility}>
-            <span>Period</span>
-            <ArrowDropDownIcon className={`transition-transform transform ${isPeriodTableVisible ? 'rotate-180' : 'rotate-0'}`} />
-          </div>
-          {isPeriodTableVisible && (
-            <div className="flex flex-col lg:flex-row justify-between p-4 flex-grow">
-              <div className="w-full">
-                <table className="my-auto border-collapse border border-slate-400 w-full">
-                  <thead>
-                    <tr>
-                      <th className="py-3 px-4 bg-bcgClr text-white">Inclusions</th>
-                      <th className="py-3 px-4 bg-bcgClr text-white">Measure</th>
-                      <th className="py-3 px-4 bg-bcgClr text-white">Historical trend</th>
-                      <th className="py-3 px-4 bg-bcgClr text-white">Current Month Response</th>
-                      <th className="py-3 px-4 bg-bcgClr text-white">Remarks</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
-                        Oct 2023 to Feb 2024
-                      </td>
-                      <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
-                        -
-                      </td>
-                      <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
-                        Oct 2023 to Jan 2024
-                      </td>
-                      <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
-                        Feb 2024
-                      </td>
-                      <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
-                        If Feb 2024 NA, last available month data used
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
-        </div>
-        {/* {Filling Section} */}
-        <div className="border border-gray-300 rounded-md shadow-sm w-full flex flex-col mb-4">
-          <div className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer " onClick={toggleFillingTableVisibility}>
-            <span>Filling</span>
-            <ArrowDropDownIcon className={`transition-transform transform ${isFillingTableVisible ? 'rotate-180' : 'rotate-0'}`} />
-          </div>
-          {isFillingTableVisible && (
-            <div className="flex flex-col lg:flex-row justify-between p-4 flex-grow">
-              <div className="w-full">
-                <table className="my-auto border-collapse border border-slate-400 w-full">
-                  <thead>
-                    <tr>
-                      <th className="py-3 px-4 bg-bcgClr text-white">Inclusions</th>
-                      <th className="py-3 px-4 bg-bcgClr text-white">Measure</th>
-                      <th className="py-3 px-4 bg-bcgClr text-white">Historical trend</th>
-                      <th className="py-3 px-4 bg-bcgClr text-white">Current Month Response</th>
-                      <th className="py-3 px-4 bg-bcgClr text-white">Remarks</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {fillingData.map((row, index) => (
-                      <tr key={index}>
-                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
-                          {row.inclusions}
-                        </td>
-                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
-                          {row.measure}
-                        </td>
-                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
-                          {row.historicalTrend}
-                        </td>
-                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
-                          {row.currentMonthResponse}
-                        </td>
-                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
-                          {row.remarks}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
-        </div>
+
+        <DiffTable 
+        Name = "Period"
+        Data = {periodData}
+        />
+
+        <DiffTable 
+        Name = "Filings"
+        Data = {fillingData}
+        />
+
+        <DiffTable 
+        Name = "Customers"
+        Data = {customersData}
+        />
+
+        <DiffTable 
+        Name = "Sales"
+        Data = {salesData}
+        />
+
+        <DiffTable 
+        Name = "Invoices"
+        Data = {invoicesData}
+        />
       </div>
     </div>
   );
