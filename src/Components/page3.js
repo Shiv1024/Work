@@ -10,10 +10,23 @@ const Page = () => {
     navigate(`/clients`);
   };
 
+
+  
+  const [isPeriodTableVisible, setIsPeriodTableVisible] = useState(false);
+  const [isFillingTableVisible, setIsFillingTableVisible] = useState(false);
+  const [isInvoiceTableVisible, setIsInvoiceTableVisible] = useState(false);
+  const togglePeriodTableVisibility = () => {
+    setIsPeriodTableVisible(!isPeriodTableVisible);
+  };
+  const toggleFillingTableVisibility = () => {
+    setIsFillingTableVisible(!isFillingTableVisible);
+  };
+  const toggleInvoiceTableVisibility = () => {
+    setIsInvoiceTableVisible(!isInvoiceTableVisible);
+  };
   const periodData = [
     { inclusions: 'Oct 2023 to Feb 2024', measure: null, historicalTrend: 'Oct 2023 to Jan 2024', currentMonthResponse: 'Feb 2024', remarks: 'If Feb 2024 NA, last available month data used' }
   ];
-
   const fillingData = [
     { inclusions: 'Timely filings', measure: 'GST 1B', historicalTrend: 'On Time', currentMonthResponse: 'On Time', remarks: 'IRIS Data' },
     { inclusions: 'Timely filings', measure: 'GST 3B', historicalTrend: 'All Delayed', currentMonthResponse: 'Late', remarks: 'IRIS Data' },
@@ -27,7 +40,6 @@ const Page = () => {
     { inclusions: 'No. of GSTINs turned to inactive', measure: 'No. of total GST status as inactive', historicalTrend: '1', currentMonthResponse: '1', remarks: '09AAIFB4104G1ZS is inactive' },
     { inclusions: 'No. of new GSTIN added by borrower', measure: '', historicalTrend: '', currentMonthResponse: '', remarks: 'None' },
   ];
-
   const customersData = [
     { inclusions: 'Top Customers by Value', measure: 'By Invoice amount', historicalTrend: '5 (around 60% Value, 40% Count)', currentMonthResponse: 'In line', remarks: '58% Saliency' },
     { inclusions: 'PANASONIC LIFE SOLUTIONS INDIA PRIVATE LIMITED', measure: 'AAECA2190C', historicalTrend: '13%', currentMonthResponse: '13%', remarks: 'Saliency for the month' },
@@ -81,26 +93,155 @@ const Page = () => {
         Name = "Period"
         Data = {periodData}
         />
-
         <DiffTable 
         Name = "Filings"
         Data = {fillingData}
         />
-
         <DiffTable 
         Name = "Customers"
         Data = {customersData}
         />
-
         <DiffTable 
         Name = "Sales"
         Data = {salesData}
         />
-
         <DiffTable 
         Name = "Invoices"
         Data = {invoicesData}
         />
+        {/* {Period section} */}
+        <div className="border border-gray-300 rounded-md shadow-sm w-full flex flex-col mb-4">
+          <div className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer " onClick={togglePeriodTableVisibility}>
+            <span>Period</span>
+            <ArrowDropDownIcon className={`transition-transform transform ${isPeriodTableVisible ? 'rotate-180' : 'rotate-0'}`} />
+          </div>
+          {isPeriodTableVisible && (
+            <div className="flex flex-col lg:flex-row justify-between p-4 flex-grow">
+              <div className="w-full">
+                <table className="my-auto border-collapse border border-slate-400 w-full">
+                  <thead>
+                    <tr>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Inclusions</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Measure</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Historical trend</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Current Month Response</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Remarks</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                        Oct 2023 to Feb 2024
+                      </td>
+                      <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                        -
+                      </td>
+                      <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                        Oct 2023 to Jan 2024
+                      </td>
+                      <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                        Feb 2024
+                      </td>
+                      <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                        If Feb 2024 NA, last available month data used
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+        </div>
+        {/* {Filling Section} */}
+        <div className="border border-gray-300 rounded-md shadow-sm w-full flex flex-col mb-4">
+          <div className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer " onClick={toggleFillingTableVisibility}>
+            <span>Filings</span>
+            <ArrowDropDownIcon className={`transition-transform transform ${isFillingTableVisible ? 'rotate-180' : 'rotate-0'}`} />
+          </div>
+          {isFillingTableVisible && (
+            <div className="flex flex-col lg:flex-row justify-between p-4 flex-grow">
+              <div className="w-full">
+                <table className="my-auto border-collapse border border-slate-400 w-full">
+                  <thead>
+                    <tr>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Inclusions</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Measure</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Historical trend</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Current Month Response</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Remarks</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {fillingData.map((row, index) => (
+                      <tr key={index}>
+                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                          {row.inclusions}
+                        </td>
+                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                          {row.measure}
+                        </td>
+                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                          {row.historicalTrend}
+                        </td>
+                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                          {row.currentMonthResponse}
+                        </td>
+                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                          {row.remarks}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+        </div>
+        {/* {invoice section} */}
+        <div className="border border-gray-300 rounded-md shadow-sm w-full flex flex-col mb-4">
+          <div className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer " onClick={toggleInvoiceTableVisibility}>
+            <span>Invoices</span>
+            <ArrowDropDownIcon className={`transition-transform transform ${isInvoiceTableVisible ? 'rotate-180' : 'rotate-0'}`} />
+          </div>
+          {isInvoiceTableVisible && (
+            <div className="flex flex-col lg:flex-row justify-between p-4 flex-grow">
+              <div className="w-full">
+                <table className="my-auto border-collapse border border-slate-400 w-full">
+                  <thead>
+                    <tr>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Inclusions</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Measure</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Historical trend</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Current Month Response</th>
+                      <th className="py-3 px-4 bg-bcgClr text-white">Remarks</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {InvoicesData.map((row, index) => (
+                      <tr key={index}>
+                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                          {row.inclusions}
+                        </td>
+                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                          {row.measure}
+                        </td>
+                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                          {row.historicalTrend}
+                        </td>
+                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                          {row.currentMonthResponse}
+                        </td>
+                        <td className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                          {row.remarks}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
