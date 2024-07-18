@@ -6,7 +6,7 @@ import TablePagination from '@mui/material/TablePagination';
 const Table = () => {
     const [data, setData] = useState([
         {
-          categoryName: 'Category A',
+          categoryName: 'ABC',
           tenureStart: '2023-01-01',
           tenureEnd: '2023-06-30',
           totalNo: 10,
@@ -18,7 +18,7 @@ const Table = () => {
           alerts: 'None'
         },
         {
-          categoryName: 'Category B',
+          categoryName: 'DEF',
           tenureStart: '2022-01-01',
           tenureEnd: '2022-12-31',
           totalNo: 15,
@@ -30,7 +30,7 @@ const Table = () => {
           alerts: 'High'
         },
         {
-          categoryName: 'Category C',
+          categoryName: 'GHI',
           tenureStart: '2023-03-01',
           tenureEnd: '2023-09-30',
           totalNo: 8,
@@ -42,7 +42,7 @@ const Table = () => {
           alerts: 'Low'
         },
         {
-          categoryName: 'Category D',
+          categoryName: 'JKL',
           tenureStart: '2022-05-01',
           tenureEnd: '2022-10-31',
           totalNo: 12,
@@ -54,7 +54,7 @@ const Table = () => {
           alerts: 'Medium'
         },
         {
-          categoryName: 'Category E',
+          categoryName: 'MNO',
           tenureStart: '2021-07-01',
           tenureEnd: '2021-12-31',
           totalNo: 9,
@@ -66,7 +66,7 @@ const Table = () => {
           alerts: 'High'
         },
         {
-          categoryName: 'Category F',
+          categoryName: 'PQR',
           tenureStart: '2023-02-01',
           tenureEnd: '2023-08-31',
           totalNo: 14,
@@ -78,7 +78,7 @@ const Table = () => {
           alerts: 'Low'
         },
         {
-          categoryName: 'Category G',
+          categoryName: 'STU',
           tenureStart: '2022-04-01',
           tenureEnd: '2022-11-30',
           totalNo: 11,
@@ -90,7 +90,7 @@ const Table = () => {
           alerts: 'None'
         },
         {
-          categoryName: 'Category H',
+          categoryName: 'VWX',
           tenureStart: '2021-09-01',
           tenureEnd: '2022-03-31',
           totalNo: 13,

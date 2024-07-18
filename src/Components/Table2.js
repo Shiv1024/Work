@@ -207,10 +207,10 @@ const SecondTable = () => {
                     {sortConfig.key === 'sno' && sortConfig.direction === 'descending' ? sortedData.length - index-page*rowsPerPage : index+1+page*rowsPerPage}
                   </td>
                   <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 text-center">
-                    {row.source}
+                    ABC
                   </td>
                   <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 text-left">
-                    {row.partyName}
+                    {row.partyName === "Not in GST" ? row.partyName : "Party XYZ"}
                   </td>
                   <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 text-center">
                     {row.invoiceDisbursmentdate}
