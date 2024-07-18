@@ -4,7 +4,7 @@ import FileIcon from "./FileIcon.js";
 import MainSidebar from "./Mainsidebar.js";
 import Navbar from "./Navbar.js";
 import { useNavigate } from "react-router-dom";
-
+import gif from "../Assets/progressIndicator.gif";
 const Landingpage = ({
   isFileUploadVisible,
   closeFileUpload,
@@ -14,6 +14,7 @@ const Landingpage = ({
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [files, setFiles] = useState([]);
   const [asc, setAsc] = useState(true);
+  const [isGifVisible, setIsGifVisible] = useState(false);
   const modalRef = useRef(null);
   const navigate = useNavigate();
 
@@ -62,7 +63,12 @@ const Landingpage = ({
   };
 
   const handleRowClick = (file) => {
-    navigate('/creditscorepage');
+    setIsGifVisible(true);
+    setTimeout(() => {
+      setIsGifVisible(false);
+      navigate('/creditscorepage');
+    }, 5000);
+
   };
 
   return (
@@ -140,6 +146,13 @@ const Landingpage = ({
               +
             </button>
           </div>
+
+          {isGifVisible && (
+            <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+              {console.log("here")}
+              <img src={gif} alt="Loading" />
+            </div>
+          )}
         </div>
       </div>
     </div>
