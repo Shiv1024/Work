@@ -1,8 +1,9 @@
-import React from 'react';
-
+import React,{useState} from 'react';
+// import { Navigate } from 'react-router';
 const Modal = ({ show, onClose, onFileChange, errorMessage }) => {
+  const [issaveoptionopen,setissaveoption]=useState(false);
+  const [files,setFiles]=useState([])
   if (!show) return null;
-
   const handleDragOver = (event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -13,7 +14,13 @@ const Modal = ({ show, onClose, onFileChange, errorMessage }) => {
     event.stopPropagation();
     onFileChange(event.dataTransfer.files);
   };
-
+  const handlechange=(e)=>{
+    setissaveoption(true);
+    setFiles(e.target.files);
+  }
+  const handlesave=()=>{
+    onFileChange(files);
+  }
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
       <div className="bg-white p-6 rounded-lg shadow-lg text-center">
@@ -21,7 +28,7 @@ const Modal = ({ show, onClose, onFileChange, errorMessage }) => {
         <input
           type="file"
           accept=".pdf"
-          onChange={(e) => onFileChange(e.target.files)}
+          onChange={handlechange}
           className="mb-4"
         />
         <p className="my-4 text-gray-600">or drag and drop your file here</p>
@@ -35,7 +42,13 @@ const Modal = ({ show, onClose, onFileChange, errorMessage }) => {
         {errorMessage && (
           <p className="mt-4 text-red-500">{errorMessage}</p>
         )}
-        <div className="flex justify-end mt-4">
+        <div className={`flex ${issaveoptionopen ? "justify-between":"justify-end"} mt-4`}>
+         {issaveoptionopen && <button
+            className="px-4 py-2 bg-bcgClr text-white rounded mr-2"
+            onClick={handlesave}
+          >
+            Save
+          </button>}
           <button
             className="px-4 py-2 bg-bcgClr text-white rounded mr-2"
             onClick={onClose}
@@ -44,6 +57,7 @@ const Modal = ({ show, onClose, onFileChange, errorMessage }) => {
           </button>
         </div>
       </div>
+      
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import FileUpload from "./FileUpload";
+import FileUpload from "./FileUpload2";
 import FileIcon from "./FileIcon.js";
 import MainSidebar from "./Mainsidebar.js";
 import Navbar from "./Navbar.js";
@@ -150,7 +150,7 @@ const Landingpage = ({
           {isGifVisible && (
             <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
               {console.log("here")}
-              <img src={gif} alt="Loading" />
+              <img src={gif} alt="Loading" className="w-[240px] h-[300px]"/>
             </div>
           )}
         </div>
