@@ -12,7 +12,10 @@ import Summary from './Components/summary';
 import Clients from './Components/Clients';
 import Page from './Components/page3';
 import Landingpage from './Components/Landingpage';
-import Creditscore from './Components/Creditscorepage';
+import Creditscore from './Components/Bank Score/Creditscorepage';
+import GST from './Components/Bank Score/GST';
+import BS from './Components/Bank Score/BS';
+import CIBIL from './Components/Bank Score/CIBIL';
 function App() {
   const fileUploadRef = useRef();
   const [isFileUploadVisible, setIsFileUploadVisible] = useState(false);
@@ -55,6 +58,9 @@ function App() {
           <Route path="/clients" element={<Clients/>}/>
           <Route path="/creditscorepage" element={<Creditscore/>}/>
           <Route path="/page" element={<Page/>}/>
+          <Route path="/GST" element={<GST/>}/>
+          <Route path="/BS" element={<BS/>}/>
+          <Route path="/CIBIL" element={<CIBIL/>}/>
           <Route path="/credit" element={<Landingpage isFileUploadVisible={isFileUploadVisible} closeFileUpload={closeFileUpload} setIsFileUploadVisible={setIsFileUploadVisible} fileUploadRef={fileUploadRef}/>}/>
       </Routes>
       </Router>
