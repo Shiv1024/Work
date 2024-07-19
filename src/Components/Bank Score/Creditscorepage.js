@@ -106,8 +106,8 @@ const Creditscore = () => {
       }
     ];
     
-    const layout = { width: 600, height: 400 };
-    const layoutfactor = {width: 800, height: 210};
+    const layout = { width: 800, height: 400, margin: { l: 200 } };
+    const layoutfactor = { width: 900, height: 210, margin: { l: 250, pad: 10 } };
     const config = {displayModeBar: false};
 
 
