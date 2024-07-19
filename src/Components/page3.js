@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import Sidebar from './Sidebar';
@@ -9,9 +9,6 @@ const Page = () => {
   const handleBackClick = () => {
     navigate(`/clients`);
   };
-  const [isPeriodTableVisible, setIsPeriodTableVisible] = useState(false);
-  const [isFillingTableVisible, setIsFillingTableVisible] = useState(false);
-  const [isInvoiceTableVisible, setIsInvoiceTableVisible] = useState(false);
   const periodData = [
     { inclusions: 'Oct 2023 to Feb 2024', measure: null, historicalTrend: 'Oct 2023 to Jan 2024', currentMonthResponse: 'Feb 2024', remarks: 'If Feb 2024 NA, last available month data used' }
   ];
