@@ -63,9 +63,9 @@ const Clients = () => {
       <Sidebar/>
       </div>
 
-      <div className='flex-1 p-2 pl-60 flex flex-col overflow-x-hidden'>
+      <div className='flex-1 p-2 pl-60 lg:pl-56 md:pl-0  flex flex-col overflow-x-hidden'>
         <div className="flex overflow-x-scroll overflow-y-hidden">
-          <table className="mx-auto flex-shrink-0 mt-4 bg-white border-collapses overflow-x-auto">
+          <table className="flex-shrink-0 mx-auto mt-4 bg-white border-collapses overflow-x-auto">
 
         <thead>
           <tr className="">
