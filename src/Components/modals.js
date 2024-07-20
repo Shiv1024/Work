@@ -1,9 +1,11 @@
-import React,{useState} from 'react';
-// import { Navigate } from 'react-router';
+import React, { useState } from 'react';
+
 const Modal = ({ show, onClose, onFileChange, errorMessage }) => {
-  const [issaveoptionopen,setissaveoption]=useState(false);
-  const [files,setFiles]=useState([])
+  const [isSaveOptionOpen, setIsSaveOptionOpen] = useState(false);
+  const [files, setFiles] = useState([]);
+
   if (!show) return null;
+
   const handleDragOver = (event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -12,15 +14,25 @@ const Modal = ({ show, onClose, onFileChange, errorMessage }) => {
   const handleDrop = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    onFileChange(event.dataTransfer.files);
+    setIsSaveOptionOpen(true);
+    setFiles([...event.dataTransfer.files]);
   };
-  const handlechange=(e)=>{
-    setissaveoption(true);
-    setFiles(e.target.files);
-  }
-  const handlesave=()=>{
+
+  const handleChange = (e) => {
+    setIsSaveOptionOpen(true);
+    setFiles([...e.target.files]);
+  };
+
+  const handleSave = () => {
     onFileChange(files);
-  }
+    handleclose();
+  };
+  const handleclose = () => {
+    setFiles([]);
+    setIsSaveOptionOpen(false);
+    onClose();
+  };
+
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
       <div className="bg-white p-6 rounded-lg shadow-lg text-center">
@@ -28,7 +40,7 @@ const Modal = ({ show, onClose, onFileChange, errorMessage }) => {
         <input
           type="file"
           accept=".pdf"
-          onChange={handlechange}
+          onChange={handleChange}
           className="mb-4"
         />
         <p className="my-4 text-gray-600">or drag and drop your file here</p>
@@ -39,25 +51,36 @@ const Modal = ({ show, onClose, onFileChange, errorMessage }) => {
         >
           Drop your file here
         </div>
+        {files.length > 0 && (
+          <div className="mt-4">
+            <h3 className="text-lg mb-2">Files:</h3>
+            <ul className="list-disc list-inside">
+              {Array.from(files).map((file, index) => (
+                <li key={index}>{file.name}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         {errorMessage && (
           <p className="mt-4 text-red-500">{errorMessage}</p>
         )}
-        <div className={`flex ${issaveoptionopen ? "justify-between":"justify-end"} mt-4`}>
-         {issaveoptionopen && <button
-            className="px-4 py-2 bg-bcgClr text-white rounded mr-2"
-            onClick={handlesave}
-          >
-            Save
-          </button>}
+        <div className={`flex ${isSaveOptionOpen ? "justify-between" : "justify-end"} mt-4`}>
+          {isSaveOptionOpen && (
+            <button
+              className="px-4 py-2 bg-bcgClr text-white rounded mr-2"
+              onClick={handleSave}
+            >
+              Save
+            </button>
+          )}
           <button
             className="px-4 py-2 bg-bcgClr text-white rounded mr-2"
-            onClick={onClose}
+            onClick={handleclose}
           >
             Close
           </button>
         </div>
       </div>
-      
     </div>
   );
 };
