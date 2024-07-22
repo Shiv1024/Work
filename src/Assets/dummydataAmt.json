@@ -1,0 +1,51 @@
+[
+    {
+        "category": "Asset Loan",
+        "guarantor": 0,
+        "individual": 138995,
+        "joint": 25201594,
+        "total": 25340589
+    },
+    {
+        "category": "Business Loan",
+        "guarantor": 20975727,
+        "individual": 241130,
+        "joint": 23297718,
+        "total": 44514575
+    },
+    {
+        "category": "Credit Card",
+        "guarantor": 0,
+        "individual": 295573,
+        "joint": 0,
+        "total": 295573
+    },
+    {
+        "category": "Other",
+        "guarantor": 32697507,
+        "individual": 0,
+        "joint": 22661349,
+        "total": 55358856
+    },
+    {
+        "category": "Personal Loan",
+        "guarantor": 0,
+        "individual": 0,
+        "joint": 513637,
+        "total": 513637
+    },
+    {
+        "category": "Working Capital Limit",
+        "guarantor": 0,
+        "individual": 4648951,
+        "joint": 0,
+        "total": 4648951
+    },
+    {
+        "category": "Total",
+        "guarantor": 53673234,
+        "individual": 5324649,
+        "joint": 71674298,
+        "total": 130672181
+    }
+]
