@@ -1,6 +1,6 @@
 import React from "react";
 import Sidebar from "../Sidebar3";
-import Cards from "../card";
+import Cards from "../card.js";
 const Personalinfo=()=>{
     const cardinfo=[
       { label: "Total Active Loan Outstanding", value: 130672181 },

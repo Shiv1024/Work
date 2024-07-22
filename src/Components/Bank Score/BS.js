@@ -20,7 +20,7 @@ const BS = () => {
     const factor1 = [
         {
             type: "indicator",
-            mode: "number+gauge+delta",
+            mode: "number+gauge",
             gauge: { bar: { color: "red" }, shape: "bullet" },
             value: 88,
             domain: { x: [0, 1], y: [0, 1] },
@@ -31,7 +31,7 @@ const BS = () => {
     const factor2 = [
         {
             type: "indicator",
-            mode: "number+gauge+delta",
+            mode: "number+gauge",
             gauge: { shape: "bullet" },
             value: 158,
             domain: { x: [0, 1], y: [0, 1] },
@@ -42,7 +42,7 @@ const BS = () => {
     const factor3 = [
         {
             type: "indicator",
-            mode: "number+gauge+delta",
+            mode: "number+gauge",
             gauge: { shape: "bullet" },
             value: 423,
             domain: { x: [0, 1], y: [0, 1] },
@@ -53,7 +53,7 @@ const BS = () => {
     const factor4 = [
         {
             type: "indicator",
-            mode: "number+gauge+delta",
+            mode: "number+gauge",
             gauge: { shape: "bullet" },
             value: 390,
             domain: { x: [0, 1], y: [0, 1] },
@@ -64,7 +64,7 @@ const BS = () => {
     const factor5 = [
         {
             type: "indicator",
-            mode: "number+gauge+delta",
+            mode: "number+gauge",
             gauge: { shape: "bullet" },
             value: 445,
             domain: { x: [0, 1], y: [0, 1] },
@@ -73,7 +73,7 @@ const BS = () => {
     ];
 
     const layout = { width: 800, height: 400, margin: { l: 200 } };
-    const layoutFactor = { width: 900, height: 210, margin: { l: 250, pad: 10 } };
+    const layoutFactor = { width: 900, height: 130, margin: { l: 250, t:20 } };
     const config = { displayModeBar: false };
 
     return (
@@ -90,35 +90,35 @@ const BS = () => {
                     />
                 </div>
                 <div>
-                    <div className="my-0 py-0 hover:cursor-pointer">
+                    <div className="-mt-16 py-0 hover:cursor-pointer">
                         <Plot
                             data={factor1}
                             layout={layoutFactor}
                             config={config}
                         />
                     </div>
-                    <div className='my-0 py-0 hover:cursor-pointer'>
+                    <div className='-mt-16 py-0 hover:cursor-pointer'>
                         <Plot
                             data={factor2}
                             layout={layoutFactor}
                             config={config}
                         />
                     </div>
-                    <div className="my-0 py-0 hover:cursor-pointer">
+                    <div className="-mt-16 py-0 hover:cursor-pointer">
                         <Plot
                             data={factor3}
                             layout={layoutFactor}
                             config={config}
                         />
                     </div>
-                    <div className="my-0 py-0 hover:cursor-pointer">
+                    <div className="-mt-16 hover:cursor-pointer">
                         <Plot
                             data={factor4}
                             layout={layoutFactor}
                             config={config}
                         />
                     </div>
-                    <div className="my-0 py-0 hover:cursor-pointer">
+                    <div className="-mt-16 hover:cursor-pointer">
                         <Plot
                             data={factor5}
                             layout={layoutFactor}

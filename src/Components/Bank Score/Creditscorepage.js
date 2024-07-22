@@ -1,62 +1,16 @@
-// import React, { useState} from 'react';
-// import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
-// import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
-// import TablePagination from '@mui/material/TablePagination';
+
 import { useNavigate } from 'react-router-dom';
-// import dataJSON from '../../Assets/executive summary metis.json'
 import Sidebar from '../Sidebar2';
 import Plot from 'react-plotly.js';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import BS from './BS';
+import GST from './GST';
+import CIBIL from './CIBIL';
 
 const Creditscore = () => {
-  // const [data, setData] = useState(dataJSON);
-  // const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
+ 
   const navigate = useNavigate();
-  // const [page, setPage] = useState(0);
-  // const [rowsPerPage, setRowsPerPage] = useState(5);
-
-  // const handleSort = (key) => {
-  //   let direction = 'ascending';
-  //   if (sortConfig.key === key && sortConfig.direction === 'ascending') {
-  //     direction = 'descending';
-  //   }
-  //   setSortConfig({ key, direction });
-  // };
-
-  // const sortedData = [...data].sort((a, b) => {
-  //   if (a[sortConfig.key] < b[sortConfig.key]) {
-  //     return sortConfig.direction === 'ascending' ? -1 : 1;
-  //   }
-  //   if (a[sortConfig.key] > b[sortConfig.key]) {
-  //     return sortConfig.direction === 'ascending' ? 1 : -1;
-  //   }
-  //   return 0;
-  // });
-
-  // const handleChangePage = (event, newPage) => {
-  //   setPage(newPage);
-  // };
-
-  // const handleChangeRowsPerPage = (event) => {
-  //   setRowsPerPage(parseInt(event.target.value, 10));
-  //   setPage(0);
-  // };
-
-  // const handleBorrowerClick = (borrowerData) => {
-  //   navigate(`/summary`, { state: { borrowerData } });
-  // };
-
-    
-    //   const handleTotal = () => {
-    //     let sm = 0;
-    //     data.forEach((currData) => (sm += currData.LimitUsed));
-    //     return sm;
-    //   };
-    
-    //   const handleMax = () => {
-    //     let mx = 0;
-    //     data.forEach((currData) => (mx = currData.MajorFlags > mx ? currData.MajorFlags : mx));
-    //     return mx;
-    //   };
+  
   
     const dataChart = [
       {
@@ -73,7 +27,7 @@ const Creditscore = () => {
     const factor1 = [
       {
         type: "indicator",
-    mode: "number+gauge+delta",
+    mode: "number+gauge",
     gauge: { shape: "bullet" },
     // delta: { reference: 300 },
     value: 220,
@@ -85,7 +39,7 @@ const Creditscore = () => {
     const factor2 = [
       {
         type: "indicator",
-    mode: "number+gauge+delta",
+    mode: "number+gauge",
     gauge: { shape: "bullet" },
     // delta: { reference: 300 },
     value: 500,
@@ -97,7 +51,7 @@ const Creditscore = () => {
     const factor3 = [
       {
         type: "indicator",
-    mode: "number+gauge+delta",
+    mode: "number+gauge",
     gauge: { shape: "bullet" },
     // delta: { reference: 300 },
     value: 645,
@@ -107,11 +61,12 @@ const Creditscore = () => {
     ];
     
     const layout = { width: 800, height: 400, margin: { l: 200 } };
-    const layoutfactor = { width: 900, height: 210, margin: { l: 250, pad: 10 } };
+    const layoutfactor = { width: 900, height: 130, margin: { l: 250, t:20 }  };
     const config = {displayModeBar: false};
 
 
   return (
+    <>
     <div className="flex">
       <div className='flex-none '>
       <Sidebar/>
@@ -128,16 +83,19 @@ const Creditscore = () => {
         
         
         <div>
-          <div className="my-0 py-0 hover:cursor-pointer" onClick = {()=>{navigate('/BS')}}>
+          <div className="-mt-16 py-0 flex">
           <Plot 
             data={factor1}
             layout={layoutfactor}
             config={config}
             />
+            <button title='Bank Score' 
+            className='-mt-16 -ml-20 z-10 hover:cursor-pointer'><InfoOutlinedIcon sx={{ "&:hover": { color: "skyblue" } }} className=' hover:to-blue-500'/></button>
+            
           </div>
           
 
-          <div className='my-0 py-0 hover:cursor-pointer' onClick = {()=>{navigate('/GST')}}>
+          <div className='-mt-16 py-0 hover:cursor-pointer' onClick = {()=>{navigate('/GST')}}>
           <Plot 
             data={factor2}
             layout={layoutfactor}
@@ -145,7 +103,7 @@ const Creditscore = () => {
             />
           </div>
 
-          <div className="my-0 py-0 hover:cursor-pointer" onClick = {()=>{navigate('/CIBIL')}}>
+          <div className="-mt-16 py-0 hover:cursor-pointer" >
           <Plot 
             data={factor3}
             layout={layoutfactor}
@@ -157,8 +115,12 @@ const Creditscore = () => {
       </div>
 
       
-
     </div>
+    <BS/>
+    <GST/>
+      
+      <CIBIL/>
+    </>
 
   );
 }
