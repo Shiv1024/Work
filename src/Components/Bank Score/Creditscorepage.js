@@ -6,11 +6,16 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import BS from './BS';
 import GST from './GST';
 import CIBIL from './CIBIL';
+import { useRef } from 'react';
 
 const Creditscore = () => {
  
   const navigate = useNavigate();
-  
+  const refBs = useRef(null);
+
+  const handleClick = () => {
+    refBs.current?.scrollIntoView({behavior: 'smooth'});
+      };
   
     const dataChart = [
       {
@@ -83,7 +88,7 @@ const Creditscore = () => {
         
         
         <div>
-          <div className="-mt-16 py-0 flex">
+          <div className="-mt-16 py-0 flex" onClick={()=>{handleClick()}}>
           <Plot 
             data={factor1}
             layout={layoutfactor}
@@ -95,7 +100,7 @@ const Creditscore = () => {
           </div>
           
 
-          <div className='-mt-16 py-0 hover:cursor-pointer' onClick = {()=>{navigate('/GST')}}>
+          <div className='-mt-16 py-0'>
           <Plot 
             data={factor2}
             layout={layoutfactor}
@@ -103,7 +108,7 @@ const Creditscore = () => {
             />
           </div>
 
-          <div className="-mt-16 py-0 hover:cursor-pointer" >
+          <div className="-mt-16 py-0" >
           <Plot 
             data={factor3}
             layout={layoutfactor}
@@ -116,7 +121,7 @@ const Creditscore = () => {
 
       
     </div>
-    <BS/>
+    <BS ref={refBs}/>
     <GST/>
       
       <CIBIL/>
