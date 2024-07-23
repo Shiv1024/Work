@@ -17,17 +17,18 @@ const formatNumber = (num) => {
   }
 };
 
-const Card = ({ number,text}) => (
+
+const Card = ({ number, text }) => (
   <div className="relative mt-2 mb-2 p-4 bg-white rounded shadow-lg text-center border border-blue-500 hover:shadow-2xl transition-shadow duration-300">
     <div className="relative">
       <div className="text-3xl font-bold">
-        {formatNumber(number)}
+        {typeof number === 'string' ? number : formatNumber(number)}
       </div>
       <div className="absolute inset-0 ml-20 mr-20 flex items-center justify-center opacity-0 hover:opacity-100 bg-gray-800 bg-opacity-75 text-white text-xl font-bold rounded transition-opacity duration-300">
-        {numeral(number).format('0,0')}
+        {typeof number === 'string' ? number : numeral(number).format('0,0')}
       </div>
     </div>
-    <div className='mt-5 text-xl'>
+    <div className="mt-5 text-xl">
       <p>{text}</p>
     </div>
   </div>

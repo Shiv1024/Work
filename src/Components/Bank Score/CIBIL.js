@@ -2,13 +2,13 @@ import React from 'react'
 import Sidebar from '../Sidebar2';
 import Plot from 'react-plotly.js';
 import { useNavigate } from 'react-router-dom';
-const CIBIL = () => {
+const CIBIL = (props) => {
     const navigate = useNavigate();
     const dataChart = [
         {
           domain: { x: [0, 1], y: [0, 1] },
-          value: 1318,
-          title: { text: "CIBIL" },
+          value: (props && props.value)||1380,
+          title: { text: "CIBIL Score" },
           type: "indicator",
           mode: "gauge+number",
           delta: { reference: 400 },
@@ -76,17 +76,17 @@ const CIBIL = () => {
         }
       ];
       
-      const layout = { width: 800, height: 400, margin: { l: 200 } };
-    const layoutfactor = { width: 900, height: 130, margin: { l: 250, t:20 }  };
+      const layout = { width: 1000, height: 300, margin: { l: 250 } };
+    const layoutfactor = { width:1200, height: 130, margin: { l: 250, t:20 }  };
       const config = {displayModeBar: false};
   
   
     return (
       <div className="flex">
         <div className='flex-none '>
-        <Sidebar/>
+       
         </div> 
-        <div className='ml-80'>
+        <div className=''>
   
           <div className="">
             <Plot className=""
@@ -131,7 +131,7 @@ const CIBIL = () => {
               />
             </div>
 
-            <div className="-mt-16 py-0 hover:cursor-pointer">
+            <div className="-mt-16 py-2 hover:cursor-pointer">
             <Plot 
               data={factor5}
               layout={layoutfactor}

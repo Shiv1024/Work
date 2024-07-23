@@ -17,7 +17,7 @@ import GST from './Components/Bank Score/GST';
 import BS from './Components/Bank Score/BS';
 import CIBIL from './Components/Bank Score/CIBIL';
 import Personalinfo from './Components/Product3/PersonalInfo';
-import Enquiries from "./Components/Product3/Enquiries"
+import Enquiries from "./Components/Product3/Enquiries";
 
 import Amount from './Amount.js';
 // import Amount from './Components/Amount.js';
