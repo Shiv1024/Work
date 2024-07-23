@@ -2,13 +2,13 @@ import React from 'react'
 import Sidebar from '../Sidebar2';
 import Plot from 'react-plotly.js';
 import { useNavigate } from 'react-router-dom';
-const BS = () => {
+const CIBIL = (props) => {
     const navigate = useNavigate();
     const dataChart = [
         {
           domain: { x: [0, 1], y: [0, 1] },
-          value: 1318,
-          title: { text: "CIBIL" },
+          value: (props && props.value)||1380,
+          title: { text: "CIBIL Score" },
           type: "indicator",
           mode: "gauge+number",
           delta: { reference: 400 },
@@ -19,7 +19,7 @@ const BS = () => {
       const factor1 = [
         {
           type: "indicator",
-      mode: "number+gauge+delta",
+      mode: "number+gauge",
       gauge: { shape: "bullet" },
       // delta: { reference: 300 },
       value: 220,
@@ -31,7 +31,7 @@ const BS = () => {
       const factor2 = [
         {
           type: "indicator",
-      mode: "number+gauge+delta",
+      mode: "number+gauge",
       gauge: { shape: "bullet" },
       // delta: { reference: 300 },
       value: 500,
@@ -43,7 +43,7 @@ const BS = () => {
       const factor3 = [
         {
           type: "indicator",
-      mode: "number+gauge+delta",
+      mode: "number+gauge",
       gauge: { shape: "bullet" },
       // delta: { reference: 300 },
       value: 645,
@@ -55,7 +55,7 @@ const BS = () => {
       const factor4 = [
         {
           type: "indicator",
-      mode: "number+gauge+delta",
+      mode: "number+gauge",
       gauge: { shape: "bullet" },
       // delta: { reference: 300 },
       value: 645,
@@ -67,7 +67,7 @@ const BS = () => {
       const factor5 = [
         {
           type: "indicator",
-      mode: "number+gauge+delta",
+      mode: "number+gauge",
       gauge: { shape: "bullet" },
       // delta: { reference: 300 },
       value: 645,
@@ -76,17 +76,17 @@ const BS = () => {
         }
       ];
       
-      const layout = { width: 800, height: 400, margin: { l: 200 } };
-    const layoutfactor = { width: 900, height: 210, margin: { l: 250, pad: 10 } };
+      const layout = { width: 1000, height: 300, margin: { l: 250 } };
+    const layoutfactor = { width:1200, height: 130, margin: { l: 250, t:20 }  };
       const config = {displayModeBar: false};
   
   
     return (
       <div className="flex">
         <div className='flex-none '>
-        <Sidebar/>
+       
         </div> 
-        <div className='ml-80'>
+        <div className=''>
   
           <div className="">
             <Plot className=""
@@ -98,7 +98,7 @@ const BS = () => {
           
           
           <div>
-            <div className="my-0 py-0 hover:cursor-pointer">
+            <div className="-mt-16 py-0 hover:cursor-pointer">
             <Plot 
               data={factor1}
               layout={layoutfactor}
@@ -107,7 +107,7 @@ const BS = () => {
             </div>
             
   
-            <div className='my-0 py-0 hover:cursor-pointer'>
+            <div className='-mt-16 py-0 hover:cursor-pointer'>
             <Plot 
               data={factor2}
               layout={layoutfactor}
@@ -115,7 +115,7 @@ const BS = () => {
               />
             </div>
   
-            <div className="my-0 py-0 hover:cursor-pointer">
+            <div className="-mt-16 py-0 hover:cursor-pointer">
             <Plot 
               data={factor3}
               layout={layoutfactor}
@@ -123,7 +123,7 @@ const BS = () => {
               />
             </div>
 
-            <div className="my-0 py-0 hover:cursor-pointer">
+            <div className="-mt-16 py-0 hover:cursor-pointer">
             <Plot 
               data={factor4}
               layout={layoutfactor}
@@ -131,7 +131,7 @@ const BS = () => {
               />
             </div>
 
-            <div className="my-0 py-0 hover:cursor-pointer">
+            <div className="-mt-16 py-2 hover:cursor-pointer">
             <Plot 
               data={factor5}
               layout={layoutfactor}
@@ -149,4 +149,4 @@ const BS = () => {
     );
 }
 
-export default BS
+export default CIBIL

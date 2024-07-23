@@ -19,8 +19,9 @@ import CIBIL from './Components/Bank Score/CIBIL';
 import Personalinfo from './Components/Product3/PersonalInfo';
 import Enquiries from "./Components/Product3/Enquiries";
 import Option4 from "./Components/Product3/Option4";
-
-
+import Amount from './Amount.js';
+import Amounts from './Components/Amount/Amounts.js';
+// import Amount from './Components/Amount.js';
 function App() {
   const fileUploadRef = useRef();
   const [isFileUploadVisible, setIsFileUploadVisible] = useState(false);
@@ -70,6 +71,11 @@ function App() {
           <Route path="/enquiry" element={<Enquiries/>}/>
           <Route path="/cibilinfo" element={<Option4/>}/>
           <Route path="/credit" element={<Landingpage isFileUploadVisible={isFileUploadVisible} closeFileUpload={closeFileUpload} setIsFileUploadVisible={setIsFileUploadVisible} fileUploadRef={fileUploadRef}/>}/>
+          {/* <Route path="/amount" element={<Amount/>}/>
+           */}
+
+          <Route path="/amount" element={<Amounts/>}/>
+
       </Routes>
       </Router>
     </div>
