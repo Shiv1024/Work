@@ -88,24 +88,39 @@ const Creditscore = () => {
         
         
         <div>
-          <div className="-mt-16 py-0 flex" onClick={()=>{handleClick()}}>
+          <div className="-mt-16 flex" onClick={()=>{handleClick()}}>
           <Plot 
             data={factor1}
             layout={layoutfactor}
             config={config}
             />
+          <div className='mt-6 -ml-20 z-10 flex flex-col'>
             <button title='Bank Score' 
-            className='-mt-16 -ml-20 z-10 hover:cursor-pointer'><InfoOutlinedIcon sx={{ "&:hover": { color: "skyblue" } }} className=' hover:to-blue-500'/></button>
+            className=' hover:cursor-pointer'><InfoOutlinedIcon sx={{ "&:hover": { color: "skyblue" } }} className=' hover:to-blue-500'/></button>
+
+            <button title='Bank Score' 
+            className=' mt-9 hover:cursor-pointer'><InfoOutlinedIcon sx={{ "&:hover": { color: "skyblue" } }} className=' hover:to-blue-500'/></button>
+
+            {/* <button title='Bank Score' 
+            className=' hover:cursor-pointer'><InfoOutlinedIcon sx={{ "&:hover": { color: "skyblue" } }} className=' hover:to-blue-500'/></button> */}
+            </div>
+
+            
+            
             
           </div>
           
 
-          <div className='-mt-16 py-0'>
+          <div className='-mt-16 py-0 -z-20'>
           <Plot 
             data={factor2}
             layout={layoutfactor}
             config={config}
             />
+            <button title='Bank Score' 
+            className='z-30 -ml-16 hover:cursor-pointer'><InfoOutlinedIcon sx={{ "&:hover": { color: "skyblue" } }} className=' hover:to-blue-500'/></button>
+            {/* <button title='Bank Score' 
+            className='-ml-3 z-50 hover:cursor-pointer'><InfoOutlinedIcon sx={{ "&:hover": { color: "skyblue" } }} className=' hover:to-blue-500'/></button> */}
           </div>
 
           <div className="-mt-16 py-0" >
