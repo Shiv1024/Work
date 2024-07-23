@@ -20,6 +20,7 @@ import Personalinfo from './Components/Product3/PersonalInfo';
 import Enquiries from "./Components/Product3/Enquiries";
 
 import Amount from './Amount.js';
+import Amounts from './Components/Amount/Amounts.js';
 // import Amount from './Components/Amount.js';
 function App() {
   const fileUploadRef = useRef();
@@ -69,7 +70,11 @@ function App() {
           <Route path="/info" element={<Personalinfo/>}/>
           <Route path="/enquiry" element={<Enquiries/>}/>
           <Route path="/credit" element={<Landingpage isFileUploadVisible={isFileUploadVisible} closeFileUpload={closeFileUpload} setIsFileUploadVisible={setIsFileUploadVisible} fileUploadRef={fileUploadRef}/>}/>
-          <Route path="/amount" element={<Amount/>}/>
+          {/* <Route path="/amount" element={<Amount/>}/>
+           */}
+
+          <Route path="/amount" element={<Amounts/>}/>
+
       </Routes>
       </Router>
     </div>
