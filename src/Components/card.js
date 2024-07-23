@@ -16,17 +16,15 @@ const formatNumber = (num) => {
     return numeral(num).format('0,0');
   }
 };
-
-
 const Card = ({ number, text }) => (
   <div className="relative mt-2 mb-2 p-4 bg-white rounded shadow-lg text-center border border-blue-500 hover:shadow-2xl transition-shadow duration-300">
-    <div className="relative">
-      <div className="text-3xl font-bold">
+    <div className="relative group">
+      <div className="text-3xl font-bold cursor-pointer">
         {typeof number === 'string' ? number : formatNumber(number)}
       </div>
-      <div className="absolute inset-0 ml-20 mr-20 flex items-center justify-center opacity-0 hover:opacity-100 bg-gray-800 bg-opacity-75 text-white text-xl font-bold rounded transition-opacity duration-300">
+      <span className="tooltip-text absolute opacity-0 group-hover:opacity-100 cursor-pointer bg-gray-600 text-white rounded p-1 mt-1">
         {typeof number === 'string' ? number : numeral(number).format('0,0')}
-      </div>
+      </span>
     </div>
     <div className="mt-5 text-xl">
       <p>{text}</p>
@@ -34,15 +32,13 @@ const Card = ({ number, text }) => (
   </div>
 );
 
-const Cards = ({cardinfo}) => {
 
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-      {cardinfo.map((num, index) => (
-        <Card key={index} number={num.value} text={num.label} />
-      ))}
-    </div>
-  );
-};
+const Cards = ({ cardinfo }) => (
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+    {cardinfo.map((num, index) => (
+      <Card key={index} number={num.value} text={num.label} />
+    ))}
+  </div>
+);
 
 export default Cards;

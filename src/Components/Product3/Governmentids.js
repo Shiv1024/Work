@@ -9,10 +9,10 @@ const IdInfo = () => {
   };
 
   const idInfo = [
-    { label: "PAN No. (as reported)", value: "ALXPJ5729R" },
-    { label: "Passport No. (as reported)", value: "" },
-    { label: "Aadhar No. (as reported)", value: "XXXXXXXXXXXX" },
-    { label: "Other IDs (as reported)", value: "30041497894988" },
+    { label: "PAN No.", value: "ALXPJ5729R" },
+    { label: "Passport No.", value: "" },
+    { label: "Aadhar No.", value: "XXXXXXXXXXXX" },
+    { label: "Other IDs", value: "30041497894988" },
   ];
 
   return (
@@ -33,7 +33,7 @@ const IdInfo = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="py-2 px-4 border-t border-slate-400 text-center">{item.value}</td>
+                    <td className="py-2 px-4 border-t border-slate-400 text-center">{item && item.value||'-'}</td>
                   </tr>
                 </tbody>
               </table>
