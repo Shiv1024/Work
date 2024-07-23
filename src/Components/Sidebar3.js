@@ -28,7 +28,10 @@ const Sidebar = () => {
                     <div className="mb-2 cursor-pointer">
                         <p className="block px-3 py-1 text-xs md:text-sm md:px-4 md:py-2 lg:text-base lg:px-4 lg:py-2 text-center text-white rounded hover:bg-white hover:text-bcgClr" onClick={()=>{navigate('/creditscorepage')}}>
                             Cibil Info Personal and Company
-
+                            
+                            </p>
+                    </div>
+                    </Link>
                 <Link to={"/amount"}>
                     <div className="mb-2 cursor-pointer">
                         <p className="block px-3 py-1 text-xs md:text-sm md:px-4 md:py-2 lg:text-base lg:px-4 lg:py-2 text-center text-white rounded hover:bg-white hover:text-bcgClr" onClick={()=>{navigate('/creditscorepage')}}>
