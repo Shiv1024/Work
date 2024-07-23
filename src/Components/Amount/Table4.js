@@ -1,6 +1,14 @@
 import React from 'react';
 
-const Table = ({ data }) => {
+const Table = ({ data,type }) => {
+
+  const formatAmount = (amount) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      minimumFractionDigits: 0,
+    }).format(amount);
+  };
   return (
     <table className="min-w-full bg-white border-collapse border border-gray-200">
       <thead>
@@ -16,10 +24,10 @@ const Table = ({ data }) => {
         {data.map((row, index) => (
           <tr key={index}>
             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{row.category}</td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.guarantor}</td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.individual}</td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.joint}</td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.total}</td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{type==='count'?row.guarantor:formatAmount(row.guarantor)}</td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{type==='count'?row.individual:formatAmount(row.individual)}</td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{type==='count'?row.joint:formatAmount(row.joint)}</td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{type==='count'?row.total:formatAmount(row.total)}</td>
           </tr>
         ))}
       </tbody>
