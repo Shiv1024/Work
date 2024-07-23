@@ -38,8 +38,8 @@ const BarGraph = ({ data }) => {
   };
 
   return (
-    <div className="my-6">
-      <Bar data={chartData} />
+    <div className="min-w-full my-6" style={{ height: '400px' }}>
+      <Bar data={chartData} options={{ maintainAspectRatio: false }} />
     </div>
   );
 };

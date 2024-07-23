@@ -16,10 +16,10 @@ const Table = ({ data }) => {
         {data.map((row, index) => (
           <tr key={index}>
             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{row.category}</td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.enquiries3Months}</td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.enquiries6Months}</td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.enquiriesBeyond6Months}</td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.total}</td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.enquiries3Months.toLocaleString('en-IN')}</td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.enquiries6Months.toLocaleString('en-IN')}</td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.enquiriesBeyond6Months.toLocaleString('en-IN')}</td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.total.toLocaleString('en-IN')}</td>
           </tr>
         ))}
       </tbody>

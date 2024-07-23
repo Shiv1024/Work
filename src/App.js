@@ -17,7 +17,9 @@ import GST from './Components/Bank Score/GST';
 import BS from './Components/Bank Score/BS';
 import CIBIL from './Components/Bank Score/CIBIL';
 import Personalinfo from './Components/Product3/PersonalInfo';
-import Enquiries from "./Components/Product3/Enquiries"
+import Enquiries from "./Components/Product3/Enquiries";
+import Option4 from "./Components/Product3/Option4";
+
 
 function App() {
   const fileUploadRef = useRef();
@@ -66,6 +68,7 @@ function App() {
           <Route path="/CIBIL" element={<CIBIL/>}/>
           <Route path="/info" element={<Personalinfo/>}/>
           <Route path="/enquiry" element={<Enquiries/>}/>
+          <Route path="/cibilinfo" element={<Option4/>}/>
           <Route path="/credit" element={<Landingpage isFileUploadVisible={isFileUploadVisible} closeFileUpload={closeFileUpload} setIsFileUploadVisible={setIsFileUploadVisible} fileUploadRef={fileUploadRef}/>}/>
       </Routes>
       </Router>
