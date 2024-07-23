@@ -1,6 +1,13 @@
 import React from 'react';
 
-const Table = ({ data }) => {
+const Table = ({ data, type }) => {
+  const formatAmount = (amount) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      minimumFractionDigits: 0,
+    }).format(amount);
+  };
   return (
     <table className="min-w-full bg-white border-collapse border border-gray-200">
       <thead>

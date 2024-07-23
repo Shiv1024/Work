@@ -35,7 +35,7 @@ function Amounts() {
         <div className="max-w-4xl w-full">
           <h1 className="text-2xl font-bold mb-4 text-center">Amount Count</h1>
           <div className="overflow-x-auto">
-            <Table data={amountCountData} />
+            <Table data={amountCountData} type='count' />
           </div>
           <div className="overflow-x-auto">
             <BarGraph data={amountCountData} />

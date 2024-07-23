@@ -32,7 +32,7 @@ function Enquiries() {
         <div className="max-w-4xl w-full">
           <h1 className="text-2xl font-bold mb-4 text-center">Enquiry Count</h1>
           <div className="overflow-x-auto">
-            <Table data={enquiryCountData} />
+            <Table data={enquiryCountData} type='count' />
           </div>
           <div className="overflow-x-auto mt-4">
             <BarGraph data={enquiryCountData} />
