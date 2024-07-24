@@ -3,7 +3,7 @@ import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import TablePagination from '@mui/material/TablePagination';
 import { useNavigate } from 'react-router-dom';
-import dataJSON from '../Assets/executive summary metis.json';
+import dataJSON from '../Assets/new executive summary metis.json';
 import Sidebar from './Sidebar';
 
 const Clients = () => {
