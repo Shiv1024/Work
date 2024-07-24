@@ -121,20 +121,20 @@ const Table5 = ({ wholeInfo, flgComp }) => {
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatDate(row.startDate)}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatDate(row.endDate)}</td>
                   {!flgComp && <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.closed === 'N/A' ? row.closed : formatDate(row.closed)}</td>}
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.sanctioned.toLocaleString('en-IN')}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.outstandingBalance.toLocaleString('en-IN')}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.overdue.toLocaleString('en-IN')}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.emi.toLocaleString('en-IN')}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹{row.sanctioned.toLocaleString('en-IN')}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹{row.outstandingBalance.toLocaleString('en-IN')}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹{row.overdue.toLocaleString('en-IN')}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹{row.emi.toLocaleString('en-IN')}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.elapsedTenure}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.remainingTenure}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.tenure}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.interestRate}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.highCredit.toLocaleString('en-IN')}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹{row.highCredit.toLocaleString('en-IN')}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.latestMMYY}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.averageDPD}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.maxDPD}</td>
                   {flgComp && <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.flag}</td>}
-                  {flgComp && <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.amountLastRepaid.toLocaleString('en-IN')}</td>}
+                  {flgComp && <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">₹{row.amountLastRepaid.toLocaleString('en-IN')}</td>}
                   {flgComp && <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.repaymentFrequency}</td>}
                 </tr>
               ))}

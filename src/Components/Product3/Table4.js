@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Table = ({ data, type }) => {
+const Table = ({ data, type, flgRupee }) => {
   const formatAmount = (amount) => {
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
@@ -23,10 +23,10 @@ const Table = ({ data, type }) => {
         {data.map((row, index) => (
           <tr key={index}>
             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{row.category}</td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.enquiries3Months.toLocaleString('en-IN')}</td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.enquiries6Months.toLocaleString('en-IN')}</td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.enquiriesBeyond6Months.toLocaleString('en-IN')}</td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.total.toLocaleString('en-IN')}</td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{flgRupee && '₹'}{row.enquiries3Months.toLocaleString('en-IN')}</td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{flgRupee && '₹'}{row.enquiries6Months.toLocaleString('en-IN')}</td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{flgRupee && '₹'}{row.enquiriesBeyond6Months.toLocaleString('en-IN')}</td>
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{flgRupee && '₹'}{row.total.toLocaleString('en-IN')}</td>
           </tr>
         ))}
       </tbody>
