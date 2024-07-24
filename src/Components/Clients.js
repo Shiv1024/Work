@@ -211,7 +211,7 @@ const Clients = () => {
                       <div className="truncate">
                         {row.trendDeclineIncreaseConstant}
                       </div>
-                      <span className="absolute left-1/2 top-0 transform -translate-x-1/2 z-50 mt-0 w-max opacity-0 group-hover:opacity-100 bg-gray-600 text-white rounded  transition-opacity duration-200">
+                      <span className="absolute left-1/2 top-0 transform -translate-x-1/2 z-50 mt-0 pl-1 pr-1 w-max opacity-0 group-hover:opacity-100 bg-gray-600 text-white rounded  transition-opacity duration-200">
                         {row.remarks}
                       </span>
                     </div>
