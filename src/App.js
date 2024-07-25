@@ -22,6 +22,7 @@ import Option4 from "./Components/Product3/Option4";
 import Amount from './Amount.js';
 import Amounts from './Components/Amount/Amounts.js';
 // import Amount from './Components/Amount.js';
+import DisableActionButtonsDataGridPro from './Components/client2.js';
 function App() {
   const fileUploadRef = useRef();
   const [isFileUploadVisible, setIsFileUploadVisible] = useState(false);
@@ -75,6 +76,7 @@ function App() {
            */}
 
           <Route path="/amount" element={<Amounts/>}/>
+          <Route path="/demo" element={<DisableActionButtonsDataGridPro/>}/>
 
       </Routes>
       </Router>

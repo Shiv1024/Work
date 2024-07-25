@@ -1,5 +1,6 @@
 import React from 'react';
 import numeral from 'numeral';
+import Tooltip from '@mui/material/Tooltip';
 
 const formatNumber = (num) => {
   const absNum = Math.abs(num);
@@ -16,21 +17,25 @@ const formatNumber = (num) => {
     return numeral(num).format('0,0');
   }
 };
-const Card = ({ number, text }) => (
-  <div className="relative mt-2 mb-2 p-4 bg-white rounded shadow-lg text-center border border-blue-500 hover:shadow-2xl transition-shadow duration-300">
-    <div className="relative group">
-      <div className="text-3xl font-bold cursor-pointer">
-        {typeof number === 'string' ? number : formatNumber(number)}
+const Card = ({ number, text }) => {
+  // Precompute the tooltip text
+  const tooltipText = typeof number === 'string' ? number : numeral(number).format('0,0');
+
+  return (
+    <div className="relative mt-2 mb-2 p-4 bg-white rounded shadow-lg text-center border border-blue-500 hover:shadow-2xl transition-shadow duration-300">
+      <div className="relative group">
+        <Tooltip title={tooltipText} placement="bottom">
+          <div className="text-3xl font-bold cursor-pointer">
+          {typeof number === 'string' ? number : formatNumber(number)}
+          </div>
+        </Tooltip>
       </div>
-      <span className="tooltip-text absolute opacity-0 group-hover:opacity-100 cursor-pointer bg-gray-600 text-white rounded p-1 mt-1">
-        {typeof number === 'string' ? number : numeral(number).format('0,0')}
-      </span>
+      <div className="mt-5 text-xl">
+        <p>{text}</p>
+      </div>
     </div>
-    <div className="mt-5 text-xl">
-      <p>{text}</p>
-    </div>
-  </div>
-);
+  );
+};
 
 
 const Cards = ({ cardinfo }) => (
