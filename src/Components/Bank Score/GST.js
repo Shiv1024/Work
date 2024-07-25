@@ -76,8 +76,8 @@ const GST = () => {
         }
       ];
       
-      const layout = { width: 800, height: 400, margin: { l: 200 } };
-    const layoutfactor = {width: 900, height: 130, margin: { l: 250, t:20 } };
+      const layout = { width: 1000, height: 300, margin: { l: 250 } };
+    const layoutfactor = {width: 1200, height: 130, margin: { l: 250, t:20 } };
       const config = {displayModeBar: false};
   
   
