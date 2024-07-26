@@ -70,7 +70,7 @@ const Creditscore = () => {
         <div className='flex-none'>
           <Sidebar />
         </div>
-        <div className='ml-56'>
+        <div className='ml-80'>
           <div className="relative">
             <Plot
               data={dataChart}
@@ -115,7 +115,7 @@ const Creditscore = () => {
       </div>
       <BS ref={refBs} />
       <GST />
-      <div className='ml-56'><CIBIL /></div>
+      <div className='ml-80'><CIBIL /></div>
     </>
   );
 }
