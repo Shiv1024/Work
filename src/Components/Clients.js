@@ -10,6 +10,7 @@ import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import Tooltip from '@mui/material/Tooltip';
 import PercentIcon from '@mui/icons-material/Percent';
+import FilterListIcon from '@mui/icons-material/FilterList';
 
 const loanSanctionOptions = [
   { value: '', label: 'All' },
@@ -69,6 +70,14 @@ const Clients = () => {
   const handleFilterProfiling = (option) => {
     setProfilingFilter(option.value);
     setProfilingAnchorEl(null);
+  };
+
+  const handleClearLoanSanctionFilter = () => {
+    setLoanSanctionFilter('');
+  };
+
+  const handleClearProfilingFilter = () => {
+    setProfilingFilter('');
   };
 
   const filteredData = data.filter((row) => {
@@ -137,6 +146,13 @@ const Clients = () => {
                 <th className="py-2 px-4 bg-bcgClr w-10 text-white text-center text-nowrap">
                   <div className="flex items-center justify-between">
                     <span>Loan Sanction</span>
+                    {loanSanctionFilter && (
+                      <Tooltip title="Clear Filter" placement="bottom">
+                        <IconButton onClick={handleClearLoanSanctionFilter}>
+                          <FilterListIcon style={{ color: 'white' }} />
+                        </IconButton>
+                      </Tooltip>
+                    )}
                     <Tooltip title="Filter" placement="bottom">
                       <IconButton onClick={(e) => setLoanAnchorEl(e.currentTarget)}>
                         <MoreVertIcon style={{ color: 'white' }} />
@@ -168,13 +184,20 @@ const Clients = () => {
                 <th className="py-2 px-4 bg-bcgClr w-64 text-white text-center text-nowrap">Invoice Matching Y/N</th>
                 <th className="py-2 px-4 bg-bcgClr w-64 text-white text-center text-nowrap">Invoice Matching Amount</th>
                 <th className="py-2 px-4 bg-bcgClr w-64 text-white text-center text-nowrap">
-                Contribution to Overall Business
-               (<PercentIcon/>)
+                  Contribution to Overall Business
+                  (<PercentIcon/>)
                 </th>
                 <th className="py-2 px-4 bg-bcgClr w-64 text-white text-center text-nowrap">Trend</th>
                 <th className="py-2 px-4 bg-bcgClr w-20 text-white text-center text-nowrap">
                   <div className="flex items-center justify-between">
                     <span>Profiling</span>
+                    {profilingFilter && (
+                      <Tooltip title="Clear Filter" placement="bottom">
+                        <IconButton onClick={handleClearProfilingFilter}>
+                          <FilterListIcon style={{ color: 'white' }} />
+                        </IconButton>
+                      </Tooltip>
+                    )}
                     <Tooltip title="Filter" placement="bottom">
                       <IconButton onClick={(e) => setProfilingAnchorEl(e.currentTarget)}>
                         <MoreVertIcon style={{ color: 'white' }} />
@@ -259,17 +282,15 @@ const Clients = () => {
             </tbody>
           </table>
         </div>
-        <div className='flex justify-start'>
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
-          count={filteredData.length}
+          count={sortedData.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
-        </div>
       </div>
     </div>
   );
