@@ -142,8 +142,8 @@ const Clients = () => {
           <table className="flex-shrink-0 mx-auto bg-white border-collapse overflow-x-auto">
             <thead>
               <tr>
-                <th className="py-2 px-4 bg-bcgClr w-52 text-white text-center text-nowrap">Borrower</th>
-                <th className="py-2 px-4 bg-bcgClr w-10 text-white text-center text-nowrap">
+                <th className="py-2 px-4 bg-bcgClr  text-white text-center text-nowrap">Borrower</th>
+                <th className="py-2 px-4 bg-bcgClr  text-white text-center text-nowrap">
                   <div className="flex items-center justify-between">
                     <span>Loan Sanction</span>
                     {loanSanctionFilter && (
@@ -171,8 +171,8 @@ const Clients = () => {
                     </Menu>
                   </div>
                 </th>
-                <th className="py-2 px-4 bg-bcgClr w-10 text-white text-center text-nowrap">Limit Used</th>
-                <th onClick={() => handleSort('noOfMajorFlags')} className="py-2 px-4 bg-bcgClr w-12 text-white text-center cursor-pointer">
+                <th className="py-2 px-4 bg-bcgClr  text-white text-center text-nowrap">Limit Used</th>
+                <th onClick={() => handleSort('noOfMajorFlags')} className="py-2 px-4 bg-bcgClr text-white text-center cursor-pointer">
                   <div className='flex flex-row items-center'>
                     <div className='text-nowrap mr-2'>No. of Major Flags</div>
                     <Tooltip title="Sort" placement="bottom">
@@ -180,15 +180,15 @@ const Clients = () => {
                     </Tooltip>
                   </div>
                 </th>
-                <th className="py-2 px-4 bg-bcgClr w-64 text-white text-center text-nowrap">Flag Description</th>
-                <th className="py-2 px-4 bg-bcgClr w-64 text-white text-center text-nowrap">Invoice Matching Y/N</th>
-                <th className="py-2 px-4 bg-bcgClr w-64 text-white text-center text-nowrap">Invoice Matching Amount</th>
-                <th className="py-2 px-4 bg-bcgClr w-64 text-white text-center text-nowrap">
+                <th className="py-2 px-4 bg-bcgClr text-white w-64 text-center text-nowrap">Flag Description</th>
+                <th className="py-2 px-4 bg-bcgClr text-white text-center text-nowrap">Invoice Matching Y/N</th>
+                <th className="py-2 px-4 bg-bcgClr text-white text-center text-nowrap">Invoice Matching Amount</th>
+                <th className="py-2 px-4 bg-bcgClr text-white text-center text-nowrap">
                   Contribution to Overall Business
                   (<PercentIcon/>)
                 </th>
-                <th className="py-2 px-4 bg-bcgClr w-64 text-white text-center text-nowrap">Trend</th>
-                <th className="py-2 px-4 bg-bcgClr w-20 text-white text-center text-nowrap">
+                <th className="py-2 px-4 bg-bcgClr text-white text-center text-nowrap">Trend</th>
+                <th className="py-2 px-4 bg-bcgClr text-white text-center text-nowrap">
                   <div className="flex items-center justify-between">
                     <span>Profiling</span>
                     {profilingFilter && (
@@ -216,54 +216,54 @@ const Clients = () => {
                     </Menu>
                   </div>
                 </th>
-                <th className="py-2 px-4 bg-bcgClr w-80 text-white text-center">Action</th>
+                <th className="py-2 px-4 bg-bcgClr text-white text-center">Action</th>
               </tr>
             </thead>
             <tbody className="shadow-lg">
               {sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
                 <tr key={index} className={(page * rowsPerPage + index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
                   <td className="py-1 px-4 text-left">
-                    <div className="relative w-56">
+                    <div className="relative ">
                       <div className="truncate hover:cursor-pointer text-blue-500">{row.borrower}</div>
                       {row.borrower.length > 40 &&
-                        <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-90 text-white text-xl font-bold opacity-0 hover:opacity-100 w-64 h-10 overflow-auto">
+                        <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-90 text-white text-xl font-bold opacity-0 hover:opacity-100  h-10 overflow-auto">
                           {row.borrower}
                         </div>
                       }
                     </div>
                   </td>
                   <td className="py-2 px-7 text-center">
-                    <div className="relative w-9">
+                    <div className="relative ">
                       <div className="truncate text-center">{row.loanSanction}</div>
                     </div>
                   </td>
                   <td className="py-1 px-4 text-center">
-                    <div className="truncate relative w-10">{row.limitUsed}</div>
+                    <div className="truncate relative">{row.limitUsed}</div>
                   </td>
                   <td className="py-1 px-4 text-center">
-                    <div className="truncate relative w-12">{row.noOfMajorFlags}</div>
+                    <div className="truncate relative ">{row.noOfMajorFlags}</div>
                   </td>
                   <td className="py-1 px-4 text-center">
-                    <div className="relative w-64">
+                    <div className="relative ">
                       {row.flagDescription.length >30 ?
                         <Tooltip title={row.flagDescription} placement="bottom">
-                        <div className="truncate">{row.flagDescription}</div>
+                        <div className="truncate text-wrap">{row.flagDescription}</div>
                         </Tooltip>:
-                        <div className>{row.flagDescription}</div>
+                        <div className="truncate text-wrap">{row.flagDescription}</div>
                       }
                     </div>
                   </td>
                   <td className="py-1 px-4 text-center">
-                    <div className="truncate relative w-15">{row.invoiceMatchingYN || '-'}</div>
+                    <div className="truncate relative ">{row.invoiceMatchingYN || '-'}</div>
                   </td>
                   <td className="py-1 px-4 text-center">
-                    <div className="truncate relative w-15">{formatCurrency(row.invoiceMatchingAmount)}</div>
+                    <div className="truncate relative ">{formatCurrency(row.invoiceMatchingAmount)}</div>
                   </td>
                   <td className="py-1 px-4 text-center">
-                    <div className="truncate relative w-15">{formatPercentage(row.credableContriToOverallBusiness)}</div>
+                    <div className="truncate relative ">{formatPercentage(row.credableContriToOverallBusiness)}</div>
                   </td>
                   <td className="py-1 px-4 text-center relative cursor-pointer">
-                    <div className="relative w-15 group">
+                    <div className="relative  group">
                       <Tooltip title={row.remarks} placement="bottom">
                         <div className="truncate">
                           {row.trendDeclineIncreaseConstant}
@@ -271,11 +271,11 @@ const Clients = () => {
                       </Tooltip>
                     </div>
                   </td>
-                  <td className={`py-1 px-4 text-center relative w-15 ${profilingColors[row.profiling]}`}>
+                  <td className={`py-1 px-4 text-center relative  ${profilingColors[row.profiling]}`}>
                     <div className="truncate">{row.profiling || '-'}</div>
                   </td>
                   <td className="py-1 px-4 text-center">
-                    <div className="truncate relative w-15 text-wrap">{row.action || '-'}</div>
+                    <div className="truncate relative w-64 text-wrap">{row.action || '-'}</div>
                   </td>
                 </tr>
               ))}
