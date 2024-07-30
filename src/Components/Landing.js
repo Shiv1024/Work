@@ -4,6 +4,7 @@ import FileIcon from "./FileIcon.js";
 import MainSidebar from "./Mainsidebar.js";
 import Navbar from "./Navbar.js";
 import Modal from "./modals.js";
+import { useNavigate } from "react-router";
 const Landing = ({
   isFileUploadVisible,
   closeFileUpload,
@@ -14,6 +15,8 @@ const Landing = ({
   const [files, setFiles] = useState([]);
   const [asc, setAsc] = useState(true);
   const modalRef = useRef(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Function to close modal when clicking outside
@@ -61,13 +64,32 @@ const Landing = ({
     setAsc(!asc);
   };
 
+  const handleDocTypeClick = (docType) => {
+    switch (docType) {
+      case "EWS":
+        navigate("/clients");
+        break;
+      case "Credit Scoring":
+        navigate("/creditscorepage");
+        break;
+      case "Cibil Parsing":
+        navigate("/info");
+        break;
+      case "SMS Parsing":
+        navigate("/sms");
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
-    <div className="flex-row">
+    <div className="flex-row min-h-screen">
       <MainSidebar />
-      <div className="flex flex-col flex-1 w-full">
+      <div className="flex flex-col min-h-screen flex-1 w-full">
         <Navbar />
-        <div className="mt-4 ml-32 lg:ml-56 md:ml-48 p-4 relative flex-1">
-          <div className="-my-2 overflow-x-auto ">
+        <div className="mt-4 ml-32 lg:ml-56 md:ml-48 p-4 h-full relative flex-1">
+          <div className="-my-2 overflow-x-auto">
             <table className="w-full bg-gray-200 border border-gray-400 shadow-lg rounded-lg">
               <thead>
                 <tr className="bg-bcgClr text-white">
@@ -97,7 +119,12 @@ const Landing = ({
                     <td className="py-3 px-2 border-b border-gray-200 text-left">{file.name}</td>
                     <td className="py-3 px-4 border-b border-gray-200 text-left text-green-600">SUCCESS</td>
                     <td className="py-3 px-4 border-b border-gray-200 text-left">Random Person</td>
-                    <td className="py-3 px-4 border-b border-gray-200 text-left">Cibil</td>
+                    <td
+                      className="py-3 px-4 border-b border-gray-200 text-left cursor-pointer text-blue-500"
+                      onClick={() => handleDocTypeClick(file.docType)}
+                    >
+                      {file.docType}
+                    </td>
                     <td className="py-3 px-4 border-b border-gray-200 text-left">{file.dateAdded}</td>
                     <td className="py-3 px-4 border-b border-gray-200 text-left"><FileIcon /></td>
                   </tr>
@@ -125,7 +152,7 @@ const Landing = ({
         </select>
       </div>
           
-      <div className={`${isFileUploadVisible ? "-translate-x-0" : "translate-x-full"} fixed top-0 right-0 h-full bg-white shadow-lg z-50 duration-300 ease-out transition-all w-4/5`} ref={modalRef}>
+      <div className={`${isFileUploadVisible ? "-translate-x-0" : "translate-x-full"} h-full fixed top-0 right-0 bg-white shadow-lg z-50 duration-300 ease-out transition-all w-4/5`} ref={modalRef}>
         <Fileupload  onFileUpload={handleFileUpload} onFileclose={handleFileClose}/>
       </div>
 

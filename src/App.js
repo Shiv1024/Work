@@ -61,7 +61,6 @@ function App() {
           <Route path = "/table2" element = {<Table2 />} />
           <Route path = "/table3" element = {<Table3 />} />
           <Route path = "/invoicematching" element = {<TablePage />} />
-          <Route path = "/tablepage" element = {<Clients />} />
           <Route path = "/summary" element = {<Summary/>} />
           <Route path="/clients" element={<Clients/>}/>
           <Route path="/creditscorepage" element={<Creditscore/>}/>
