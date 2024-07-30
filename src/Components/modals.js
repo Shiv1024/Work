@@ -36,12 +36,12 @@ const Modal = ({ show, onClose, onFileChange, errorMessage }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
       <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-        <h2 className="text-xl mb-4">Upload a File</h2>
+        <h2 className="text-xl mb-4 ">Upload a File</h2>
         <input
           type="file"
           accept=".pdf"
           onChange={handleChange}
-          className="mb-4"
+          className="mb-4 "
         />
         <p className="my-4 text-gray-600">or drag and drop your file here</p>
         <div

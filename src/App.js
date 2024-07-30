@@ -23,6 +23,7 @@ import Amount from './Amount.js';
 import Amounts from './Components/Amount/Amounts.js';
 // import Amount from './Components/Amount.js';
 import SMSParsing from './Components/SMS parsing.js';
+import Fileupload from './Components/Fileupload3.js';
 function App() {
   const fileUploadRef = useRef();
   const [isFileUploadVisible, setIsFileUploadVisible] = useState(false);
@@ -77,6 +78,7 @@ function App() {
 
           <Route path="/amount" element={<Amounts/>}/>
           <Route path="/sms" element={<SMSParsing/>}/>
+          <Route path="/new" element={<Fileupload/>}/>
 
       </Routes>
       </Router>
