@@ -44,7 +44,7 @@ const GST = () => {
       <div className='flex-none'>
         <Sidebar />
       </div>
-      <div className='ml-80'>
+      <div className='ml-56'>
         <div className="">
           <Plot
             data={dataChart}

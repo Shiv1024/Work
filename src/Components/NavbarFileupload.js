@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-const Navbar = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
+const Navbar = (props) => {
+  const [selectedOption, setSelectedOption] = useState("EWS");
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
+    props.SelectedOption(option);
   };
 
   return (

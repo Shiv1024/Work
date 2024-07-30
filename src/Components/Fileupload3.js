@@ -7,6 +7,8 @@ const Fileupload = ({ onFileUpload,onFileclose }) => {
   const [isSaveOptionOpen, setIsSaveOptionOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [file,setFile]=useState([]);
+  const [selectedOption, setSelectedOption] = useState("EWS");
+  
   const handleFiles = (fileList) => {
     if (fileList && fileList.length > 0) {
       const file = fileList[0];
@@ -19,6 +21,7 @@ const Fileupload = ({ onFileUpload,onFileclose }) => {
         dateAdded: new Date().toLocaleDateString(),
         type: file.type,
         size: (file.size / 1024).toFixed(2) + " KB",
+        docType: selectedOption
       };
       setFiles([...files,newFile]); // Only keep the most recent file
       setErrorMessage("");
@@ -59,13 +62,19 @@ const Fileupload = ({ onFileUpload,onFileclose }) => {
     setFile([]);
   };
 
+  const optionChange = (option) => {
+    setSelectedOption(option);
+  }
+
   return (
     <div>
-      <Navbar />
-      <div className="pt-4">
+      <Navbar
+      SelectedOption = {optionChange} 
+      />
+      <div className="pt-4 min-h-screen">
         {!file.length ? (
           <div
-            className="bg-bgClr5 border-2 border-dashed border-gray-600 rounded-md m-6 h-72 flex flex-col items-center justify-center"
+            className="bg-bgClr5 h-120 border-2 border-dashed border-gray-600 rounded-md m-6 flex flex-col items-center justify-center"
             onDragOver={handleDragOver}
             onDrop={handleDrop}
           >
