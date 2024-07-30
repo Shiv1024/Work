@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "category": "Asset Loan",
         "guarantor": 1,
         "individual": 2,
@@ -11,41 +12,47 @@
         "guarantor": 9,
         "individual": 1,
         "joint": 17,
-        "total": 27
+        "total": 27,
+        "id": 2
     },
     {
         "category": "Credit Card",
         "guarantor": 0,
         "individual": 5,
         "joint": 0,
-        "total": 5
+        "total": 5,
+        "id": 3
     },
     {
         "category": "Other",
         "guarantor": 3,
         "individual": 0,
         "joint": 1,
-        "total": 4
+        "total": 4,
+        "id": 4
     },
     {
         "category": "Personal Loan",
         "guarantor": 0,
         "individual": 0,
         "joint": 1,
-        "total": 1
+        "total": 1,
+        "id": 5
     },
     {
         "category": "Working Capital Limit",
         "guarantor": 0,
         "individual": 2,
         "joint": 0,
-        "total": 2
+        "total": 2,
+        "id": 6
     },
     {
         "category": "Total",
         "guarantor": 13,
         "individual": 10,
         "joint": 23,
-        "total": 46
+        "total": 46,
+        "id": 7
     }
 ]

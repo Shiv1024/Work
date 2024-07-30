@@ -41,7 +41,7 @@ function Enquiries() {
         <div className="max-w-4xl w-full mt-8">
           <h1 className="text-2xl font-bold mb-4 text-center">Enquiry Amount</h1>
           <div className="overflow-x-auto">
-            <Table data={enquiryAmountData} />
+            <Table data={enquiryAmountData} type='enquiry' />
           </div>
           <div className="overflow-x-auto mt-4">
             <BarGraph data={enquiryAmountData} />
