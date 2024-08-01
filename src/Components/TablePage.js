@@ -2,6 +2,8 @@ import React from 'react';
 import Sidebar from "./Sidebar";
 import Table1 from "./Table1";
 import Table2 from "./Table2";
+import DataTable from './NewTableMUI';
+// import DataTable from './Table1';
 
 const TablePage = () => {
     return (
@@ -12,7 +14,9 @@ const TablePage = () => {
                     <div className="w-full border-l border-gray-400 h-12 md:h-16 lg:h-20 bg-bcgClr flex flex-col justify-center">
                         <h1 className="text-white text-base md:text-lg lg:text-xl ml-4">Client's Name</h1>
                     </div>
-                    <Table1 />
+                    {/* <Table1 /> */}
+                    {/* <DataTable/> */}
+                    <DataTable/>
                     <Table2 />
                 </div>
             </div>

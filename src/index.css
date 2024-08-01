@@ -8,4 +8,8 @@
 .custom-header .MuiDataGrid-columnHeaders {
     background-color: #002a40;
   }
+
+  .MuiTableSortLabel-root{
+    color: white;
+  }
   
