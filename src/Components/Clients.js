@@ -3,7 +3,6 @@ import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import TablePagination from '@mui/material/TablePagination';
 import dataJSON from '../Assets/new executive summary metis.json';
 import Sidebar from './Sidebar';
 import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
@@ -11,6 +10,14 @@ import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import Tooltip from '@mui/material/Tooltip';
 import PercentIcon from '@mui/icons-material/Percent';
 import FilterListIcon from '@mui/icons-material/FilterList';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TablePagination from '@mui/material/TablePagination';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 
 const loanSanctionOptions = [
   { value: '', label: 'All' },
@@ -34,6 +41,7 @@ const profilingColors = {
   Red: 'text-red-500',
   Yellow:'text-yellow-500'
 };
+
 
 const Clients = () => {
   const [data, setData] = useState(dataJSON);
@@ -128,7 +136,7 @@ const Clients = () => {
 
   const formatPercentage = (value) => {
     if (value === null || value === undefined) return '-';
-    return `${parseFloat(value*100).toFixed(2)}%`;
+    return `${parseFloat(value * 100).toFixed(2)}%`;
   };
 
   return (
@@ -136,14 +144,15 @@ const Clients = () => {
       <div className='flex-none'>
         <Sidebar />
       </div>
-
       <div className='p-4 ml-32 md:ml-48 lg:ml-56 flex flex-col overflow-x-hidden'>
-        <div className="flex overflow-x-scroll overflow-y-hidden">
-          <table className="flex-shrink-0 mx-auto bg-white border-collapse overflow-x-auto">
-            <thead>
-              <tr>
-                <th className="py-2 px-4 bg-bcgClr  text-white text-center text-nowrap">Borrower</th>
-                <th className="py-2 px-4 bg-bcgClr  text-white text-center text-nowrap">
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow className="bg-bcgClr text-center">
+                <TableCell style={{ color: 'white', textAlign: 'center' }}>
+                  Borrower
+                </TableCell>
+                <TableCell style={{ color: 'white', textAlign: 'center' }}>
                   <div className="flex items-center justify-between">
                     <span>Loan Sanction</span>
                     {loanSanctionFilter && (
@@ -170,25 +179,35 @@ const Clients = () => {
                       ))}
                     </Menu>
                   </div>
-                </th>
-                <th className="py-2 px-4 bg-bcgClr  text-white text-center text-nowrap">Limit Used</th>
-                <th onClick={() => handleSort('noOfMajorFlags')} className="py-2 px-4 bg-bcgClr text-white text-center cursor-pointer">
-                  <div className='flex flex-row items-center'>
-                    <div className='text-nowrap mr-2'>No. of Major Flags</div>
+                </TableCell>
+                <TableCell style={{ color: 'white', textAlign: 'center' }}>
+                  Limit Used
+                </TableCell>
+                <TableCell onClick={() => handleSort('noOfMajorFlags')} style={{ color: 'white', textAlign: 'center' }}>
+                  <div className='flex flex-row items-center cursor-pointer '>
+                    <div className='text-wrap mr-2 '>No. of Major Flags</div>
                     <Tooltip title="Sort" placement="bottom">
                       {sortConfig.key === 'noOfMajorFlags' && (sortConfig.direction === 'ascending' ? <ArrowDownwardOutlinedIcon /> : <ArrowUpwardOutlinedIcon />)}
                     </Tooltip>
                   </div>
-                </th>
-                <th className="py-2 px-4 bg-bcgClr text-white w-64 text-center text-nowrap">Flag Description</th>
-                <th className="py-2 px-4 bg-bcgClr text-white text-center text-nowrap">Invoice Matching Y/N</th>
-                <th className="py-2 px-4 bg-bcgClr text-white text-center text-nowrap">Invoice Matching Amount</th>
-                <th className="py-2 px-4 bg-bcgClr text-white text-center text-nowrap">
+                </TableCell>
+                <TableCell style={{ color: 'white', textAlign: 'center' }}>
+                  Flag Description
+                </TableCell>
+                <TableCell style={{ color: 'white', textAlign: 'center' }}>
+                  Invoice Matching Y/N
+                </TableCell>
+                <TableCell style={{ color: 'white', textAlign: 'center' }}>
+                  Invoice Matching Amount
+                </TableCell>
+                <TableCell style={{ color: 'white', textAlign: 'center' }}>
                   Contribution to Overall Business
-                  (<PercentIcon/>)
-                </th>
-                <th className="py-2 px-4 bg-bcgClr text-white text-center text-nowrap">Trend</th>
-                <th className="py-2 px-4 bg-bcgClr text-white text-center text-nowrap">
+                  (<PercentIcon />)
+                </TableCell>
+                <TableCell style={{ color: 'white', textAlign: 'center' }}>
+                  Trend
+                </TableCell>
+                <TableCell style={{ color: 'white', textAlign: 'center' }}>
                   <div className="flex items-center justify-between">
                     <span>Profiling</span>
                     {profilingFilter && (
@@ -215,73 +234,60 @@ const Clients = () => {
                       ))}
                     </Menu>
                   </div>
-                </th>
-                <th className="py-2 px-4 bg-bcgClr text-white text-center">Action</th>
-              </tr>
-            </thead>
-            <tbody className="shadow-lg">
-              {sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-                <tr key={index} className={(page * rowsPerPage + index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
-                  <td className="py-1 px-4 text-left">
-                    <div className="relative ">
-                      <div className="truncate hover:cursor-pointer text-blue-500">{row.borrower}</div>
-                      {row.borrower.length > 40 &&
-                        <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-90 text-white text-xl font-bold opacity-0 hover:opacity-100  h-10 overflow-auto">
-                          {row.borrower}
-                        </div>
-                      }
-                    </div>
-                  </td>
-                  <td className="py-2 px-7 text-center">
-                    <div className="relative ">
-                      <div className="truncate text-center">{row.loanSanction}</div>
-                    </div>
-                  </td>
-                  <td className="py-1 px-4 text-center">
-                    <div className="truncate relative">{row.limitUsed}</div>
-                  </td>
-                  <td className="py-1 px-4 text-center">
-                    <div className="truncate relative ">{row.noOfMajorFlags}</div>
-                  </td>
-                  <td className="py-1 px-4 text-center">
-                    <div className="relative ">
-                      {row.flagDescription.length >30 ?
-                        <Tooltip title={row.flagDescription} placement="bottom">
-                        <div className="truncate text-wrap">{row.flagDescription}</div>
-                        </Tooltip>:
-                        <div className="truncate text-wrap">{row.flagDescription}</div>
-                      }
-                    </div>
-                  </td>
-                  <td className="py-1 px-4 text-center">
-                    <div className="truncate relative ">{row.invoiceMatchingYN || '-'}</div>
-                  </td>
-                  <td className="py-1 px-4 text-center">
-                    <div className="truncate relative ">{formatCurrency(row.invoiceMatchingAmount)}</div>
-                  </td>
-                  <td className="py-1 px-4 text-center">
-                    <div className="truncate relative ">{formatPercentage(row.credableContriToOverallBusiness)}</div>
-                  </td>
-                  <td className="py-1 px-4 text-center relative cursor-pointer">
-                    <div className="relative  group">
-                      <Tooltip title={row.remarks} placement="bottom">
+                </TableCell>
+                <TableCell  style={{ color: 'white', textAlign:'center' }}>
+                    Action
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row,index) => (
+                <TableRow key={row.borrowerName} className={`text-center border ${index % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}`}>
+                  <TableCell className='text-gray-900 text-center '>
+                    {row.borrower}
+                  </TableCell>
+                  <TableCell className='text-gray-900 text-center '>
+                    {formatCurrency(row.loanSanction)}
+                  </TableCell>
+                  <TableCell className='text-gray-900 text-center '>
+                    {formatCurrency(row.limitUsed)}
+                  </TableCell>
+                  <TableCell className='text-gray-900 text-center '>
+                    {row.noOfMajorFlags}
+                  </TableCell>
+                  <TableCell className='text-gray-900 text-center '>
+                  {row.flagDescription}
+                  </TableCell>
+                  <TableCell className='text-gray-900 text-center '>
+                    {row.invoiceMatchingYN||'-'}
+                  </TableCell>
+                  <TableCell className='text-gray-900 text-center '>
+                    {formatCurrency(row.invoiceMatchingAmount)}
+                  </TableCell>
+                  <TableCell className='text-gray-900 text-center '>
+                    {formatPercentage(row.credableContriToOverallBusiness)}
+                  </TableCell>
+                  <TableCell className='text-gray-900 text-center cursor-pointer'>
+                  {<Tooltip title={row.remarks} placement="bottom">
                         <div className="truncate">
-                          {row.trendDeclineIncreaseConstant}
+                        {row.trendDeclineIncreaseConstant}
                         </div>
-                      </Tooltip>
-                    </div>
-                  </td>
-                  <td className={`py-1 px-4 text-center relative  ${profilingColors[row.profiling]}`}>
-                    <div className="truncate">{row.profiling || '-'}</div>
-                  </td>
-                  <td className="py-1 px-4 text-center">
-                    <div className="truncate relative w-64 text-wrap">{row.action || '-'}</div>
-                  </td>
-                </tr>
+                    </Tooltip>}
+                  </TableCell>
+                  <TableCell className="text-gray-900 text-center">
+                  <div className={profilingColors[row.profiling]}>{row.profiling || '-'}</div>
+                </TableCell>
+
+                  <TableCell className={`text-gray-900 text-center `}>
+                  {row.action || '-'}
+                  </TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
-        </div>
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <div className='bg-white w-full flex justify-start'>
+        <div className="w-auto">
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
@@ -291,6 +297,8 @@ const Clients = () => {
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
+        </div>
+        </div>
       </div>
     </div>
   );

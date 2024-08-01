@@ -160,20 +160,20 @@ function DiffTable(props) {
               </TableHead>
               <TableBody>
                 {props.Data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-                  <TableRow key={index}>
-                    <TableCell style={{ backgroundColor: '#f5f5f5' }} align="center">
+                  <TableRow key={index} className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
+                    <TableCell  align="center">
                       {row.inclusions}
                     </TableCell>
-                    <TableCell style={{ backgroundColor: '#f5f5f5' }} align="center">
+                    <TableCell  align="center">
                       {row.measure}
                     </TableCell>
-                    <TableCell style={{ backgroundColor: '#f5f5f5' }} align="center">
+                    <TableCell  align="center">
                       {row.historicalTrend}
                     </TableCell>
-                    <TableCell style={{ backgroundColor: '#f5f5f5' }} align="center">
+                    <TableCell  align="center">
                       {row.currentMonthResponse}
                     </TableCell>
-                    <TableCell style={{ backgroundColor: '#f5f5f5' }} align="center">
+                    <TableCell align="center">
                       {row.remarks}
                     </TableCell>
                   </TableRow>

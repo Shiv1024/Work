@@ -34,7 +34,7 @@ const Personalinfo = () => {
         <Sidebar />
       </div>
       <div className="flex-1 ml-32 md:ml-48 lg:ml-56 flex flex-col overflow-hidden">
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto ">
           <div className="w-full border-l border-gray-400 h-12 md:h-16 lg:h-20 bg-bcgClr flex flex-col justify-center">
             <h1 className="text-white text-base md:text-lg lg:text-xl ml-4">JAY DIPAKKUMAR JHAVERI S/O DIPAK JHAVERI</h1>
           </div>
