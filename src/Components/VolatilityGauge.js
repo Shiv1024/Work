@@ -21,7 +21,7 @@ const VolatilityGauge = (props) => {
   }
 
   return (
-    <div style={{ width: '200px', height: '180px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ width: '400px', height: '360px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ width: '100%', textAlign: 'center', marginBottom: '10px', color:'black' }}>
         <GaugeChart style={{color: 'black'}}
           id="volatility-gauge"
@@ -33,13 +33,12 @@ const VolatilityGauge = (props) => {
           hideText // Hides percentage text
         />
       </div>
-      <div style={{ textAlign: 'center', fontSize: '18px', color:`${gaugeValue<=0.333?('#e76261'):(gaugeValue<=0.58?'#FFBF00':(gaugeValue<=0.75?'#35a6e6':'#33c294'))}`, marginTop: '10px' }}>
-        <span style={{ fontWeight: 'bold' }}>{props.value}</span>
+      <div style={{ textAlign: 'center', fontSize: '25px', color:`${gaugeValue<=0.333?('#e76261'):(gaugeValue<=0.58?'#FFBF00':(gaugeValue<=0.75?'#35a6e6':'#33c294'))}`, marginTop: '10px' }}>
+        <span style={{ fontWeight: 600 }}>{props.value}</span>
       </div>
-      <div style={{ textAlign: 'center', fontSize: '18px' }}>
-        <span style={{ fontWeight: 'bold' }}>Cibil Score -<span style={{color:`${gaugeValue<=0.333?('#e76261'):(gaugeValue<=0.58?'#FFBF00':(gaugeValue<=0.75?'#35a6e6':'#33c294'))}`}}>{gaugeText}</span> </span>
+      <div style={{ textAlign: 'center', fontSize: '25px' }}>
+        <span style={{ fontWeight: 600 }}>Cibil Score: <span style={{color:`${gaugeValue<=0.333?('#e76261'):(gaugeValue<=0.58?'#FFBF00':(gaugeValue<=0.75?'#35a6e6':'#33c294'))}`}}>{gaugeText}</span> </span>
       </div>
-      
     </div>
   );
 };

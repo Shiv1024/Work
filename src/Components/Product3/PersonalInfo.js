@@ -1,9 +1,11 @@
 import React from "react";
 import Sidebar from "../Sidebar3";
 import Cards from "../card.js";
-import CIBIL from "../Bank Score/CIBIL.js";
+// import CIBIL from "../Bank Score/CIBIL.js";
 import Contactinfo from "./Contactinfo.js";
 import IdInfo from "./Governmentids.js";
+import VolatilityGauge from "../VolatilityGauge.js";
+import VolatilityGaugeNew from "../VolatilityGaugeNew.js";
 const Personalinfo = () => {
   const ageconversion = (birthdateInput) => {
     const date = new Date();
@@ -39,7 +41,9 @@ const Personalinfo = () => {
             <h1 className="text-white text-base md:text-lg lg:text-xl ml-4">JAY DIPAKKUMAR JHAVERI S/O DIPAK JHAVERI</h1>
           </div>
           <div className="flex flex-col justify-center items-center mt-0">
-            <CIBIL value={734} className="text-lg md:text-xl lg:text-2xl" />
+            {/* <CIBIL value={734} className="text-lg md:text-xl lg:text-2xl" /> */}
+            <VolatilityGauge value={734} className="text-lg md:text-xl lg:text-2xl" />
+            {/* <VolatilityGaugeNew value={734} className="text-lg md:text-xl lg:text-2xl" /> */}
           </div>
           <Cards cardinfo={cardinfo} />
           <div className="p-4">
