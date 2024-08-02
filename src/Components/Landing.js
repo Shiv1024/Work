@@ -5,6 +5,15 @@ import MainSidebar from "./Mainsidebar.js";
 import Navbar from "./Navbar.js";
 import Modal from "./modals.js";
 import { useNavigate } from "react-router";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TablePagination from '@mui/material/TablePagination';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import gif from "../Assets/progressIndicator.gif";
 const Landing = ({
   isFileUploadVisible,
   closeFileUpload,
@@ -14,6 +23,7 @@ const Landing = ({
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [files, setFiles] = useState([]);
   const [asc, setAsc] = useState(true);
+  const [isGifVisible, setIsGifVisible] = useState(false);
   const modalRef = useRef(null);
 
   const navigate = useNavigate();
@@ -82,7 +92,7 @@ const Landing = ({
         break;
     }
   };
-
+  {console.log(files)}
   return (
     <div className="flex-row min-h-screen">
       <MainSidebar />
@@ -90,7 +100,7 @@ const Landing = ({
         <Navbar />
         <div className="mt-4 ml-32 lg:ml-56 md:ml-48 p-4 h-full relative flex-1">
           <div className="-my-2 overflow-x-auto">
-            <table className="w-full bg-gray-200 border border-gray-400 shadow-lg rounded-lg">
+            {/* <table className="w-full bg-gray-200 border border-gray-400 shadow-lg rounded-lg">
               <thead>
                 <tr className="bg-bcgClr text-white">
                   <th className="py-3 px-4 w-1/5 border-b border-gray-200 text-left cursor-pointer" onClick={sortByClient}>
@@ -130,7 +140,57 @@ const Landing = ({
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table> */}
+            <TableContainer component={Paper}>
+            <Table>
+              <TableHead>
+                <TableRow className="bg-bcgClr text-center">
+                  <TableCell  style={{ color: 'white', textAlign:'center' }}>
+                    Client  Name
+                  </TableCell>
+                  <TableCell style={{ color: 'white', textAlign:'center' }}>
+                    Status
+                  </TableCell>
+                  <TableCell style={{ color: 'white', textAlign:'center' }}>
+                    Parsed By
+                  </TableCell>
+                  <TableCell style={{ color: 'white', textAlign:'center' }}>
+                    Document Type
+                  </TableCell>
+                  <TableCell style={{ color: 'white', textAlign:'center' }}>
+                    Uploaded Date
+                  </TableCell>
+                  <TableCell style={{ color: 'white', textAlign:'center' }}>
+                    Download
+                  </TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {files.map((file, index) => (
+                  <TableRow key={index} className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
+                    <TableCell  align="center">
+                      {file.name}
+                    </TableCell>
+                    <TableCell  align="center"  style={{ color: 'green' }}>
+                      SUCCESS
+                    </TableCell>
+                    <TableCell  align="center">
+                      Random Person
+                    </TableCell>
+                    <TableCell  align="center"  onClick={() => handleDocTypeClick(file.docType)}>
+                      <div className="text-blue-500 cursor-pointer">{file.docType}</div>
+                    </TableCell>
+                    <TableCell align="center">
+                      {file.dateAdded}
+                    </TableCell>
+                    <TableCell align="center">
+                    <FileIcon />
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
           </div>
 
 

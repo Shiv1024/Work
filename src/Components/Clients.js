@@ -8,7 +8,6 @@ import Sidebar from './Sidebar';
 import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import Tooltip from '@mui/material/Tooltip';
-import PercentIcon from '@mui/icons-material/Percent';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -42,12 +41,11 @@ const profilingColors = {
   Yellow:'text-yellow-500'
 };
 
-
 const Clients = () => {
   const [data, setData] = useState(dataJSON);
   const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
   const [loanSanctionFilter, setLoanSanctionFilter] = useState('');
   const [profilingFilter, setProfilingFilter] = useState('');
   const [loanAnchorEl, setLoanAnchorEl] = useState(null);
@@ -150,7 +148,32 @@ const Clients = () => {
             <TableHead>
               <TableRow className="bg-bcgClr text-center">
                 <TableCell style={{ color: 'white', textAlign: 'center' }}>
-                  Borrower
+                <div className="flex items-center justify-between">
+                    <span>Borrower</span>
+                    {profilingFilter && (
+                      <Tooltip title="Clear Filter" placement="bottom">
+                        <IconButton onClick={handleClearProfilingFilter}>
+                          <FilterListIcon style={{ color: 'white' }} />
+                        </IconButton>
+                      </Tooltip>
+                    )}
+                    <Tooltip title="Filter" placement="bottom">
+                      <IconButton onClick={(e) => setProfilingAnchorEl(e.currentTarget)}>
+                        <MoreVertIcon style={{ color: 'white' }} />
+                      </IconButton>
+                    </Tooltip>
+                    <Menu
+                      anchorEl={profilingAnchorEl}
+                      open={Boolean(profilingAnchorEl)}
+                      onClose={() => setProfilingAnchorEl(null)}
+                    >
+                      {profilingOptions.map(option => (
+                        <MenuItem key={option.value} onClick={() => handleFilterProfiling(option)}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </Menu>
+                  </div>
                 </TableCell>
                 <TableCell style={{ color: 'white', textAlign: 'center' }}>
                   <div className="flex items-center justify-between">
@@ -185,7 +208,7 @@ const Clients = () => {
                 </TableCell>
                 <TableCell onClick={() => handleSort('noOfMajorFlags')} style={{ color: 'white', textAlign: 'center' }}>
                   <div className='flex flex-row items-center cursor-pointer '>
-                    <div className='text-wrap mr-2 '>No. of Major Flags</div>
+                    <div className='text-wrap mr-2'>No. of Major Flags</div>
                     <Tooltip title="Sort" placement="bottom">
                       {sortConfig.key === 'noOfMajorFlags' && (sortConfig.direction === 'ascending' ? <ArrowDownwardOutlinedIcon /> : <ArrowUpwardOutlinedIcon />)}
                     </Tooltip>
@@ -198,107 +221,56 @@ const Clients = () => {
                   Invoice Matching Y/N
                 </TableCell>
                 <TableCell style={{ color: 'white', textAlign: 'center' }}>
-                  Invoice Matching Amount
-                </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'center' }}>
-                  Contribution to Overall Business
-                  (<PercentIcon />)
+                  Saliency
                 </TableCell>
                 <TableCell style={{ color: 'white', textAlign: 'center' }}>
                   Trend
                 </TableCell>
                 <TableCell style={{ color: 'white', textAlign: 'center' }}>
-                  <div className="flex items-center justify-between">
-                    <span>Profiling</span>
-                    {profilingFilter && (
-                      <Tooltip title="Clear Filter" placement="bottom">
-                        <IconButton onClick={handleClearProfilingFilter}>
-                          <FilterListIcon style={{ color: 'white' }} />
-                        </IconButton>
-                      </Tooltip>
-                    )}
-                    <Tooltip title="Filter" placement="bottom">
-                      <IconButton onClick={(e) => setProfilingAnchorEl(e.currentTarget)}>
-                        <MoreVertIcon style={{ color: 'white' }} />
-                      </IconButton>
-                    </Tooltip>
-                    <Menu
-                      anchorEl={profilingAnchorEl}
-                      open={Boolean(profilingAnchorEl)}
-                      onClose={() => setProfilingAnchorEl(null)}
-                    >
-                      {profilingOptions.map(option => (
-                        <MenuItem key={option.value} onClick={() => handleFilterProfiling(option)}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </Menu>
-                  </div>
-                </TableCell>
-                <TableCell  style={{ color: 'white', textAlign:'center' }}>
-                    Action
+                  Action
                 </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row,index) => (
-                <TableRow key={row.borrowerName} className={`text-center border ${index % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}`}>
-                  <TableCell className='text-gray-900 text-center '>
-                    {row.borrower}
+              {sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
+                <TableRow key={index} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}>
+                  <TableCell style={{ textAlign: 'center' }}>
+                  <div className={profilingColors[row.profiling]}>{row.borrower}</div>
                   </TableCell>
-                  <TableCell className='text-gray-900 text-center '>
-                    {formatCurrency(row.loanSanction)}
+                  <TableCell style={{ textAlign: 'center' }}>{formatCurrency(row.loanSanction)}</TableCell>
+                  <TableCell style={{ textAlign: 'center' }}>{formatCurrency(row.limitUsed)}</TableCell>
+                  <TableCell style={{ textAlign: 'center' }}>{row.noOfMajorFlags}</TableCell>
+                  <TableCell style={{ textAlign: 'center' }}>{row.flagDescription}</TableCell>
+                  <TableCell style={{ textAlign: 'center',cursor:'pointer' }}>
+                    <Tooltip title={`Invoice Matching Amount: ${formatCurrency(row.invoiceMatchingAmount)}`}>
+                      <span>{row.invoiceMatchingYN}</span>
+                    </Tooltip>
                   </TableCell>
-                  <TableCell className='text-gray-900 text-center '>
-                    {formatCurrency(row.limitUsed)}
+                  <TableCell style={{ textAlign: 'center' }}>{formatPercentage(row.credableContriToOverallBusiness)}</TableCell>
+                  <TableCell style={{ textAlign: 'center',cursor:'pointer' }}> 
+                    {<Tooltip title={row.remarks} placement="bottom">
+                          <div className="truncate">
+                          {row.trendDeclineIncreaseConstant}
+                          </div>
+                      </Tooltip>}
                   </TableCell>
-                  <TableCell className='text-gray-900 text-center '>
-                    {row.noOfMajorFlags}
-                  </TableCell>
-                  <TableCell className='text-gray-900 text-center '>
-                  {row.flagDescription}
-                  </TableCell>
-                  <TableCell className='text-gray-900 text-center '>
-                    {row.invoiceMatchingYN||'-'}
-                  </TableCell>
-                  <TableCell className='text-gray-900 text-center '>
-                    {formatCurrency(row.invoiceMatchingAmount)}
-                  </TableCell>
-                  <TableCell className='text-gray-900 text-center '>
-                    {formatPercentage(row.credableContriToOverallBusiness)}
-                  </TableCell>
-                  <TableCell className='text-gray-900 text-center cursor-pointer'>
-                  {<Tooltip title={row.remarks} placement="bottom">
-                        <div className="truncate">
-                        {row.trendDeclineIncreaseConstant}
-                        </div>
-                    </Tooltip>}
-                  </TableCell>
-                  <TableCell className="text-gray-900 text-center">
-                  <div className={profilingColors[row.profiling]}>{row.profiling || '-'}</div>
-                </TableCell>
-
-                  <TableCell className={`text-gray-900 text-center `}>
-                  {row.action || '-'}
+                  <TableCell style={{ textAlign: 'center' }} >
+                    {row.action}
                   </TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
+          <TablePagination
+            rowsPerPageOptions={[10, 25, 35]}
+            component="div"
+            count={data.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
         </TableContainer>
-        <div className='bg-white w-full flex justify-start'>
-        <div className="w-auto">
-        <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          component="div"
-          count={sortedData.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
-        </div>
-        </div>
       </div>
     </div>
   );

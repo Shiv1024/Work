@@ -2,8 +2,16 @@ import React, { useState } from "react";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import TablePagination from '@mui/material/TablePagination';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
+
 function DiffTable(props) {
   const [isDiffTableVisible, setIsDiffTableVisible] = useState(false);
   const [page, setPage] = useState(0);
@@ -56,6 +64,33 @@ function DiffTable(props) {
     setSortConfig({ key: column, direction });
   };
 
+  
+  const formatHeader = (header) => {
+    // Map specific headers to their desired format
+    const headerMapping = {
+      'loanamt': 'Loan Amount',
+      'monthyear': 'Month Year',
+      'totaldebit': 'Total Debit',
+      'totalcredit': 'Total Credit',
+      'totalupidebit': 'Total UPI Debit',
+      'totalecommerce': 'Total Ecommerce',
+      'amount': 'Amount',
+      'nav': 'NAV',
+      'premium': 'Premium',
+      'loan': 'Loan'
+    };
+
+    // Return formatted header if it exists in the mapping
+    if (headerMapping[header.toLowerCase()]) {
+      return headerMapping[header.toLowerCase()];
+    }
+
+    // Default formatting for headers not in the mapping
+    return header
+      .replace(/([a-z])([A-Z])/g, '$1 $2')  // Add space before capital letters
+      .replace(/\b\w/g, char => char.toUpperCase());  // Capitalize first letter
+  };
+
   return (
     <div className="border border-gray-300 rounded-md shadow-sm w-full flex flex-col mb-4">
       <div className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer" onClick={toggleDiffTableVisibility}>
@@ -64,17 +99,17 @@ function DiffTable(props) {
       </div>
       {isDiffTableVisible && (
         <div className="flex flex-col justify-between p-4">
-          <div className="w-full">
-            <table className="my-auto border-collapse border border-slate-400 w-full">
-              <thead>
-                <tr>
+          <TableContainer component={Paper}>
+            <Table>
+              <TableHead>
+                <TableRow className="bg-bcgClr text-center" >
                   {headers.map((header, index) => (
-                    <th 
-                      key={index} 
-                      className="py-3 px-4 bg-bcgClr text-white capitalize cursor-pointer"
+                    <TableCell
+                      key={index}
+                      style={{ color: 'white', textAlign:'center',cursor:'pointer'}}
                       onClick={() => handleSort(header)}
                     >
-                      {header}
+                      {formatHeader(header)}
                       {sortConfig.key === header ? (
                         sortConfig.direction === 'asc' ? (
                           <ArrowDownwardOutlinedIcon fontSize="small" />
@@ -82,37 +117,35 @@ function DiffTable(props) {
                           <ArrowUpwardOutlinedIcon fontSize="small" />
                         )
                       ) : null}
-                    </th>
+                    </TableCell>
                   ))}
-                </tr>
-              </thead>
-              <tbody>
+                </TableRow>
+              </TableHead>
+              <TableBody>
                 {sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-                  <tr key={index}>
+                  <TableRow key={index} className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
                     {headers.map((header, idx) => (
-                      <td key={idx} className="py-3 px-4 bg-bgClr3 border-b border-gray-200 text-center">
+                      <TableCell key={idx} align="center">
                         {['totalDebit', 'totalCredit', 'totalUpiDebit', 'totalEcommerce', 'amount', 'NAV', 'premium', 'loanamt', 'loan'].includes(header)
                           ? formatCurrency(row[header])
                           : (row[header] || '-')}
-                      </td>
+                      </TableCell>
                     ))}
-                  </tr>
+                  </TableRow>
                 ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="bg-white w-full flex justify-start">
-            <div className="w-auto">
-              <TablePagination
-                rowsPerPageOptions={[5, 10, 25]}
-                component="div"
-                count={props.data.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-              />
-            </div>
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <div className="bg-white w-full flex justify-start mt-4">
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 25]}
+              component="div"
+              count={props.data.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
           </div>
         </div>
       )}

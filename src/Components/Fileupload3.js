@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import Navbar from "./NavbarFileupload";
 import CloseIcon from '@mui/icons-material/Close';
-
+import gif from "../Assets/progressIndicator.gif";
+import { useNavigate } from "react-router";
 const Fileupload = ({ onFileUpload,onFileclose }) => {
   const [files, setFiles] = useState([]);
   const [isSaveOptionOpen, setIsSaveOptionOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [file,setFile]=useState([]);
   const [selectedOption, setSelectedOption] = useState("EWS");
+  const [isGifVisible, setIsGifVisible] = useState(false);
   
+  const navigate = useNavigate();
   const handleFiles = (fileList) => {
     if (fileList && fileList.length > 0) {
       const file = fileList[0];
@@ -49,8 +52,28 @@ const Fileupload = ({ onFileUpload,onFileclose }) => {
   };
 
   const handleSave = () => {
-    handleFileChange(file);
-    handleClose();
+    setIsGifVisible(true);
+    setTimeout(() => {
+      setIsGifVisible(false);
+      handleFileChange(file);
+      handleClose();
+      switch (selectedOption) {
+        case "EWS":
+          navigate("/clients");
+          break;
+        case "Credit Scoring":
+          navigate("/creditscorepage");
+          break;
+        case "Cibil Parsing":
+          navigate("/info");
+          break;
+        case "SMS Parsing":
+          navigate("/sms");
+          break;
+        default:
+          break;
+      };
+    }, 5000);
   };
 
   const handleClose = () => {
@@ -126,6 +149,11 @@ const Fileupload = ({ onFileUpload,onFileclose }) => {
         </div>
         
       </div>
+      {isGifVisible && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+          <img src={gif} alt="Loading" className="w-[240px] h-[300px]" />
+        </div>
+      )}
     </div>
   );
 };
