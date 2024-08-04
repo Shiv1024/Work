@@ -3,10 +3,10 @@ import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import TablePagination from '@mui/material/TablePagination';
 import { useNavigate } from 'react-router-dom';
-import dataJSON from '../Assets/dummydataAmtCnt.json'
+import dataJSON from '../Components/Amount/dummydataAmtCnt.json'
 import Sidebar from './Sidebar';
 
-const AmountCountTable = () => {
+const  AmountCountTable = () => {
     const [data, setData] = useState(dataJSON);
     const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
     const navigate = useNavigate();

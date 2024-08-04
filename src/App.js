@@ -26,7 +26,7 @@ import SMSParsing from './Components/SMS parsing.js';
 import Fileupload from './Components/Fileupload3.js';
 import GaugeChart from './Components/NewCibilScore.js';
 import VolatilityGauge from './Components/VolatilityGauge.js';
-import VolatilityGaug from './Components/NewCibilScore.js';
+// import VolatilityGaug from './Components/NewCibilScore.js';
 import HorizontalBar from './Components/NewCibilScore.js';
 function App() {
   const fileUploadRef = useRef();
