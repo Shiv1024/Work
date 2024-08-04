@@ -3,7 +3,7 @@ import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import TablePagination from '@mui/material/TablePagination';
 import { useNavigate } from 'react-router-dom';
-import dataJSON from '../Assets/dummydataAmt.json'
+import dataJSON from '../Components/Amount/dummydataAmt.json'
 import Sidebar from './Sidebar';
 
 const AmountTable = () => {

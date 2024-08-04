@@ -21,7 +21,10 @@ const VolatilityGauge = (props) => {
   }
 
   return (
+
     <div style={{ width: '400px', height: '360px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+    {/* <div className='shadow-md' style={{ height: '400px', width: '500px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}> */}
+
       <div style={{ width: '100%', textAlign: 'center', marginBottom: '10px', color:'black' }}>
         <GaugeChart style={{color: 'black'}}
           id="volatility-gauge"
