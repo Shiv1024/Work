@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Tooltip from '@mui/material/Tooltip';
 
-const HorizontalBar = ({ value1, value2, value3, value4, head, iscurrency }) => {
+const HorizontalBar = ({ value1, value2, value3, value4, head, iscurrency, isEnquiry }) => {
   const [isHovered1, setIsHovered1] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
   const [isHovered3, setIsHovered3] = useState(false);
@@ -27,8 +27,8 @@ const HorizontalBar = ({ value1, value2, value3, value4, head, iscurrency }) => 
       <div className='py-3 px-3'>
         {head}
       </div>
-      <div style={{ width: '70%', height: '10px', display: 'flex' }} className='px-2 cursor-pointer'>
-        <Tooltip title={`Guarantor: ${displayValue1}`} arrow>
+      <div style={{ width: '480px', height: '8px', display: 'flex' }} className='px-2 cursor-pointer'>
+        <Tooltip title={`${isEnquiry === true ? "Enquiries in 3 Months" : "Guarantor"}: ${displayValue1}`} arrow>
           <div 
             style={{ width: width1, backgroundColor: '#e76261' }} 
             className='hover:shadow-lg hover:scale-105' 
@@ -36,7 +36,7 @@ const HorizontalBar = ({ value1, value2, value3, value4, head, iscurrency }) => 
             onMouseLeave={() => setIsHovered1(false)}
           ></div>
         </Tooltip>
-        <Tooltip title={`Joint: ${displayValue2}`} arrow>
+        <Tooltip title={`${isEnquiry === true ? "Enquiries in 6 Months" : "Joint"}: ${displayValue2}`} arrow>
           <div 
             style={{ width: width2, backgroundColor: '#FFBF00' }} 
             className='hover:shadow-lg hover:scale-105' 
@@ -44,7 +44,7 @@ const HorizontalBar = ({ value1, value2, value3, value4, head, iscurrency }) => 
             onMouseLeave={() => setIsHovered2(false)}
           ></div>
         </Tooltip>
-        <Tooltip title={`Individual: ${displayValue3}`} arrow>
+        <Tooltip title={`${isEnquiry === true ? "Enquiries beyond 6 Months" : "Individual"}: ${displayValue3}`} arrow>
           <div 
             style={{ width: width3, backgroundColor: '#33c294' }} 
             className='hover:shadow-lg hover:scale-105' 

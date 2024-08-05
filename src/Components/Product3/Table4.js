@@ -27,9 +27,9 @@ const Table4 = ({ data,type }) => {
       <TableHead  >
         <TableRow  style={{fontWeight:'bold', backgroundColor:'#f9fafb'}}>
           <TableCell>Category</TableCell>
-          <TableCell align="right">Guarantor</TableCell>
-          <TableCell align="right">Individual</TableCell>
-          <TableCell align="right">Joint</TableCell>
+          <TableCell align="right">Enquiries in 3 Months</TableCell>
+          <TableCell align="right">Enquiries in 6 Months</TableCell>
+          <TableCell align="right">Enquiries beyond 6 Months</TableCell>
           <TableCell align="right">Total</TableCell>
         </TableRow>
       </TableHead>

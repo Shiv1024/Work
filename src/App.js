@@ -19,14 +19,10 @@ import CIBIL from './Components/Bank Score/CIBIL';
 import Personalinfo from './Components/Product3/PersonalInfo';
 import Enquiries from "./Components/Product3/Enquiries";
 import Option4 from "./Components/Product3/Option4";
-import Amount from './Amount.js';
 import Amounts from './Components/Product3/Amount/Amounts.js';
-// import Amount from './Components/Amount.js';
 import SMSParsing from './Components/SMS parsing.js';
 import Fileupload from './Components/Fileupload3.js';
-import GaugeChart from './Components/NewCibilScore.js';
 import VolatilityGauge from './Components/VolatilityGauge.js';
-// import VolatilityGaug from './Components/NewCibilScore.js';
 import HorizontalBar from './Components/NewCibilScore.js';
 function App() {
   const fileUploadRef = useRef();
@@ -77,9 +73,7 @@ function App() {
           <Route path="/cibilinfo" element={<Option4/>}/>
 
           <Route path="/credit" element={<Landingpage isFileUploadVisible={isFileUploadVisible} closeFileUpload={closeFileUpload} setIsFileUploadVisible={setIsFileUploadVisible} fileUploadRef={fileUploadRef}/>}/>
-          {/* <Route path="/amount" element={<Amount/>}/>
-           */}
-           <Route path='/newcibil' element={<HorizontalBar value1={1} value2={2} value3={4} value4={7} head='Asset Loan'/>}/>
+           <Route path='/newcibil' element={<HorizontalBar value1={1} value2={2} value3={4} value4={7} head='Asset Loan' isEnquiry={true}/>}/>
            <Route path="/gauge" element={<VolatilityGauge value={700}/>}/>
 
           <Route path="/amount" element={<Amounts/>}/>

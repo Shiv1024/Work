@@ -34,7 +34,7 @@ function Amounts() {
       </div>
       <div className="ml-32 md:ml-48 lg:ml-56 w-full flex flex-col items-center justify-center mt-4 p-4">
         <div className="max-w-4xl w-full">
-          <h1 className="text-2xl font-bold mb-4 text-center ">Enquiry Count</h1>
+          <h1 className="text-2xl font-bold mb-4 text-center ">Amount Count</h1>
           {/* <div className="overflow-x-auto">
             <Table data={enquiryCountData} type='count' />
           </div> */}
@@ -58,11 +58,10 @@ function Amounts() {
           </div>
         </div>
         <div className="max-w-4xl w-full mt-8">
-          <h1 className="text-2xl font-bold mb-4 text-center">Enquiry Amount</h1>
+          <h1 className="text-2xl font-bold mb-4 text-center">Amount</h1>
           {/* <div className="w-full"> */}
             {/* <HorizontalBar value1={1} value2={2} value3={4} value4={7} head='Asset Loan'/> */}
             <div className="w-full ">
-            {console.log(amountData)}
             {amountData.map((row) => (
               <HorizontalBar
                 // key={row.category} // Ensure key is unique for each item
@@ -72,6 +71,7 @@ function Amounts() {
                 value4={row.total}
                 head={row.category}
                 iscurrency={true}
+                isEnquiry={false}
               />
             ))}
             </div>
