@@ -45,6 +45,7 @@ function Enquiries() {
                 value3={row.enquiriesBeyond6Months}
                 value4={row.total}
                 head={row.category}
+                isEnquiry={true}
               />
             ))}
           </div>
@@ -65,6 +66,7 @@ function Enquiries() {
                 value4={row.total}
                 head={row.category}
                 iscurrency={true}
+                isEnquiry={true}
               />
             ))}
           </div>
