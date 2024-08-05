@@ -1,6 +1,6 @@
 [
     {
-        "id": "1",
+        "id": 1,
         "category": "Asset Loan",
         "guarantor": 0,
         "individual": 138995,
@@ -8,7 +8,7 @@
         "total": 25340589
     },
     {
-        "id": "2",
+        "id": 2,
         "category": "Business Loan",
         "guarantor": 20975727,
         "individual": 241130,
@@ -16,7 +16,7 @@
         "total": 44514575
     },
     {
-        "id": "3",
+        "id": 3,
         "category": "Credit Card",
         "guarantor": 0,
         "individual": 295573,
@@ -24,7 +24,7 @@
         "total": 295573
     },
     {
-        "id": "4",
+        "id": 4,
         "category": "Other",
         "guarantor": 32697507,
         "individual": 0,
@@ -32,7 +32,7 @@
         "total": 55358856
     },
     {
-        "id": "5",
+        "id": 5,
         "category": "Personal Loan",
         "guarantor": 0,
         "individual": 0,
@@ -40,7 +40,7 @@
         "total": 513637
     },
     {
-        "id": "6",
+        "id": 6,
         "category": "Working Capital Limit",
         "guarantor": 0,
         "individual": 4648951,
@@ -48,7 +48,7 @@
         "total": 4648951
     },
     {
-        "id": "7",
+        "id": 7,
         "category": "Total",
         "guarantor": 53673234,
         "individual": 5324649,

@@ -54,9 +54,23 @@ function Enquiries() {
         </div>
         <div className="max-w-4xl w-full mt-8">
           <h1 className="text-2xl font-bold mb-4 text-center">Enquiry Amount</h1>
-          <div className="overflow-x-auto">
-            <Table data={enquiryAmountData} type='enquiry' />
+          <div className="w-full">
+            {/* <HorizontalBar value1={1} value2={2} value3={4} value4={7} head='Asset Loan'/> */}
+            {enquiryAmountData.map((row) => (
+              <HorizontalBar
+                key={row.category} // Ensure key is unique for each item
+                value1={row.enquiries3Months}
+                value2={row.enquiries6Months}
+                value3={row.enquiriesBeyond6Months}
+                value4={row.total}
+                head={row.category}
+                iscurrency={true}
+              />
+            ))}
           </div>
+          {/* <div className="overflow-x-auto">
+            <Table data={enquiryAmountData} type='enquiry' />
+          </div> */}
           <div className="overflow-x-auto mt-4">
             <BarGraph data={enquiryAmountData} />
           </div>

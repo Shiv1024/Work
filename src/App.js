@@ -20,7 +20,7 @@ import Personalinfo from './Components/Product3/PersonalInfo';
 import Enquiries from "./Components/Product3/Enquiries";
 import Option4 from "./Components/Product3/Option4";
 import Amount from './Amount.js';
-import Amounts from './Components/Amount/Amounts.js';
+import Amounts from './Components/Product3/Amount/Amounts.js';
 // import Amount from './Components/Amount.js';
 import SMSParsing from './Components/SMS parsing.js';
 import Fileupload from './Components/Fileupload3.js';

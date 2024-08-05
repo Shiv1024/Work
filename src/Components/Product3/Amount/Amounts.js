@@ -1,11 +1,11 @@
 import React from "react";
-import Sidebar from "../Sidebar3.js";
+import Sidebar from "../../Sidebar3.js";
 import Table from './Table4.js';
 import BarGraph from './EnqBarGraph.js';
 import amountCountData from './dummydataAmtCnt.json'
 
 import amountData from './dummydataAmt.json'
-import HorizontalBar from "../NewCibilScore.js";
+import HorizontalBar from "../../NewCibilScore.js";
 
 function Amounts() {
   // const amountCountData = [
@@ -26,7 +26,7 @@ function Amounts() {
   //   { category: 'Working Capital Limit', Guarantor: 0, Individual: 0, Joint: 23555000, total: 23555000 },
   //   { category: 'Total', Guarantor: 0, Individual: 46100000, Joint: 398948509, total: 445048509 },
   // ];
-
+  
   return (
     <div className="flex">
       <div className='flex-none'>
@@ -34,11 +34,11 @@ function Amounts() {
       </div>
       <div className="ml-32 md:ml-48 lg:ml-56 w-full flex flex-col items-center justify-center mt-4 p-4">
         <div className="max-w-4xl w-full">
-          <h1 className="text-2xl font-bold mb-4 text-center">Enquiry Count</h1>
+          <h1 className="text-2xl font-bold mb-4 text-center ">Enquiry Count</h1>
           {/* <div className="overflow-x-auto">
             <Table data={enquiryCountData} type='count' />
           </div> */}
-          <div className="w-full">
+          <div className="w-full ">
             {/* <HorizontalBar value1={1} value2={2} value3={4} value4={7} head='Asset Loan'/> */}
             {amountCountData.map((row) => (
               <HorizontalBar
@@ -48,17 +48,21 @@ function Amounts() {
                 value3={row.individual}
                 value4={row.total}
                 head={row.category}
+                iscurrency={false}
+                
               />
             ))}
           </div>
           <div className="overflow-x-auto mt-4">
-            {/* <BarGraph data={enquiryCountData} /> */}
+            <BarGraph data={amountCountData} />
           </div>
         </div>
         <div className="max-w-4xl w-full mt-8">
           <h1 className="text-2xl font-bold mb-4 text-center">Enquiry Amount</h1>
           {/* <div className="w-full"> */}
             {/* <HorizontalBar value1={1} value2={2} value3={4} value4={7} head='Asset Loan'/> */}
+            <div className="w-full ">
+            {console.log(amountData)}
             {amountData.map((row) => (
               <HorizontalBar
                 // key={row.category} // Ensure key is unique for each item
@@ -67,12 +71,15 @@ function Amounts() {
                 value3={row.individual}
                 value4={row.total}
                 head={row.category}
+                iscurrency={true}
               />
             ))}
+            </div>
+            
           {/* </div> */}
-          <div className="overflow-x-auto">
+          {/* <div className="overflow-x-auto">
             <Table data={amountData} type='enquiry' />
-          </div>
+          </div> */}
           <div className="overflow-x-auto mt-4">
             <BarGraph data={amountData} />
           </div>

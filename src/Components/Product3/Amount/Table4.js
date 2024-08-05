@@ -48,7 +48,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import data from '../Amount/dummydataAmtCnt.json'
+import data from './dummydataAmtCnt.json'
 
 function createData(category, guarantor, individual,joint, total) {
   return { category, guarantor, individual,joint, total };
