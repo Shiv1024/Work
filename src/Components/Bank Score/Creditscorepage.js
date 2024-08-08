@@ -7,6 +7,8 @@ import GST from './GST';
 import CIBIL from './CIBIL';
 import { useRef } from 'react';
 import VolatilityGauge from '../VolatilityGauge';
+
+
 const Creditscore = () => {
   const navigate = useNavigate();
   const refBs = useRef(null);
