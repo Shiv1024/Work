@@ -33,6 +33,8 @@ const VolatilityGauge = (props) => {
           percent={gaugeValue}
           arcWidth={0.07}
           hideText // Hides percentage text
+          // needleColor={props.color}
+          // needleBaseColor={props.color}
         />
       </div>
       <div style={{ textAlign: 'center', fontSize: '18px', color: `${gaugeValue <= 0.333 ? '#e76261' : (gaugeValue <= 0.58 ? '#FFBF00' : (gaugeValue <= 0.75 ? '#35a6e6' : '#33c294'))}`, marginTop: '-15px' }}>

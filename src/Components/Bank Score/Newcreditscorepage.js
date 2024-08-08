@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Sidebar from '../Sidebar2';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import VolatilityGauge from '../VolatilityGauge';
+import SemiCircularChart from '../SemiCircularChart';
 
 const Creditscore = () => {
   return (
@@ -22,10 +23,12 @@ const Creditscore = () => {
             <hr className="mb-6 border-gray-300" />
             <VolatilityGauge value={625} title={"Final Score:"} className="text-lg md:text-xl lg:text-2xl" />
           </div>
-          <div className="relative rounded-lg shadow-2xl mt-8">
+          <div className="relative rounded-lg shadow-2xl mt-8 ml-3">
             <h2 className="text-left text-xl font-semibold m-4">Maximum Emi Possible</h2>
             <hr className="mb-6 border-gray-300" />
-            <VolatilityGauge value={203417} title={"Maximum Emi Possible:"} className="text-lg md:text-xl lg:text-2xl" />
+            {/* <VolatilityGauge value={203417} title={"Maximum Emi Possible:"} color={"black"} className="text-lg md:text-xl lg:text-2xl" /> */}
+
+            <SemiCircularChart value={203417} title={""}/>
           </div>
         </div>
       </div>
