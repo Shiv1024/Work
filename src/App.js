@@ -24,6 +24,7 @@ import SMSParsing from './Components/SMS parsing.js';
 import Fileupload from './Components/Fileupload3.js';
 import VolatilityGauge from './Components/VolatilityGauge.js';
 import HorizontalBar from './Components/NewCibilScore.js';
+import Newcreditscorepage from '../src/Components/Bank Score/Newcreditscorepage.js';
 function App() {
   const fileUploadRef = useRef();
   const [isFileUploadVisible, setIsFileUploadVisible] = useState(false);
@@ -79,7 +80,7 @@ function App() {
           <Route path="/amount" element={<Amounts/>}/>
           <Route path="/sms" element={<SMSParsing/>}/>
           <Route path="/new" element={<Fileupload/>}/>
-
+          <Route path="/newcreditscorepage" element={<Newcreditscorepage/>}/>
       </Routes>
       </Router>
     </div>

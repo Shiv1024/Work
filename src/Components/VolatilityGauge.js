@@ -22,13 +22,10 @@ const VolatilityGauge = (props) => {
 
   return (
     <div
-      style={{ width: '400px', height: '360px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
-      // className="shadow-md rounded-lg border border-gray-300"
+      style={{ width: '400px', height: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
     >
-    {/* <div className='shadow-md' style={{ height: '400px', width: '500px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}> */}
-
-      <div style={{ width: '100%', textAlign: 'center', marginBottom: '10px', color:'black' }}>
-        <GaugeChart style={{color: 'black'}}
+      <div style={{ width: '80%', textAlign: 'center'}}>
+        <GaugeChart
           id="volatility-gauge"
           nrOfLevels={4}
           colors={['#e76261', '#FFBF00', '#35a6e6', '#33c294']}
@@ -38,11 +35,11 @@ const VolatilityGauge = (props) => {
           hideText // Hides percentage text
         />
       </div>
-      <div style={{ textAlign: 'center', fontSize: '25px', color:`${gaugeValue<=0.333?('#e76261'):(gaugeValue<=0.58?'#FFBF00':(gaugeValue<=0.75?'#35a6e6':'#33c294'))}`, marginTop: '10px' }}>
+      <div style={{ textAlign: 'center', fontSize: '18px', color: `${gaugeValue <= 0.333 ? '#e76261' : (gaugeValue <= 0.58 ? '#FFBF00' : (gaugeValue <= 0.75 ? '#35a6e6' : '#33c294'))}`, marginTop: '-15px' }}>
         <span style={{ fontWeight: 600 }}>{props.value}</span>
       </div>
-      <div style={{ textAlign: 'center', fontSize: '25px' }}>
-        <span style={{ fontWeight: 600 }}>Cibil Score: <span style={{color:`${gaugeValue<=0.333?('#e76261'):(gaugeValue<=0.58?'#FFBF00':(gaugeValue<=0.75?'#35a6e6':'#33c294'))}`}}>{gaugeText}</span> </span>
+      <div style={{ textAlign: 'center', fontSize: '18px', marginTop: '-5px'  }}>
+        <span style={{ fontWeight: 600 }}>{props.title} <span style={{ color: `${gaugeValue <= 0.333 ? '#e76261' : (gaugeValue <= 0.58 ? '#FFBF00' : (gaugeValue <= 0.75 ? '#35a6e6' : '#33c294'))}` }}>{gaugeText}</span></span>
       </div>
     </div>
   );

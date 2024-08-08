@@ -65,8 +65,10 @@ const Personalinfo = () => {
             <h1 className="text-white text-base md:text-lg lg:text-xl ml-4">JAY DIPAKKUMAR JHAVERI S/O DIPAK JHAVERI</h1>
           </div>
           <div className="flex flex-col justify-center items-center mt-0">
-            <div className="rounded-lg shadow-xl mt-8">
-              <VolatilityGauge value={734} className="text-lg md:text-xl lg:text-2xl" />
+            <div className="rounded-lg shadow-2xl mt-8">
+             <h2 className="text-left text-xl font-semibold m-4">Cibil Score</h2>
+             <hr className="mb-6 border-gray-300" />
+              <VolatilityGauge value={734} title={"Cibil Score:"} className="text-lg md:text-xl lg:text-2xl" />
             </div>
 
           <div className="flex justify-evenly items-center mt-10">

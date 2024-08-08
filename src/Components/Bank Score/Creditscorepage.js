@@ -6,7 +6,7 @@ import BS from './BS';
 import GST from './GST';
 import CIBIL from './CIBIL';
 import { useRef } from 'react';
-
+import VolatilityGauge from '../VolatilityGauge';
 const Creditscore = () => {
   const navigate = useNavigate();
   const refBs = useRef(null);
@@ -71,6 +71,7 @@ const Creditscore = () => {
           <Sidebar />
         </div>
         <div className='ml-56'>
+        
           <div className="relative">
             <Plot
               data={dataChart}
