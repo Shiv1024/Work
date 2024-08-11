@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Tooltip from '@mui/material/Tooltip';
-
-const HorizontalBar = ({ value1, value2, value3, value4, head, iscurrency, isEnquiry }) => {
-  const [isHovered1, setIsHovered1] = useState(false);
-  const [isHovered2, setIsHovered2] = useState(false);
-  const [isHovered3, setIsHovered3] = useState(false);
-
+import amountCountData from '../Components/Product3/Amount/dummydataAmtCnt.json';
+const HorizontalBar = (props) => {
   // Calculate widths as percentages
-  const width1 = `${(value1 / value4) * 100}%`;
-  const width2 = `${(value2 / value4) * 100}%`;
-  const width3 = `${(value3 / value4) * 100}%`;
+  const width1 = `${(props.value1 / props.value4) * 100}%`;
+  const width2 = `${(props.value2 / props.value4) * 100}%`;
+  const width3 = `${(props.value3 / props.value4) * 100}%`;
 
   // Format values as currency if isCurrency is true
   const formatCurrency = (value) => {
@@ -17,39 +13,54 @@ const HorizontalBar = ({ value1, value2, value3, value4, head, iscurrency, isEnq
     return `₹${parseFloat(value).toLocaleString()}`;
   };
 
-  const displayValue1 = iscurrency ? formatCurrency(value1) : value1;
-  const displayValue2 = iscurrency ? formatCurrency(value2) : value2;
-  const displayValue3 = iscurrency ? formatCurrency(value3) : value3;
-  const displayValue4 = iscurrency ? formatCurrency(value4) : value4;
+  const displayValue1 = props.iscurrency ? formatCurrency(props.value1) : props.value1;
+  const displayValue2 = props.iscurrency ? formatCurrency(props.value2) : props.value2;
+  const displayValue3 = props.iscurrency ? formatCurrency(props.value3) : props.value3;
+  const displayValue4 = props.iscurrency ? formatCurrency(props.value4) : props.value4;
 
+  const enquiryAmountData = [
+    { id:0,category: 'Business Loan', enquiries3Months: 0, enquiries6Months: 15500000, enquiriesBeyond6Months: 158641199, total: 174141199 },
+    { id:1,category: 'Credit Card', enquiries3Months: 0, enquiries6Months: 600000, enquiriesBeyond6Months: 84000, total: 684000 },
+    { id:2,category: 'Other', enquiries3Months: 0, enquiries6Months: 30000000, enquiriesBeyond6Months: 75703310, total: 105703310 },
+    { id:3,category: 'Asset Loan', enquiries3Months: 0, enquiries6Months: 0, enquiriesBeyond6Months: 131246000, total: 131246000 },
+    { id:4,category: 'Personal Loan', enquiries3Months: 0, enquiries6Months: 0, enquiriesBeyond6Months: 9719000, total: 9719000 },
+    { id:5,category: 'Working Capital Limit', enquiries3Months: 0, enquiries6Months: 0, enquiriesBeyond6Months: 23555000, total: 23555000 },
+    { id:6,category: 'Total', enquiries3Months: 0, enquiries6Months: 46100000, enquiriesBeyond6Months: 398948509, total: 445048509 },
+  ];
+
+  
+console.log(props.id)
+  const categoryData = enquiryAmountData.find(item => item.id === props.id);
+  const amountcount=amountCountData.find(item => item.id === props.id);
+  // const [categoryData, setcategoryData] = useState(enquiryAmountData.find(item => item.category === props.categoryKey))
+// console.log(props.key)
+// useEffect(() => {
+  
+//   setcategoryData(enquiryAmountData.find(item => item.category === props.key))
+//   console.log(categoryData)
+// }, []);
   return (
     <div>
       <div className='py-3 px-3'>
-        {head}
+        {props.head}
       </div>
       <div style={{ width: '480px', height: '8px', display: 'flex' }} className='px-2 cursor-pointer'>
-        <Tooltip title={`${isEnquiry === true ? "Enquiries in 3 Months" : "Guarantor"}: ${displayValue1}`} arrow>
+        <Tooltip title={`${props.isEnquiry ? `Enquiries in 3 Months: ${displayValue1} ${categoryData?`(${formatCurrency(categoryData.enquiries3Months)})`: ''}   `: `Guarantor: ${displayValue1} ${amountcount?`(${amountcount.guarantor})`:''}`}  `} arrow>
           <div 
             style={{ width: width1, backgroundColor: '#e76261' }} 
             className='hover:shadow-lg hover:scale-105' 
-            onMouseEnter={() => setIsHovered1(true)}
-            onMouseLeave={() => setIsHovered1(false)}
           ></div>
         </Tooltip>
-        <Tooltip title={`${isEnquiry === true ? "Enquiries in 6 Months" : "Joint"}: ${displayValue2}`} arrow>
+        <Tooltip title={`${props.isEnquiry ? `Enquiries in 6 Months: ${displayValue2} ${categoryData?`(${formatCurrency(categoryData.enquiries6Months)})`: ''}   `: `Joint: ${displayValue2} ${amountcount?`(${amountcount.joint})`:''}`}  `} arrow>
           <div 
             style={{ width: width2, backgroundColor: '#FFBF00' }} 
             className='hover:shadow-lg hover:scale-105' 
-            onMouseEnter={() => setIsHovered2(true)}
-            onMouseLeave={() => setIsHovered2(false)}
           ></div>
         </Tooltip>
-        <Tooltip title={`${isEnquiry === true ? "Enquiries beyond 6 Months" : "Individual"}: ${displayValue3}`} arrow>
+        <Tooltip title={`${props.isEnquiry ? `Enquiries beyond 6 Months: ${displayValue3} ${categoryData?`(${formatCurrency(categoryData.enquiriesBeyond6Months)})`: ''}   ` : `Individual: ${displayValue3} ${amountcount?`(${amountcount.individual})`:''}`}  `} arrow>
           <div 
             style={{ width: width3, backgroundColor: '#33c294' }} 
             className='hover:shadow-lg hover:scale-105' 
-            onMouseEnter={() => setIsHovered3(true)}
-            onMouseLeave={() => setIsHovered3(false)}
           ></div>
         </Tooltip>
         <div className='-my-2 px-5'>

@@ -11,13 +11,13 @@ import amountData from "./Amount/dummydataAmt.json"
 
 const Personalinfo = () => {
   const enquiryCountData = [
-    { category: 'Business Loan', enquiries3Months: 0, enquiries6Months: 8, enquiriesBeyond6Months: 78, total: 86 },
-    { category: 'Credit Card', enquiries3Months: 0, enquiries6Months: 2, enquiriesBeyond6Months: 7, total: 9 },
-    { category: 'Other', enquiries3Months: 0, enquiries6Months: 3, enquiriesBeyond6Months: 29, total: 32 },
-    { category: 'Asset Loan', enquiries3Months: 0, enquiries6Months: 0, enquiriesBeyond6Months: 8, total: 8 },
-    { category: 'Personal Loan', enquiries3Months: 0, enquiries6Months: 0, enquiriesBeyond6Months: 5, total: 5 },
-    { category: 'Working Capital Limit', enquiries3Months: 0, enquiries6Months: 0, enquiriesBeyond6Months: 3, total: 3 },
-    { category: 'Total', enquiries3Months: 0, enquiries6Months: 13, enquiriesBeyond6Months: 130, total: 143 },
+    { id:0,category: 'Business Loan', enquiries3Months: 0, enquiries6Months: 8, enquiriesBeyond6Months: 78, total: 86 },
+    { id:1,category: 'Credit Card', enquiries3Months: 0, enquiries6Months: 2, enquiriesBeyond6Months: 7, total: 9 },
+    { id:2,category: 'Other', enquiries3Months: 0, enquiries6Months: 3, enquiriesBeyond6Months: 29, total: 32 },
+    { id:3,category: 'Asset Loan', enquiries3Months: 0, enquiries6Months: 0, enquiriesBeyond6Months: 8, total: 8 },
+    { id:4,category: 'Personal Loan', enquiries3Months: 0, enquiries6Months: 0, enquiriesBeyond6Months: 5, total: 5 },
+    { id:5,category: 'Working Capital Limit', enquiries3Months: 0, enquiries6Months: 0, enquiriesBeyond6Months: 3, total: 3 },
+    { id:6,category: 'Total', enquiries3Months: 0, enquiries6Months: 13, enquiriesBeyond6Months: 130, total: 143 },
   ];
 
   const enquiryAmountData = [
@@ -77,6 +77,7 @@ const Personalinfo = () => {
               <hr className="mb-6 border-gray-300" />
               {enquiryCountData.map((row) => (
                 <HorizontalBar
+                  id={row.id}
                   key={row.category}
                   value1={row.enquiries3Months}
                   value2={row.enquiries6Months}
@@ -84,11 +85,12 @@ const Personalinfo = () => {
                   value4={row.total}
                   head={row.category}
                   isEnquiry={true}
+                  iscurrency={false}
                 />
               ))}
             </div>
 
-            <div className="bg-white rounded-lg shadow-xl p-6 mx-8">
+            {/* <div className="bg-white rounded-lg shadow-xl p-6 mx-8">
               <h2 className="text-center text-xl font-semibold mb-4">Enquiry Amount</h2>
               <hr className="mb-6 border-gray-300" />
               {enquiryAmountData.map((row) => (
@@ -103,16 +105,16 @@ const Personalinfo = () => {
                   isEnquiry={true}
                 />
               ))}
-            </div>
+            </div> */}
           </div>
 
           <div className="flex justify-evenly items-center my-10">
-            <div className="bg-white rounded-lg shadow-xl p-6 mx-8">
+            {/* <div className="bg-white rounded-lg shadow-xl p-6 mx-8">
               <h2 className="text-center text-xl font-semibold mb-4">Amount Count</h2>
               <hr className="mb-6 border-gray-300" />
               {amountCountData.map((row) => (
               <HorizontalBar
-                // key={row.category} // Ensure key is unique for each item
+                key={row.category} // Ensure key is unique for each item
                 value1={row.guarantor}
                 value2={row.joint}
                 value3={row.individual}
@@ -122,13 +124,15 @@ const Personalinfo = () => {
                 
               />
             ))}
-            </div>
+            </div> */}
             <div className="bg-white rounded-lg shadow-xl p-6 mx-8">
               <h2 className="text-center text-xl font-semibold mb-4">Amount</h2>
               <hr className="mb-6 border-gray-300" />
               {amountData.map((row) => (
+                
                 <HorizontalBar
-                  // key={row.category} // Ensure key is unique for each item
+                  id={row.id}
+                  key={row.category} // Ensure key is unique for each item
                   value1={row.guarantor}
                   value2={row.joint}
                   value3={row.individual}
