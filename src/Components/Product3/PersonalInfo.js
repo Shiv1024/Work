@@ -6,8 +6,10 @@ import Contactinfo from "./Contactinfo.js";
 import IdInfo from "./Governmentids.js";
 import VolatilityGauge from "../VolatilityGauge.js";
 import HorizontalBar from "../NewCibilScore.js";
-import amountCountData from './Amount/dummydataAmtCnt.json';
+// import amountCountData from './Amount/dummydataAmtCnt.json';
 import amountData from "./Amount/dummydataAmt.json"
+import BarChartIcon from '@mui/icons-material/BarChart';
+import { useNavigate } from "react-router";
 
 const Personalinfo = () => {
   const enquiryCountData = [
@@ -42,6 +44,8 @@ const Personalinfo = () => {
     return age;
   }
 
+  const navigate=useNavigate()
+
   const cardinfo = [
     { label: "Total Active Loan Outstanding", value: 130672181 },
     { label: "Number of Overdues", value: 3 },
@@ -73,8 +77,12 @@ const Personalinfo = () => {
 
           <div className="flex justify-evenly items-center mt-10 mb-10">
             <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
-              <h2 className="text-center text-xl font-semibold mb-4">Enquiry Count</h2>
+              <div className="flex">
+              <h2 className="text-center text-xl font-semibold mb-4 flex-1">Enquiry Count</h2>
+              <BarChartIcon onClick={()=>{navigate(`/enquiry`)}} className="hover:shadow-md hover:scale-110 hover:cursor-pointer active:scale-95"/>
+              </div>
               <hr className="mb-2 border-gray-300" />
+              
               {enquiryCountData.map((row) => (
                 <HorizontalBar
                   id={row.id}
@@ -125,7 +133,11 @@ const Personalinfo = () => {
             ))}
             </div> */}
             <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
-              <h2 className="text-center text-xl font-semibold mb-4">Amount</h2>
+            <div className="flex">
+              <h2 className="text-center text-xl font-semibold mb-4 flex-1">Amount</h2>
+              
+              <BarChartIcon  onClick={()=>{navigate(`/amount`)}} className="hover:shadow-md hover:scale-110 hover:cursor-pointer active:scale-95"/>
+              </div>
               <hr className="mb-2 border-gray-300" />
               {amountData.map((row) => (
                 
