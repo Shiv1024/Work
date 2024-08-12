@@ -140,20 +140,20 @@ function DiffTable(props) {
           <TableContainer component={Paper}>
             <Table>
               <TableHead>
-                <TableRow className="bg-bcgClr text-center">
-                  <TableCell  style={{ color: 'white', textAlign:'center' }}>
+                <TableRow className="bg-bcgClr text-left">
+                  <TableCell  style={{ color: 'white',fontWeight:'medium', fontSize:'1vw', textAlign:'left' }}>
                     Inclusions
                   </TableCell>
-                  <TableCell style={{ color: 'white', textAlign:'center' }}>
+                  <TableCell style={{ color: 'white',fontWeight:'medium', fontSize:'1vw', textAlign:'left' }}>
                     Measure
                   </TableCell>
-                  <TableCell style={{ color: 'white', textAlign:'center' }}>
+                  <TableCell style={{ color: 'white',fontWeight:'medium', fontSize:'1vw', textAlign:'left' }}>
                     Historical trend
                   </TableCell>
-                  <TableCell style={{ color: 'white', textAlign:'center' }}>
+                  <TableCell style={{ color: 'white',fontWeight:'medium', fontSize:'1vw', textAlign:'left' }}>
                     Current Month Response
                   </TableCell>
-                  <TableCell style={{ color: 'white', textAlign:'center' }}>
+                  <TableCell style={{ color: 'white',fontWeight:'medium', fontSize:'1vw', textAlign:'left' }}>
                     Remarks
                   </TableCell>
                 </TableRow>
@@ -161,19 +161,19 @@ function DiffTable(props) {
               <TableBody>
                 {props.Data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
                   <TableRow key={index} className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
-                    <TableCell  align="center">
+                    <TableCell  align="left">
                       {row.inclusions}
                     </TableCell>
-                    <TableCell  align="center">
+                    <TableCell  align="left">
                       {row.measure}
                     </TableCell>
-                    <TableCell  align="center">
+                    <TableCell  align="left">
                       {row.historicalTrend}
                     </TableCell>
-                    <TableCell  align="center">
+                    <TableCell  align="left">
                       {row.currentMonthResponse}
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell align="left">
                       {row.remarks}
                     </TableCell>
                   </TableRow>

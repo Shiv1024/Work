@@ -61,20 +61,20 @@ const Personalinfo = () => {
       {/* <div className="flex-1 ml-32 md:ml-48 lg:ml-56 flex flex-col overflow-hidden bg-blue-50"> */}
       <div className="flex-1 ml-32 md:ml-48 lg:ml-56 flex flex-col overflow-hidden">
         <div className="flex-1 overflow-y-auto ">
-          <div className="w-full border-l border-gray-400 h-12 md:h-16 lg:h-20 bg-bcgClr flex flex-col justify-center">
+          <div className="w-full border-l border-gray-600 h-12 md:h-16 lg:h-20 bg-bcgClr flex flex-col justify-center">
             <h1 className="text-white text-base md:text-lg lg:text-xl ml-4">JAY DIPAKKUMAR JHAVERI S/O DIPAK JHAVERI</h1>
           </div>
           <div className="flex flex-col justify-center items-center mt-0">
-            <div className="rounded-lg shadow-2xl mt-8">
-             <h2 className="text-left text-xl font-semibold m-4">Cibil Score</h2>
-             <hr className="mb-6 border-gray-300" />
-              <VolatilityGauge value={734} title={"Cibil Score:"} className="text-lg md:text-xl lg:text-2xl" />
+            <div className="rounded-lg shadow-2xl mt-4">
+             <h2 className="text-center text-xl font-semibold m-4">Cibil Score</h2>
+             <hr className="mb-2 border-gray-300" />
+              <VolatilityGauge value={734} title={"Your Cibil Score is:"} className="text-lg md:text-xl lg:text-2xl" />
             </div>
 
           <div className="flex justify-evenly items-center mt-10 mb-10">
-            <div className="bg-white rounded-lg shadow-xl p-6 mx-8">
+            <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
               <h2 className="text-center text-xl font-semibold mb-4">Enquiry Count</h2>
-              <hr className=" border-gray-300" />
+              <hr className="mb-2 border-gray-300" />
               {enquiryCountData.map((row) => (
                 <HorizontalBar
                   id={row.id}
@@ -85,13 +85,48 @@ const Personalinfo = () => {
                   value4={row.total}
                   head={row.category}
                   isEnquiry={true}
-                  iscurrency={false}
                 />
               ))}
             </div>
-            <div className="bg-white rounded-lg shadow-xl p-6 mx-8">
+
+            <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
+              <h2 className="text-center text-xl font-semibold mb-4">Enquiry Amount</h2>
+              <hr className="mb-2 border-gray-300" />
+              {enquiryAmountData.map((row) => (
+                <HorizontalBar
+                  key={row.category}
+                  value1={row.enquiries3Months}
+                  value2={row.enquiries6Months}
+                  value3={row.enquiriesBeyond6Months}
+                  value4={row.total}
+                  head={row.category}
+                  iscurrency={true}
+                  isEnquiry={true}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="flex justify-evenly items-center my-10">
+            <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
+              <h2 className="text-center text-xl font-semibold mb-4">Amount Count</h2>
+              <hr className="mb-2 border-gray-300" />
+              {amountCountData.map((row) => (
+              <HorizontalBar
+                // key={row.category} // Ensure key is unique for each item
+                value1={row.guarantor}
+                value2={row.joint}
+                value3={row.individual}
+                value4={row.total}
+                head={row.category}
+                iscurrency={false}
+                
+              />
+            ))}
+            </div>
+            <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
               <h2 className="text-center text-xl font-semibold mb-4">Amount</h2>
-              <hr className=" border-gray-300" />
+              <hr className="mb-2 border-gray-300" />
               {amountData.map((row) => (
                 
                 <HorizontalBar

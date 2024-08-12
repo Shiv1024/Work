@@ -48,13 +48,13 @@ const SecondTable = () => {
   };
 
   return (
-    <div className="mx-8 flex flex-col">
+    <div className="px-8 py-4 flex flex-col">
       <div className="flex overflow-x-scroll">
         <table className="flex-shrink-0 mx-auto mt-4 border-collapse border border-gray-400 shadow-lg rounded-lg">
           <thead>
             <tr className="border-b border-gray-400 text-white bg-bcgClr">
               <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
+                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
                 onClick={() => handleSort('sno')}
               >
                 S. No
@@ -67,7 +67,7 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                 className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
+                 className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
                 onClick={() => handleSort('source')}
               >
                 Source
@@ -80,7 +80,7 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                 className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-36 md:w-48 lg:w-60 text-center cursor-pointer"
+                 className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-36 md:w-48 lg:w-60 text-center cursor-pointer"
                 onClick={() => handleSort('partyName')}
               >
                 Party Name
@@ -93,7 +93,7 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-24 lg:w-32 text-center cursor-pointer"
+                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-24 lg:w-32 text-center cursor-pointer"
                 onClick={() => handleSort('invoiceDisbursmentdate')}
               >
                 Invoice Disbursement date
@@ -106,7 +106,7 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-24 lg:w-32 text-center cursor-pointer"
+                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-24 lg:w-32 text-center cursor-pointer"
                 onClick={() => handleSort('gstDate')}
               >
                 GST Date
@@ -119,7 +119,7 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
+                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
                 onClick={() => handleSort('value')}
               >
                 Value
@@ -132,7 +132,7 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-24 lg:w-32 text-center cursor-pointer"
+                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-24 lg:w-32 text-center cursor-pointer"
                 onClick={() => handleSort('invoiceNumber')}
               >
                 Invoice Number
@@ -145,7 +145,7 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-24 lg:w-32 text-center cursor-pointer"
+                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-24 lg:w-32 text-center cursor-pointer"
                 onClick={() => handleSort('status')}
               >
                 Status
@@ -158,7 +158,7 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
+                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
                 onClick={() => handleSort('differnceInInvoiceAmountCredGst')}
               >
                 Difference in invoice amount (cred - gst)
@@ -171,7 +171,7 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 w-24 md:w-32 lg:w-40 text-center cursor-pointer"
+                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-24 md:w-32 lg:w-40 text-center cursor-pointer"
                 onClick={() => handleSort('remarks')}
               >
                 Remarks
@@ -184,7 +184,7 @@ const SecondTable = () => {
                 )}
               </th>
               <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base w-16 md:w-20 lg:w-24 text-center cursor-pointer"
+                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm w-16 md:w-20 lg:w-24 text-center cursor-pointer"
                 onClick={() => handleSort('alert')}
               >
                 Alert
@@ -203,37 +203,37 @@ const SecondTable = () => {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row, index) => (
                 <tr key={index} className={(page*rowsPerPage + index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 text-center">
+                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
                     {sortConfig.key === 'sno' && sortConfig.direction === 'descending' ? sortedData.length - index-page*rowsPerPage : index+1+page*rowsPerPage}
                   </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 text-center">
+                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
                     ABC
                   </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 text-left">
+                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-left">
                     {row.partyName === "Not in GST" ? row.partyName : "Party XYZ"}
                   </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 text-center">
+                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
                     {row.invoiceDisbursmentdate}
                   </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 text-center">
+                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
                     {row.gstDate === 'NaT' ? null : row.gstDate}
                   </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 text-center">
+                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
                     ₹{formatNumber(row.value)}
                   </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 text-center">
+                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
                     {row.invoiceNumber}
                   </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 text-center">
+                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
                     {row.status}
                   </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 text-center">
+                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
                     {row.differnceInInvoiceAmountCredGst}
                   </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base border-r border-gray-400 text-center">
+                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
                     {row.remarks}
                   </td>
-                    <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-sm lg:text-base text-center">
+                    <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm text-center">
                     {row.alert}
                   </td>
                 </tr>
