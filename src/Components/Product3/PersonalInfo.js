@@ -89,7 +89,7 @@ const Personalinfo = () => {
               ))}
             </div>
 
-            <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
+            {/* <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
               <h2 className="text-center text-xl font-semibold mb-4">Enquiry Amount</h2>
               <hr className="mb-2 border-gray-300" />
               {enquiryAmountData.map((row) => (
@@ -104,11 +104,11 @@ const Personalinfo = () => {
                   isEnquiry={true}
                 />
               ))}
-            </div>
-          </div>
+            </div> */}
+          {/* </div>
 
-          <div className="flex justify-evenly items-center my-10">
-            <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
+          <div className="flex justify-evenly items-center my-10"> */}
+            {/* <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
               <h2 className="text-center text-xl font-semibold mb-4">Amount Count</h2>
               <hr className="mb-2 border-gray-300" />
               {amountCountData.map((row) => (
@@ -123,7 +123,7 @@ const Personalinfo = () => {
                 
               />
             ))}
-            </div>
+            </div> */}
             <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
               <h2 className="text-center text-xl font-semibold mb-4">Amount</h2>
               <hr className="mb-2 border-gray-300" />
