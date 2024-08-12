@@ -5,11 +5,36 @@
 /* img{
     color: #0a8bd5;
 } */
+
 .custom-header .MuiDataGrid-columnHeaders {
     background-color: #002a40;
-  }
+}
 
-  .MuiTableSortLabel-root{
+.MuiTableSortLabel-root {
     color: white;
-  }
-  
+}
+
+.ReactModal__Content {
+    position: fixed; /* Use fixed to position relative to the viewport */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    /* Ensure content is above overlay */
+    z-index: 1000;
+}
+
+.ReactModal__Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* Ensure overlay is behind content */
+    z-index: 999;
+}
