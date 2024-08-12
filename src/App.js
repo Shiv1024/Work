@@ -51,7 +51,7 @@ function App() {
     };
   }, [isFileUploadVisible]);
   return (
-    <div>
+    <div className='bg-bg-mainClr'>
       <Router>
         <Routes>
           <Route path="/charts" element={<Charts/>}/>
