@@ -74,7 +74,7 @@ const Personalinfo = () => {
           <div className="flex justify-evenly items-center mt-10 mb-10">
             <div className="bg-white rounded-lg shadow-xl p-6 mx-8">
               <h2 className="text-center text-xl font-semibold mb-4">Enquiry Count</h2>
-              <hr className="mb-6 border-gray-300" />
+              <hr className=" border-gray-300" />
               {enquiryCountData.map((row) => (
                 <HorizontalBar
                   id={row.id}
@@ -91,7 +91,7 @@ const Personalinfo = () => {
             </div>
             <div className="bg-white rounded-lg shadow-xl p-6 mx-8">
               <h2 className="text-center text-xl font-semibold mb-4">Amount</h2>
-              <hr className="mb-6 border-gray-300" />
+              <hr className=" border-gray-300" />
               {amountData.map((row) => (
                 
                 <HorizontalBar
