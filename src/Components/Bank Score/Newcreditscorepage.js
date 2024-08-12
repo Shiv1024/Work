@@ -11,7 +11,7 @@ const Creditscore = () => {
         <h2 className="text-left text-xl font-semibold m-4">Final Score</h2>
         <button
           className="absolute right-4 top-4 text-gray-600 hover:text-blue-600"
-          title={`Bank Statement Score: 607.4\nGST Score: 650.44\nCibil Score: 73`}
+          title={`Bank Statement Score: 607.4\nGST Score: 650.44\nCibil Score: 734`}
         >
           <InfoOutlinedIcon />
         </button>
