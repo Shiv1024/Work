@@ -71,7 +71,7 @@ const Personalinfo = () => {
               <VolatilityGauge value={734} title={"Cibil Score:"} className="text-lg md:text-xl lg:text-2xl" />
             </div>
 
-          <div className="flex justify-evenly items-center mt-10">
+          <div className="flex justify-evenly items-center mt-10 mb-10">
             <div className="bg-white rounded-lg shadow-xl p-6 mx-8">
               <h2 className="text-center text-xl font-semibold mb-4">Enquiry Count</h2>
               <hr className="mb-6 border-gray-300" />
@@ -89,42 +89,6 @@ const Personalinfo = () => {
                 />
               ))}
             </div>
-
-            {/* <div className="bg-white rounded-lg shadow-xl p-6 mx-8">
-              <h2 className="text-center text-xl font-semibold mb-4">Enquiry Amount</h2>
-              <hr className="mb-6 border-gray-300" />
-              {enquiryAmountData.map((row) => (
-                <HorizontalBar
-                  key={row.category}
-                  value1={row.enquiries3Months}
-                  value2={row.enquiries6Months}
-                  value3={row.enquiriesBeyond6Months}
-                  value4={row.total}
-                  head={row.category}
-                  iscurrency={true}
-                  isEnquiry={true}
-                />
-              ))}
-            </div> */}
-          </div>
-
-          <div className="flex justify-evenly items-center my-10">
-            {/* <div className="bg-white rounded-lg shadow-xl p-6 mx-8">
-              <h2 className="text-center text-xl font-semibold mb-4">Amount Count</h2>
-              <hr className="mb-6 border-gray-300" />
-              {amountCountData.map((row) => (
-              <HorizontalBar
-                key={row.category} // Ensure key is unique for each item
-                value1={row.guarantor}
-                value2={row.joint}
-                value3={row.individual}
-                value4={row.total}
-                head={row.category}
-                iscurrency={false}
-                
-              />
-            ))}
-            </div> */}
             <div className="bg-white rounded-lg shadow-xl p-6 mx-8">
               <h2 className="text-center text-xl font-semibold mb-4">Amount</h2>
               <hr className="mb-6 border-gray-300" />
