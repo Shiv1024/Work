@@ -44,7 +44,7 @@ console.log(props.id)
       <div className='py-3 px-3'>
         {props.head}
       </div>
-      <div style={{ width: '480px', height: '8px', display: 'flex' }} className='px-2 cursor-pointer'>
+      <div style={{ width: '480px', height: '4px', display: 'flex' }} className='px-2 cursor-pointer'>
         <Tooltip title={`${props.isEnquiry ? `Enquiries in 3 Months: ${displayValue1} ${categoryData?`(${formatCurrency(categoryData.enquiries3Months)})`: ''}   `: `Guarantor: ${displayValue1} ${amountcount?`(${amountcount.guarantor})`:''}`}  `} arrow>
           <div 
             style={{ width: width1, backgroundColor: '#e76261' }} 
