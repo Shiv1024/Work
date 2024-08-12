@@ -40,7 +40,13 @@ const profilingColors = {
   Red: 'text-red-500',
   Yellow:'text-yellow-500'
 };
-
+const profilingColors1 = {
+  Green: 'bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-100',
+  Medium: 'bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-100',
+  High: 'bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-100',
+  Red: 'bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-100',
+  Yellow:'bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-100'
+};
 const Clients = () => {
   const [data, setData] = useState(dataJSON);
   const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
@@ -138,16 +144,18 @@ const Clients = () => {
   };
 
   return (
-    <div className="overflow-y-hidden flex">
-      <div className='flex-none'>
+    <div className="flex min-h-screen">
         <Sidebar />
-      </div>
-      <div className='p-4 ml-32 md:ml-48 lg:ml-56 flex flex-col overflow-x-hidden'>
+        <div className='flex-1 ml-32 md:ml-48 lg:ml-56 flex flex-col overflow-x-hidden'>
+            <div className="w-full border-l border-gray-600 h-12 md:h-16 lg:h-20 mb-4 bg-bcgClr text-white flex items-center">
+                <h1 className="text-white text-2xl py-4 px-4 font-semibold mx-auto">Client's Name</h1>
+            </div>
+        <div className="flex-1 px-8 py-4 overflow-y-auto">
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
-              <TableRow className="bg-bcgClr text-center">
-                <TableCell style={{ color: 'white', textAlign: 'center' }}>
+              <TableRow className="bg-bcgClr text-left">
+                <TableCell style={{ color: 'white', textAlign: 'left', fontWeight:'medium', fontSize:'1vw' }}>
                 <div className="flex items-center justify-between">
                     <span>Borrower</span>
                     {profilingFilter && (
@@ -175,7 +183,7 @@ const Clients = () => {
                     </Menu>
                   </div>
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'center' }}>
+                <TableCell style={{ color: 'white', textAlign: 'left' }}>
                   <div className="flex items-center justify-between">
                     <span>Loan Sanction</span>
                     {loanSanctionFilter && (
@@ -203,10 +211,10 @@ const Clients = () => {
                     </Menu>
                   </div>
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'center' }}>
+                <TableCell style={{ color: 'white', textAlign: 'left' }}>
                   Limit Used
                 </TableCell>
-                <TableCell onClick={() => handleSort('noOfMajorFlags')} style={{ color: 'white', textAlign: 'center' }}>
+                <TableCell onClick={() => handleSort('noOfMajorFlags')} style={{ color: 'white', textAlign: 'left' }}>
                   <div className='flex flex-row items-center cursor-pointer '>
                     <div className='text-wrap mr-2'>No. of Major Flags</div>
                     <Tooltip title="Sort" placement="bottom">
@@ -214,19 +222,19 @@ const Clients = () => {
                     </Tooltip>
                   </div>
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'center' }}>
+                <TableCell style={{ color: 'white', textAlign: 'left' }}>
                   Flag Description
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'center' }}>
+                <TableCell style={{ color: 'white', textAlign: 'left' }}>
                   Invoice Matching Y/N
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'center' }}>
+                <TableCell style={{ color: 'white', textAlign: 'left' }}>
                   Saliency
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'center' }}>
+                <TableCell style={{ color: 'white', textAlign: 'left' }}>
                   Trend
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'center' }}>
+                <TableCell style={{ color: 'white', textAlign: 'left' }}>
                   Action
                 </TableCell>
               </TableRow>
@@ -234,27 +242,27 @@ const Clients = () => {
             <TableBody>
               {sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
                 <TableRow key={index} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}>
-                  <TableCell style={{ textAlign: 'center' }}>
+                  <TableCell style={{ textAlign: 'left' }}>
                   <div className={profilingColors[row.profiling]}>{row.borrower}</div>
                   </TableCell>
-                  <TableCell style={{ textAlign: 'center' }}>{formatCurrency(row.loanSanction)}</TableCell>
-                  <TableCell style={{ textAlign: 'center' }}>{formatCurrency(row.limitUsed)}</TableCell>
-                  <TableCell style={{ textAlign: 'center' }}>{row.noOfMajorFlags}</TableCell>
-                  <TableCell style={{ textAlign: 'center' }}>{row.flagDescription}</TableCell>
-                  <TableCell style={{ textAlign: 'center',cursor:'pointer' }}>
+                  <TableCell style={{ textAlign: 'left' }}>{formatCurrency(row.loanSanction)}</TableCell>
+                  <TableCell style={{ textAlign: 'left' }}>{formatCurrency(row.limitUsed)}</TableCell>
+                  <TableCell style={{ textAlign: 'left' }}>{row.noOfMajorFlags}</TableCell>
+                  <TableCell style={{ textAlign: 'left' }}>{row.flagDescription}</TableCell>
+                  <TableCell style={{ textAlign: 'left',cursor:'pointer' }}>
                     <Tooltip title={`Invoice Matching Amount: ${formatCurrency(row.invoiceMatchingAmount)}`}>
                       <span>{row.invoiceMatchingYN}</span>
                     </Tooltip>
                   </TableCell>
-                  <TableCell style={{ textAlign: 'center' }}>{formatPercentage(row.credableContriToOverallBusiness)}</TableCell>
-                  <TableCell style={{ textAlign: 'center',cursor:'pointer' }}> 
+                  <TableCell style={{ textAlign: 'left' }}>{formatPercentage(row.credableContriToOverallBusiness)}</TableCell>
+                  <TableCell style={{ textAlign: 'left',cursor:'pointer' }}> 
                     {<Tooltip title={row.remarks} placement="bottom">
                           <div className="truncate">
                           {row.trendDeclineIncreaseConstant}
                           </div>
                       </Tooltip>}
                   </TableCell>
-                  <TableCell style={{ textAlign: 'center' }} >
+                  <TableCell style={{ textAlign: 'left' }} >
                     {row.action}
                   </TableCell>
                 </TableRow>
@@ -271,6 +279,7 @@ const Clients = () => {
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
         </TableContainer>
+        </div>
       </div>
     </div>
   );

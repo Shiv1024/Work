@@ -137,7 +137,7 @@ const DataTable = () => {
   };
 
   return (
-    <div className="mx-8 flex flex-col pt-3">
+    <div className="flex flex-col px-8 py-4">
       <TableContainer component={Paper} className="overflow-x-scroll">
         <Table>
           <TableHead className="">
@@ -155,12 +155,12 @@ const DataTable = () => {
                 { id: 'remarks', label: 'Remarks' },
                 { id: 'alerts', label: 'Alert' }
               ].map((headCell) => (
-                <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'bold', fontSize:'1vw', borderColor:'black'}}
+                <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'medium', fontSize:'1vw', borderColor:'black'}}
                   key={headCell.id}
                 //   className="py-2 px-4 text-xs md:text-sm lg:text-base text-center cursor-pointer text-white"
                   sortDirection={sortConfig.key === headCell.id ? sortConfig.direction : false}
                 >
-                  <TableSortLabel style={{color:"white", borderBottomWidth:'1px', fontSize:'1.1vw', borderColor:'black'}}
+                  <TableSortLabel style={{color:"white", borderBottomWidth:'1px',fontWeight:'medium', fontSize:'1vw', borderColor:'black'}}
                     active={sortConfig.key === headCell.id}
                     direction={sortConfig.direction}
                     onClick={() => handleSort(headCell.id)}

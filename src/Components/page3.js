@@ -64,16 +64,17 @@ const Page = () => {
   return (
     <div className="flex min-h-screen">
       <Sidebar />
-      <div className="flex-grow p-4 ml-32 md:ml-48 lg:ml-56">
-        <div className="bg-bcgClr text-white mb-8 flex items-center">
-          <div className="py-2 px-4 mb-4">
-            <button className="mt-2 px-2 py-2 hover:scale-105 active:scale-95" onClick={handleBackClick}>
-              <ArrowBackIosIcon />
-            </button>
-          </div>
-          <h1 className="text-2xl py-4 px-4 mb-4 font-bold mx-auto">Company XYZ</h1>
+      <div className="flex-1 ml-32 md:ml-48 lg:ml-56 flex flex-col overflow-hidden">
+      <div className="flex-1 overflow-y-auto">
+        <div className="w-full border-l border-gray-600 h-12 md:h-16 lg:h-20 mb-4 bg-bcgClr text-white flex items-center">
+            <div className="p-4">
+               <button className="px-2 py-2 hover:scale-105 active:scale-95" onClick={handleBackClick}>
+                 <ArrowBackIosIcon />
+               </button>
+            </div>
+             <h1 className="text-white text-2xl py-4 px-4 font-semibold mx-auto">Client's Name</h1>
         </div>
-
+        <div className='px-8 py-4'>
         <DiffTable 
         Name = "Period"
         Data = {periodData}
@@ -94,6 +95,8 @@ const Page = () => {
         Name = "Invoices"
         Data = {invoicesData}
         />
+        </div>
+      </div>
       </div>
     </div>
   );
