@@ -4,6 +4,7 @@ import amountCountData from '../Components/Product3/Amount/dummydataAmtCnt.json'
 import numeral from 'numeral';
 const HorizontalBar = (props) => {
   // Calculate widths as percentages
+  
   const width1 = `${(props.value1 / props.value4) * 100}%`;
   const width2 = `${(props.value2 / props.value4) * 100}%`;
   const width3 = `${(props.value3 / props.value4) * 100}%`;
