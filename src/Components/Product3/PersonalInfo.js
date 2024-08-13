@@ -146,7 +146,9 @@ const Personalinfo = () => {
             <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
               <div className="flex">
               <h2 className="text-center text-xl font-semibold mb-4 flex-1">Enquiry Count</h2>
+              <div title="See Graph">
               <BarChartIcon onClick={()=>{navigate(`/enquiry`)}} className="hover:shadow-md hover:scale-110 hover:cursor-pointer active:scale-95"/>
+              </div>
               </div>
               <hr className="mb-2 border-gray-300" />
               
@@ -202,8 +204,9 @@ const Personalinfo = () => {
             <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
             <div className="flex">
               <h2 className="text-center text-xl font-semibold mb-4 flex-1">Amount</h2>
-              
+              <div title="See Graph">
               <BarChartIcon  onClick={()=>{navigate(`/amount`)}} className="hover:shadow-md hover:scale-110 hover:cursor-pointer active:scale-95"/>
+              </div>
               </div>
               <hr className="mb-2 border-gray-300" />
               {amountData.map((row) => (
