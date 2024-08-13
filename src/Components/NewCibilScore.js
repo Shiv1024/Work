@@ -59,6 +59,7 @@ console.log(props.id)
 //   console.log(categoryData)
 // }, []);
   return (
+    // <div className="bg-red-300">
     <div>
       <div className='py-3 px-3'>
         {props.head}
