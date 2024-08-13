@@ -162,7 +162,7 @@ function Option4() {
       <div className='flex-none'>
         <Sidebar />
       </div>
-      <div className="ml-32 md:ml-48 lg:ml-56 flex flex-col items-start justify-center mt-4 p-4">
+      <div className="ml-32 md:ml-48 lg:ml-56 flex flex-col items-start justify-center mt-4 p-4 ">
         <button 
           className={`px-4 py-2 rounded ${isCompany ? 'bg-blue-500 text-white' : 'bg-green-500 text-white'}`} 
           onClick={handleClick}
