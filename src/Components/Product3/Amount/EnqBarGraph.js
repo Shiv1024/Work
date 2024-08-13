@@ -37,9 +37,38 @@ const BarGraph = ({ data }) => {
     ],
   };
 
+  const options = {
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        ticks: {
+          callback: function(value) {
+            // Using Intl.NumberFormat for Indian style formatting
+            return new Intl.NumberFormat('en-IN').format(value);
+          }
+        }
+      }
+    },
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            let label = context.dataset.label || '';
+            if (label) {
+              label += ': ';
+            }
+            // Format the tooltip value as well
+            label += new Intl.NumberFormat('en-IN').format(context.parsed.y);
+            return label;
+          }
+        }
+      }
+    }
+  };
+
   return (
     <div className="min-w-full my-6" style={{ height: '400px' }}>
-      <Bar data={chartData} options={{ maintainAspectRatio: false }} />
+      <Bar data={chartData} options={options} />
     </div>
   );
 };
