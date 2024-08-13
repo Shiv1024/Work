@@ -17,7 +17,7 @@ const Sidebar = () => {
             <div className="fixed block top-0 left-0 w-32 lg:w-56 md:w-48 p-4 text-white flex flex-col">
             <img src={FullWhiteIcon} alt="Full White Icon" /> {/* Use imported image */}
             </div>
-            <h2 className="mt-20  text-base md:text-xl lg:text-2xl text-left p-4">Information</h2>
+            <h2 className="mt-20  text-base md:text-xl lg:text-2xl text-center p-4">Information</h2>
             <div className="flex-1">
                 <Link to={"/clients"}>
                     <div className="mb-2 cursor-pointer">

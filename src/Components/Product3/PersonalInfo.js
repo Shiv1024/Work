@@ -57,6 +57,7 @@ const Personalinfo = () => {
     { label: "Age", value: ageconversion("14-02-1991") },
     { label: "Date of oldest Loan", value: "30-03-2015" }
   ];
+ 
   return (
     <div className="flex">
       <div className='flex-none'>
@@ -75,9 +76,9 @@ const Personalinfo = () => {
               <VolatilityGauge value={734} title={"Your Cibil Score is:"} className="text-lg md:text-xl lg:text-2xl" />
             </div>
 
-          <div className="flex justify-evenly items-center mt-10 mb-10">
+          <div className="flex justify-evenly items-center  mt-10 mb-10">
             <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
-              <div className="flex">
+              <div className="flex ">
               <h2 className="text-center text-xl font-semibold mb-4 flex-1">Enquiry Count</h2>
               <div title="See Graph">
               <BarChartIcon onClick={()=>{navigate(`/enquiry`)}} className="hover:shadow-md hover:scale-110 hover:cursor-pointer active:scale-95"/>
@@ -95,6 +96,7 @@ const Personalinfo = () => {
                   value4={row.total}
                   head={row.category}
                   isEnquiry={true}
+                  iscurrency={false}
                 />
               ))}
             </div>
