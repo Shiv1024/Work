@@ -30,27 +30,11 @@ const Sidebar = () => {
                     </div>
                 </Link>
 
-                <Link to={"/enquiry"}>
-                    <div className="mb-2 cursor-pointer">
-                        <p className={`block px-3 py-1 text-xs md:text-sm md:px-4 md:py-2 lg:text-base lg:px-4 lg:py-2 text-left rounded transition-colors duration-300 ${getActiveClass("/enquiry")}`}>
-                            Enquiries Information
-                        </p>
-                    </div>
-                </Link>
-
                 <Link to={"/cibilinfo"}>
                     <div className="mb-2 cursor-pointer">
                         <p className={`block px-3 py-1 text-xs md:text-sm md:px-4 md:py-2 lg:text-base lg:px-4 lg:py-2 text-left rounded transition-colors duration-300 ${getActiveClass("/cibilinfo")}`}>
                             <InfoIcon className="mr-2 inline-block" />
                             Cibil Info Personal and Company
-                        </p>
-                    </div>
-                </Link>
-
-                <Link to={"/amount"}>
-                    <div className="mb-2 cursor-pointer">
-                        <p className={`block px-3 py-1 text-xs md:text-sm md:px-4 md:py-2 lg:text-base lg:px-4 lg:py-2 text-left rounded transition-colors duration-300 ${getActiveClass("/amount")}`}>
-                            Amount Information
                         </p>
                     </div>
                 </Link>

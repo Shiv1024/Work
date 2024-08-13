@@ -89,12 +89,12 @@ const Personalinfo = () => {
             </div>
 
             <div className="flex justify-evenly items-center mt-10 mb-10">
-              <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
-                <div className="flex">
-                <h2 className="text-center text-xl font-semibold mb-4 flex-1">Enquiry Count</h2>
-                <button onClick={openModal}>
-                  <BarChartIcon className="hover:shadow-md hover:cursor-pointer mb-2 mr-2" />
-                </button>
+              <div className="bg-white rounded-lg shadow-xl pb-9 pt-6 pl-6 pr-2 mx-8">
+                <div className="flex justify-between items-center">
+                  <h2 className="text-center text-xl font-semibold mb-4 flex-grow">Enquiry Count</h2>
+                  <button onClick={openModal} className="mr-6">
+                    <BarChartIcon className="hover:shadow-md hover:cursor-pointer mb-2 mr-2" />
+                  </button>
                 </div>
                 <hr className="mb-6 border-gray-300" />
                 {enquiryCountData.map((row) => (
@@ -113,12 +113,12 @@ const Personalinfo = () => {
                 ))}
               </div>
 
-              <div className="bg-white rounded-lg shadow-xl p-4 mx-8">
-                <div className="flex">
-                <h2 className="text-center text-xl font-semibold mb-4 flex-1">Amount</h2>
-                <button onClick={openAmountModal}>
-                  <BarChartIcon className="hover:shadow-md hover:cursor-pointer mb-2 mr-2" />
-                </button>
+              <div className="bg-white rounded-lg shadow-xl pb-9 pt-6 pl-6 pr-2 mx-8">
+                <div className="flex justify-between items-center">
+                  <h2 className="text-center text-xl font-semibold mb-4 flex-grow">Amount</h2>
+                  <button onClick={openAmountModal} className="mr-6">
+                    <BarChartIcon className="hover:shadow-md hover:cursor-pointer mb-2 mr-2" />
+                  </button>
                 </div>
                 <hr className="mb-6 border-gray-300" />
                 {amountData.map((row) => (
