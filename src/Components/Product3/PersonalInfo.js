@@ -69,7 +69,6 @@ const Personalinfo = () => {
     { label: "Age", value: ageconversion("14-02-1991") },
     { label: "Date of oldest Loan", value: "30-03-2015" }
   ];
-
   return (
     <div className="flex">
       <div className='flex-none'>

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Tooltip from '@mui/material/Tooltip';
 import amountCountData from '../Components/Product3/Amount/dummydataAmtCnt.json';
+import numeral from 'numeral';
 const HorizontalBar = (props) => {
   // Calculate widths as percentages
+  
   const width1 = `${(props.value1 / props.value4) * 100}%`;
   const width2 = `${(props.value2 / props.value4) * 100}%`;
   const width3 = `${(props.value3 / props.value4) * 100}%`;
@@ -12,11 +14,28 @@ const HorizontalBar = (props) => {
     if (value === null || value === undefined) return '-';
     return `₹${parseFloat(value).toLocaleString()}`;
   };
+    
+  const formatNumber = (num) => {
+    const absNum = Math.abs(num);
+
+    if (absNum >= 1000000000) {
+      return numeral(num / 1000000000).format('0.0') + 'billion';
+    } else if (absNum >= 10000000) {
+      return numeral(num / 10000000).format('0.0') + 'Cr';
+    } else if (absNum >= 100000) {
+      return numeral(num / 100000).format('0.0') + 'L';
+    } else if (absNum >= 1000) {
+      return numeral(num / 1000).format('0.0') + 'K';
+    } else {
+      return numeral(num).format('0,0');
+    }
+  };
+
 
   const displayValue1 = props.iscurrency ? formatCurrency(props.value1) : props.value1;
   const displayValue2 = props.iscurrency ? formatCurrency(props.value2) : props.value2;
   const displayValue3 = props.iscurrency ? formatCurrency(props.value3) : props.value3;
-  const displayValue4 = props.iscurrency ? formatCurrency(props.value4) : props.value4;
+  const displayValue4 = props.iscurrency ? formatNumber(props.value4) : props.value4;
 
   const enquiryAmountData = [
     { id:0,category: 'Business Loan', enquiries3Months: 0, enquiries6Months: 15500000, enquiriesBeyond6Months: 158641199, total: 174141199 },
@@ -65,7 +84,7 @@ console.log(props.id)
           ></div>
         </Tooltip>
         <div className='-my-2 px-5'>
-          Total:&nbsp;{displayValue4}
+          Total:&nbsp;{(props.iscurrency)?`₹${displayValue4}`:displayValue4}
         </div>
       </div>
     </div>

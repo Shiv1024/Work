@@ -6,13 +6,13 @@ const formatNumber = (num) => {
   const absNum = Math.abs(num);
 
   if (absNum >= 1000000000) {
-    return numeral(num / 1000000000).format('0.0') + ' billion';
+    return numeral(num / 1000000000).format('0.0') + 'Billion';
   } else if (absNum >= 10000000) {
-    return numeral(num / 10000000).format('0.0') + ' cr';
+    return numeral(num / 10000000).format('0.0') + 'Cr';
   } else if (absNum >= 100000) {
     return numeral(num / 100000).format('0.0') + 'L';
   } else if (absNum >= 1000) {
-    return numeral(num / 1000).format('0.0') + 'k';
+    return numeral(num / 1000).format('0.0') + 'K';
   } else {
     return numeral(num).format('0,0');
   }
