@@ -1,12 +1,10 @@
 import React from "react";
 import Sidebar from "../Sidebar3";
 import Cards from "../card.js";
-// import CIBIL from "../Bank Score/CIBIL.js";
 import Contactinfo from "./Contactinfo.js";
 import IdInfo from "./Governmentids.js";
 import VolatilityGauge from "../VolatilityGauge.js";
 import HorizontalBar from "../NewCibilScore.js";
-// import amountCountData from './Amount/dummydataAmtCnt.json';
 import amountData from "./Amount/dummydataAmt.json"
 import BarChartIcon from '@mui/icons-material/BarChart';
 import { useNavigate } from "react-router";
