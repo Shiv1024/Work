@@ -25,6 +25,7 @@ import Fileupload from './Components/Fileupload3.js';
 import VolatilityGauge from './Components/VolatilityGauge.js';
 import HorizontalBar from './Components/NewCibilScore.js';
 import Newcreditscorepage from '../src/Components/Bank Score/Newcreditscorepage.js';
+
 function App() {
   const fileUploadRef = useRef();
   const [isFileUploadVisible, setIsFileUploadVisible] = useState(false);
