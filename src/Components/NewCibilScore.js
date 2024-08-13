@@ -12,7 +12,8 @@ const HorizontalBar = (props) => {
   // Format values as currency if isCurrency is true
   const formatCurrency = (value) => {
     if (value === null || value === undefined) return '-';
-    return `₹${parseFloat(value).toLocaleString()}`;
+    // return `₹${parseFloat(value).toLocaleString()}`;
+    return new Intl.NumberFormat('en-IN').format(value);
   };
     
   const formatNumber = (num) => {
