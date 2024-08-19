@@ -11,7 +11,7 @@ const SMSParsing = () => {
     <div className="flex min-h-screen">
       <Sidebar />
       <div className="flex-grow p-4 ml-32 md:ml-48 lg:ml-56">
-        <div className="bg-bcgClr text-white mb-8 flex items-center">
+        <div className="bg-bcgClr bg-gradient-to-tl to-bcgClr from-bgToClr text-white mb-8 flex items-center">
           <h1 className="text-2xl py-4 px-4 mb-4 font-bold mx-auto">SMS Details</h1>
         </div>
           <DiffTable data={data.analyse} title="Analytics" />

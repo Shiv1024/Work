@@ -76,7 +76,7 @@ const Personalinfo = () => {
       </div>
       <div className="flex-1 ml-36 md:ml-52 lg:ml-60 flex flex-col overflow-hidden">
         <div className="flex-1 overflow-y-auto">
-          <div className="w-full border-l border-gray-400 h-12 md:h-16 lg:h-20 bg-bcgClr flex flex-col justify-center">
+          <div className="w-full border-l border-gray-400 h-12 md:h-16 lg:h-20 bg-bcgClr bg-gradient-to-tl to-bcgClr from-bgToClr flex flex-col justify-center">
           <h1 className="text-white text-2xl py-4 px-4 font-semibold mx-auto">Client's Name</h1>
           </div>
 
