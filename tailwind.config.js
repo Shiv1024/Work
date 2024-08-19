@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       colors: {
         'bcgClr': '#002a40',
-        'bgToClr': '#005f73',
+        'bgToClr': '#004250',
         'bgClr2':'rgba(0, 0, 0, .12)',
         'bgClr3':'#f3f7f9',
         'bgClr4':'rgba(0,0,0,.87)',

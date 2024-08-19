@@ -64,7 +64,7 @@ const Page = () => {
   return (
     <div className="flex min-h-screen">
       <Sidebar />
-      <div className="flex-1 ml-32 md:ml-48 lg:ml-56 flex flex-col overflow-hidden">
+      <div className="flex-1 ml-36 md:ml-52 lg:ml-60 flex flex-col overflow-hidden">
       <div className="flex-1 overflow-y-auto">
         <div className="w-full border-l border-gray-600 h-12 md:h-16 lg:h-20 mb-4 bg-bcgClr text-white flex items-center">
             <div className="p-4">
@@ -72,7 +72,7 @@ const Page = () => {
                  <ArrowBackIosIcon />
                </button>
             </div>
-             <h1 className="text-white text-2xl py-4 px-4 font-semibold mx-auto">Client's Name</h1>
+             <h1 className="text-white text-2xl py-4 px-4 font-medium mx-auto">Client's Name</h1>
         </div>
         <div className='px-8 py-4'>
         <DiffTable 

@@ -146,15 +146,15 @@ const Clients = () => {
   return (
     <div className="flex min-h-screen">
         <Sidebar />
-        <div className='flex-1 ml-32 md:ml-48 lg:ml-56 flex flex-col overflow-x-hidden'>
+        <div className='flex-1 ml-36 md:ml-52 lg:ml-60 flex flex-col overflow-x-hidden'>
             <div className="w-full border-l border-gray-600 h-12 md:h-16 lg:h-20 mb-4 bg-bcgClr text-white flex items-center">
-                <h1 className="text-white text-2xl py-4 px-4 font-semibold mx-auto">Client's Name</h1>
+                <h1 className="text-white text-2xl py-4 px-4 font-medium mx-auto">Client's Name</h1>
             </div>
         <div className="flex-1 px-8 py-4 overflow-y-auto">
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
-              <TableRow className="bg-bcgClr text-left">
+              <TableRow className="bg-bcgClr text-left" >
                 <TableCell style={{ color: 'white', textAlign: 'left', fontWeight:'medium', fontSize:'1vw' }}>
                 <div className="flex items-center justify-between">
                     <span>Borrower</span>

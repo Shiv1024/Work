@@ -98,7 +98,7 @@ const Landing = ({
       <MainSidebar />
       <div className="flex flex-col min-h-screen flex-1 w-full">
         <Navbar />
-        <div className="mt-4 ml-32 lg:ml-56 md:ml-48 p-4 h-full relative flex-1">
+        <div className="mt-4 ml-36 md:ml-52 lg:ml-60 p-4 h-full relative flex-1">
           <div className="-my-2 overflow-x-auto">
             {/* <table className="w-full bg-gray-200 border border-gray-400 shadow-lg rounded-lg">
               <thead>
@@ -144,23 +144,23 @@ const Landing = ({
             <TableContainer component={Paper}>
             <Table>
               <TableHead>
-                <TableRow className="bg-bcgClr text-center">
-                  <TableCell  style={{ color: 'white', textAlign:'center' }}>
+                <TableRow className="bg-bcgClr text-left">
+                  <TableCell  style={{ color: 'white', textAlign:'left' }}>
                     Client  Name
                   </TableCell>
-                  <TableCell style={{ color: 'white', textAlign:'center' }}>
+                  <TableCell style={{ color: 'white', textAlign:'left' }}>
                     Status
                   </TableCell>
-                  <TableCell style={{ color: 'white', textAlign:'center' }}>
+                  <TableCell style={{ color: 'white', textAlign:'left' }}>
                     Parsed By
                   </TableCell>
-                  <TableCell style={{ color: 'white', textAlign:'center' }}>
+                  <TableCell style={{ color: 'white', textAlign:'left' }}>
                     Document Type
                   </TableCell>
-                  <TableCell style={{ color: 'white', textAlign:'center' }}>
+                  <TableCell style={{ color: 'white', textAlign:'left' }}>
                     Uploaded Date
                   </TableCell>
-                  <TableCell style={{ color: 'white', textAlign:'center' }}>
+                  <TableCell style={{ color: 'white', textAlign:'left' }}>
                     Download
                   </TableCell>
                 </TableRow>
@@ -168,22 +168,22 @@ const Landing = ({
               <TableBody>
                 {files.map((file, index) => (
                   <TableRow key={index} className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
-                    <TableCell  align="center">
+                    <TableCell  align="left">
                       {file.name}
                     </TableCell>
-                    <TableCell  align="center"  style={{ color: 'green' }}>
+                    <TableCell  align="left"  style={{ color: 'green' }}>
                       SUCCESS
                     </TableCell>
-                    <TableCell  align="center">
+                    <TableCell  align="left">
                       Random Person
                     </TableCell>
-                    <TableCell  align="center"  onClick={() => handleDocTypeClick(file.docType)}>
+                    <TableCell  align="left"  onClick={() => handleDocTypeClick(file.docType)}>
                       <div className="text-blue-500 cursor-pointer">{file.docType}</div>
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell align="left">
                       {file.dateAdded}
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell align="left">
                     <FileIcon />
                     </TableCell>
                   </TableRow>
