@@ -97,7 +97,7 @@ const Fileupload = ({ onFileUpload,onFileclose }) => {
       <div className="pt-4 min-h-screen">
         {!file.length ? (
           <div
-            className="bg-bgClr5 h-120 border-2 border-dashed border-gray-600 rounded-md m-6 flex flex-col items-center justify-center"
+            className="bg-gray-200 h-120 border-2 border-dashed border-gray-600 rounded-md m-6 flex flex-col items-center justify-center"
             onDragOver={handleDragOver}
             onDrop={handleDrop}
           >
@@ -119,13 +119,12 @@ const Fileupload = ({ onFileUpload,onFileclose }) => {
             </div>
           </div>
         ) : (
-          <div className="bg-white p-4 flex flex-row m-6 ">
-            <span className="text-lg">{file[0].name}</span>
+          <div className="bg-gray-200 border-2 border-gray-400 rounded p-4 flex flex-row justify-between mx-6 my-2 ">
+            <span className="text-lg flex-grow">{file[0].name}</span>
             <button
-              className="text-black-500 text-lg px-6"
-              onClick={removeFile}
-            >
-              <CloseIcon/>
+              className="text-black-500 text-lg"
+              onClick={removeFile}>
+              <CloseIcon />
             </button>
           </div>
         )}
@@ -133,21 +132,23 @@ const Fileupload = ({ onFileUpload,onFileclose }) => {
           <p className="mt-4 text-red-500">{errorMessage}</p>
         )}
     
-        <div className="flex justify-around mt-4">
-        <button
-            className="px-4 py-2 bg-bcgClr text-white rounded"
-            onClick={handleSave}
-        >
-            Save & Process File
-        </button>
-        <button
-            className="px-4 py-2 bg-bcgClr text-white rounded"
-            onClick={handleClose}
-        >
-            Close
-        </button>
-        </div>
-        
+    <div className="flex flex-col justify-start px-6 py-4 space-y-2">
+    <button
+        className="w-60 px-4 py-2 bg-white text-black border-2 border-gray-300 rounded"
+        onClick={handleClose}
+    >
+        Close
+    </button>
+    <button
+        className="w-60 px-4 py-2 bg-bcgClr text-white rounded"
+        onClick={handleSave}
+    >
+        Save & Process File
+    </button>
+    
+</div>
+
+
       </div>
       {isGifVisible && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
