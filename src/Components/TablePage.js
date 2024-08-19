@@ -18,7 +18,7 @@ const TablePage = () => {
             <Sidebar />
             <div className="flex-1 ml-36 md:ml-52 lg:ml-60 flex flex-col overflow-hidden">
                 <div className="flex-1 overflow-y-auto">
-                    <div className="w-full border-l border-gray-600 h-12 md:h-16 lg:h-20 mb-4 bg-bcgClr text-white flex items-center">
+                    <div className="w-full border-l border-gray-600 h-12 md:h-16 lg:h-20 mb-4 bg-bcgClr bg-gradient-to-tl to-bcgClr from-bgToClr text-white flex items-center">
                         <div className="p-4">
                            <button className="px-2 py-2 hover:scale-105 active:scale-95" onClick={handleBackClick}>
                              <ArrowBackIosIcon />

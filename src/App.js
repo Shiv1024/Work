@@ -55,28 +55,28 @@ function App() {
     <div className='bg-bg-mainClr'>
       <Router>
         <Routes>
-          <Route path="/charts" element={<Charts/>}/>
+          {/* <Route path="/charts" element={<Charts/>}/> */}
           <Route path="/" element={<Landing isFileUploadVisible={isFileUploadVisible} closeFileUpload={closeFileUpload} setIsFileUploadVisible={setIsFileUploadVisible} fileUploadRef={fileUploadRef}/>}/>
-          <Route path="/cards" element={<Cards/>}/>
-          <Route path = "/table" element = {<Table />} />
+          {/* <Route path="/cards" element={<Cards/>}/> */}
+          {/* <Route path = "/table" element = {<Table />} />
           <Route path = "/table1" element = {<Table1 />} />
           <Route path = "/table2" element = {<Table2 />} />
-          <Route path = "/table3" element = {<Table3 />} />
+          <Route path = "/table3" element = {<Table3 />} /> */}
           <Route path = "/invoicematching" element = {<TablePage />} />
-          <Route path = "/summary" element = {<Summary/>} />
+          {/* <Route path = "/summary" element = {<Summary/>} /> */}
           <Route path="/clients" element={<Clients/>}/>
           <Route path="/creditscorepage" element={<Creditscore/>}/>
           <Route path="/page" element={<Page/>}/>
-          <Route path="/GST" element={<GST/>}/>
+          {/* <Route path="/GST" element={<GST/>}/>
           <Route path="/BS" element={<BS/>}/>
-          <Route path="/CIBIL" element={<CIBIL/>}/>
+          <Route path="/CIBIL" element={<CIBIL/>}/> */}
           <Route path="/info" element={<Personalinfo/>}/>
           <Route path="/enquiry" element={<Enquiries/>}/>
           <Route path="/cibilinfo" element={<Option4/>}/>
 
           <Route path="/credit" element={<Landingpage isFileUploadVisible={isFileUploadVisible} closeFileUpload={closeFileUpload} setIsFileUploadVisible={setIsFileUploadVisible} fileUploadRef={fileUploadRef}/>}/>
-           <Route path='/newcibil' element={<HorizontalBar value1={1} value2={2} value3={4} value4={7} head='Asset Loan' isEnquiry={true}/>}/>
-           <Route path="/gauge" element={<VolatilityGauge value={700}/>}/>
+           {/* <Route path='/newcibil' element={<HorizontalBar value1={1} value2={2} value3={4} value4={7} head='Asset Loan' isEnquiry={true}/>}/> */}
+           {/* <Route path="/gauge" element={<VolatilityGauge value={700}/>}/> */}
 
           <Route path="/amount" element={<Amounts/>}/>
           <Route path="/sms" element={<SMSParsing/>}/>
