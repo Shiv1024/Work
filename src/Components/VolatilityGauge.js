@@ -22,7 +22,7 @@ const VolatilityGauge = (props) => {
 
   return (
     <div
-      style={{ width: '400px', height: '230px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+      style={{ width: '100%', height: '230px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
     >
       <div style={{ width: '80%', textAlign: 'center'}}>
         <GaugeChart

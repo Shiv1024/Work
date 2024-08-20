@@ -158,7 +158,7 @@ function Option4() {
   
 
   return (
-    <div className="flex bg-bg-mainClr" style={{height:'97vh'}}>
+    <div className="-mt-5 pt-1 bg-bg-mainClr" style={{height:'97vh'}}>
       <div className='flex-none'>
         <Sidebar />
       </div>
