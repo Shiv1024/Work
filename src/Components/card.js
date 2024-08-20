@@ -24,17 +24,17 @@ const Card = ({ number, text }) => {
 
   return (
     <div className="relative mt-2 mb-2 p-4 bg-white rounded-lg shadow-lg border-l-4 border-brdr-green hover:shadow-2xl transition-shadow duration-300">
-      <div className="mt-2 font-bold text-xl">
+      <div className="font-semibold text-xl">
         <p>{text}</p>
       </div>
       <div className="relative group mt-1 flex items-center">
         <Tooltip title={tooltipText} placement="bottom">
-          <div className="text-lg font-bold cursor-pointer">
+          <div className="text-lg font-medium cursor-pointer">
             {typeof number === 'string' ? number : formatNumber(number)}
           </div>
         </Tooltip>
       </div>
-      <hr className="my-4 border-gray-300" />
+      <hr className="mt-2 mb-4 border-gray-300" />
       <div className="text-sm text-gray-600">
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore voluptatum doloremque in perferendis atque voluptatem suscip</p>
       </div>

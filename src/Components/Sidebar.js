@@ -3,7 +3,7 @@ import { Link,useLocation,useNavigate} from "react-router-dom";
 import FullWhiteIcon from '../Assets/icons/Full_White.png';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import ReceiptIcon from '@mui/icons-material/Receipt';
-import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import InfoIcon from '@mui/icons-material/Info';
 import { ArrowBack } from "@mui/icons-material";
 
 const Sidebar = () => {
@@ -18,7 +18,7 @@ const Sidebar = () => {
     };
 
     return (
-        <div className={`fixed top-0 left-0 h-full p-4 text-white flex flex-col z-50 bg-gradient-to-tl to-bcgClr from-bgToClr transition-all duration-300 ease-in-out ${isOpen ? 'w-36 lg:w-60 md:w-52' : ''}`}>
+        <div className={`fixed top-0 left-0 h-full p-3 text-white flex flex-col z-50 bg-gradient-to-tl to-bcgClr from-bgToClr transition-all duration-300 ease-in-out ${isOpen ? 'w-36 lg:w-60 md:w-52' : ''}`}>
             <div className="fixed block top-0 left-0 w-32 lg:w-56 md:w-48 p-4 text-white flex flex-col">
                 {/* Back Button */}
                 <ArrowBack 
@@ -37,6 +37,14 @@ const Sidebar = () => {
                         </p>
                     </div>
                 </Link>
+                <Link to={"/page"}>
+                    <div className="mb-2 cursor-pointer">
+                        <p className={`block px-2 py-1 text-xs md:text-sm md:px-4 md:py-2 lg:text-base lg:px-4 lg:py-2 text-left rounded transition-colors duration-300 ease-in-out ${getActiveClass("/page")}`}>
+                            <InfoIcon className="mr-2 inline-block"/>
+                            Company Details
+                        </p>
+                    </div>
+                </Link>
                 <Link to={"/invoicematching"}>
                     <div className="mb-2 cursor-pointer">
                         <p className={`block px-2 py-1 text-xs md:text-sm md:px-4 md:py-2 lg:text-base lg:px-4 lg:py-2 text-left rounded transition-colors duration-300 ease-in-out ${getActiveClass("/invoicematching")}`}>
@@ -45,14 +53,7 @@ const Sidebar = () => {
                         </p>
                     </div>
                 </Link>
-                <Link to={"/page"}>
-                    <div className="mb-2 cursor-pointer">
-                        <p className={`block px-2 py-1 text-xs md:text-sm md:px-4 md:py-2 lg:text-base lg:px-4 lg:py-2 text-left rounded transition-colors duration-300 ease-in-out ${getActiveClass("/page")}`}>
-                            <LeaderboardIcon className="mr-2 inline-block"/>
-                            Option-3
-                        </p>
-                    </div>
-                </Link>
+               
             </div>
         </div>
     );

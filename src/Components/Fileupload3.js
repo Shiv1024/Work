@@ -132,15 +132,15 @@ const Fileupload = ({ onFileUpload,onFileclose }) => {
           <p className="mt-4 text-red-500">{errorMessage}</p>
         )}
     
-    <div className="flex flex-col justify-start px-6 py-4 space-y-2">
+    <div className="flex justify-end px-6 py-4 space-x-2">
     <button
-        className="w-60 px-4 py-2 bg-white text-black border-2 border-gray-300 rounded"
+        className="w-48 px-4  bg-white text-black border border-gray-300 rounded"
         onClick={handleClose}
     >
         Close
     </button>
     <button
-        className="w-60 px-4 py-2 bg-bcgClr text-white rounded"
+        className="w-48 px-4 py-2 bg-bcgClr text-white rounded"
         onClick={handleSave}
     >
         Save & Process File
