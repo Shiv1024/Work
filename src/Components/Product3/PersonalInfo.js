@@ -81,13 +81,21 @@ const Personalinfo = () => {
           </div>
 
           <div className="flex flex-col justify-center items-center mt-0">
-            <div className="rounded-lg shadow-2xl mt-8">
+            
+          <div className="flex justify-evenly w-full mt-10 mb-10">
+            <div className="bg-white rounded-lg w-1/4 shadow-2xl m-6">
               <h2 className="text-left text-xl font-semibold m-4">Cibil Score</h2>
               <hr className="mb-6 border-gray-300" />
-              <VolatilityGauge value={734} title={"Your Cibil Score is:"} className="text-lg md:text-xl lg:text-2xl" />
+              <VolatilityGauge value={734} title={"Your Cibil Score is:"} className="text-xl md:text-2xl lg:text-2xl" />
             </div>
 
-            <div className="flex justify-evenly items-center mt-10 mb-10">
+            <div className="bg-gray rounded-lg w-3/4 shadow-2xl m-6">
+             <p>y jasgdug</p>
+             
+            </div>
+          </div> 
+
+            <div className="flex justify-evenly items-center mt-5 mb-10">
               <div className="bg-white rounded-lg shadow-xl pb-9 pt-6 pl-6 pr-2 mx-8">
                 <div className="flex justify-between items-center">
                   <h2 className="text-center text-xl font-semibold mb-4 flex-grow">Enquiry Count</h2>
