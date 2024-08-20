@@ -15,8 +15,7 @@ const Sidebar = () => {
     };
 
     return (
-
-        <div className={`fixed top-0 left-0 h-full p-4 text-white flex flex-col z-50 bg-gradient-to-tl to-bcgClr from-bgToClr transition-all duration-300 ease-in-out  ${isOpen ? 'w-36 lg:w-60 md:w-52' : ''}`}>
+        <div className={`fixed top-0 left-0 h-full p-1 text-white flex flex-col z-50 bg-gradient-to-tl to-bcgClr from-bgToClr transition-all duration-300 ease-in-out  ${isOpen ? 'w-36 lg:w-60 md:w-52' : ''}`}>
             <div className="fixed block top-0 left-0 w-32 lg:w-56 md:w-48 p-4 text-white flex flex-col">
                 {/* Back Button */}
                 <ArrowBack 
@@ -30,19 +29,19 @@ const Sidebar = () => {
             <hr className="mb-6 border-gray-300" />
                 <Link to={"/info"}>
                     <div className="mb-2 cursor-pointer">
-                        <p className={`block px-2 py-1 text-xs md:text-sm md:px-4 md:py-2 lg:text-base lg:px-4 lg:py-2 text-left rounded transition-colors duration-300 ${getActiveClass("/info")}`}>
-                            <AccountCircleIcon className="mr-2 inline-block" />
-                            Customer Information
-                        </p>
+                    <p className={`block px-2 py-1 text-xs md:text-sm md:pr-4 md:py-2 lg:text-base lg:pr-4 lg:py-2 text-left rounded whitespace-nowrap transition-colors duration-300 ${getActiveClass("/info")}`}>
+                        <AccountCircleIcon className="mr-2 inline-block" />
+                        Customer Information
+                    </p>
                     </div>
                 </Link>
 
                 <Link to={"/cibilinfo"}>
                     <div className="mb-2 cursor-pointer">
-                        <p className={`block px-2 py-1 text-xs md:text-sm md:px-4 md:py-2 lg:text-base lg:px-4 lg:py-2 text-left rounded transition-colors duration-300 ${getActiveClass("/cibilinfo")}`}>
-                            <InfoIcon className="mr-2 inline-block" />
-                            Cibil Info Personal and Company
-                        </p>
+                    <p className={`block px-2 py-1 text-xs md:text-sm md:py-2 lg:text-base lg:pr-4 lg:py-2 text-left rounded whitespace-nowrap transition-colors duration-300 ${getActiveClass("/cibilinfo")}`}>
+                        <InfoIcon className="mr-2 inline-block" />
+                        Personal & Company Info
+                    </p>
                     </div>
                 </Link>
             </div>
