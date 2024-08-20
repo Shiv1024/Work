@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 import TablePagination from '@mui/material/TablePagination';
-
+import datajson from "../Assets/matching.json";
 const SecondTable = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(datajson)
   const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
 
-  useEffect(() => {
-    fetch('http://localhost:5000/invoiceMatching')
-      .then(response => response.json())
-      .then(data => setData(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch('http://localhost:5000/invoiceMatching')
+  //     .then(response => response.json())
+  //     .then(data => setData(data));
+  // }, []);
 
   const formatNumber = (number) => {
     return number.toLocaleString('en-US');
