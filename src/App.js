@@ -45,7 +45,7 @@ function App() {
           <Route path = "/invoicematching" element = {<TablePage />} />
           <Route path="/clients" element={<Clients/>}/>
           <Route path="/page" element={<Page/>}/>
-          <Route path="/creditscorepage" element={<Creditscore/>}/>
+          <Route path="/creditscorepage" element={<Newcreditscorepage/>}/>
           <Route path="/info" element={<Personalinfo/>}/>
           <Route path="/cibilinfo" element={<Option4/>}/>
           {/* <Route path="/credit" element={<Landingpage isFileUploadVisible={isFileUploadVisible} closeFileUpload={closeFileUpload} setIsFileUploadVisible={setIsFileUploadVisible} fileUploadRef={fileUploadRef}/>}/> */}
