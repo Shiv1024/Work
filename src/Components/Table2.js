@@ -202,7 +202,7 @@ const SecondTable = () => {
             {sortedData
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row, index) => (
-                <tr key={index} className={(page*rowsPerPage + index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
+                <tr key={index} className={(page*rowsPerPage + index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-gray-100 hover:shadow-md'}>
                   <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
                     {sortConfig.key === 'sno' && sortConfig.direction === 'descending' ? sortedData.length - index-page*rowsPerPage : index+1+page*rowsPerPage}
                   </td>

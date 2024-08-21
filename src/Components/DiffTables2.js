@@ -123,7 +123,7 @@ function DiffTable(props) {
               </TableHead>
               <TableBody>
                 {sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-                  <TableRow key={index} className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
+                  <TableRow key={index} className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-gray-100 hover:shadow-md'}>
                     {headers.map((header, idx) => (
                       <TableCell key={idx} align="center">
                         {['totalDebit', 'totalCredit', 'totalUpiDebit', 'totalEcommerce', 'amount', 'NAV', 'premium', 'loanamt', 'loan'].includes(header)

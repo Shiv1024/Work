@@ -17,7 +17,7 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
+import numeral from 'numeral';
 const loanSanctionOptions = [
   { value: '', label: 'All' },
   { value: '0-200', label: '0-200' },
@@ -40,13 +40,7 @@ const profilingColors = {
   Red: 'text-red-500',
   Yellow:'text-yellow-500'
 };
-const profilingColors1 = {
-  Green: 'bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-100',
-  Medium: 'bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-100',
-  High: 'bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-100',
-  Red: 'bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-100',
-  Yellow:'bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-100'
-};
+
 const Clients = () => {
   const [data, setData] = useState(dataJSON);
   const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
@@ -135,7 +129,7 @@ const Clients = () => {
 
   const formatCurrency = (value) => {
     if (value === null || value === undefined) return '-';
-    return `₹${parseFloat(value).toLocaleString()}`;
+    return numeral(value / 100000).format('0.0') + 'L';;
   };
 
   const formatPercentage = (value) => {
@@ -154,8 +148,8 @@ const Clients = () => {
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
-              <TableRow className="bg-bcgClr text-left" >
-                <TableCell style={{ color: 'white', textAlign: 'left', fontWeight:'medium', fontSize:'1vw' }}>
+              <TableRow className="bg-bcgClr" >
+                <TableCell style={{ color: 'white', textAlign: 'center', fontWeight:'medium' }}>
                 <div className="flex items-center justify-between">
                     <span>Borrower</span>
                     {profilingFilter && (
@@ -183,9 +177,12 @@ const Clients = () => {
                     </Menu>
                   </div>
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'left' }}>
-                  <div className="flex items-center justify-between">
+                <TableCell style={{ color: 'white', textAlign: 'center' , fontWeight:'medium'}}>
+                  <div className="flex items-center justify-between text-nowrap">
+                    <div className='flex flex-col'>
                     <span>Loan Sanction</span>
+                    <span>(INR in Lakhs)</span>
+                    </div>
                     {loanSanctionFilter && (
                       <Tooltip title="Clear Filter" placement="bottom">
                         <IconButton onClick={handleClearLoanSanctionFilter}>
@@ -211,10 +208,13 @@ const Clients = () => {
                     </Menu>
                   </div>
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'left' }}>
-                  Limit Used
+                <TableCell style={{ color: 'white', textAlign: 'center', fontWeight:'medium'}}>
+                   <div className='flex flex-col text-nowrap'>
+                    <span>Limit Used</span>
+                    <span>(INR in Lakhs)</span>
+                    </div>
                 </TableCell>
-                <TableCell onClick={() => handleSort('noOfMajorFlags')} style={{ color: 'white', textAlign: 'left' }}>
+                <TableCell onClick={() => handleSort('noOfMajorFlags')} style={{ color: 'white', textAlign: 'center', fontWeight:'medium' }}>
                   <div className='flex flex-row items-center cursor-pointer '>
                     <div className='text-wrap mr-2'>No. of Major Flags</div>
                     <Tooltip title="Sort" placement="bottom">
@@ -222,47 +222,47 @@ const Clients = () => {
                     </Tooltip>
                   </div>
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'left' }}>
+                <TableCell style={{ color: 'white', textAlign: 'center', fontWeight:'medium' }}>
                   Flag Description
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'left' }}>
+                <TableCell style={{ color: 'white', textAlign: 'center', fontWeight:'medium'}}>
                   Invoice Matching Y/N
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'left' }}>
+                <TableCell style={{ color: 'white', textAlign: 'center', fontWeight:'medium' }}>
                   Saliency
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'left' }}>
+                <TableCell style={{ color: 'white', textAlign: 'center', fontWeight:'medium' }}>
                   Trend
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'left' }}>
+                <TableCell style={{ color: 'white', textAlign: 'center' , fontWeight:'medium'}}>
                   Action
                 </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-                <TableRow key={index} className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}>
-                  <TableCell style={{ textAlign: 'left' }}>
+                <TableRow key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-100'}>
+                  <TableCell style={{ textAlign: 'center' }}>
                   <div className={profilingColors[row.profiling]}>{row.borrower}</div>
                   </TableCell>
-                  <TableCell style={{ textAlign: 'left' }}>{formatCurrency(row.loanSanction)}</TableCell>
-                  <TableCell style={{ textAlign: 'left' }}>{formatCurrency(row.limitUsed)}</TableCell>
-                  <TableCell style={{ textAlign: 'left' }}>{row.noOfMajorFlags}</TableCell>
-                  <TableCell style={{ textAlign: 'left' }}>{row.flagDescription}</TableCell>
-                  <TableCell style={{ textAlign: 'left',cursor:'pointer' }}>
+                  <TableCell style={{ textAlign: 'center' }}>{formatCurrency(row.loanSanction)}</TableCell>
+                  <TableCell style={{ textAlign: 'center' }}>{formatCurrency(row.limitUsed)}</TableCell>
+                  <TableCell style={{ textAlign: 'center' }}>{row.noOfMajorFlags}</TableCell>
+                  <TableCell style={{ textAlign: 'center' }}>{row.flagDescription}</TableCell>
+                  <TableCell style={{ textAlign: 'center',cursor:'pointer' }}>
                     <Tooltip title={`Invoice Matching Amount: ${formatCurrency(row.invoiceMatchingAmount)}`}>
                       <span>{row.invoiceMatchingYN}</span>
                     </Tooltip>
                   </TableCell>
-                  <TableCell style={{ textAlign: 'left' }}>{formatPercentage(row.credableContriToOverallBusiness)}</TableCell>
-                  <TableCell style={{ textAlign: 'left',cursor:'pointer' }}> 
+                  <TableCell style={{ textAlign: 'center' }}>{formatPercentage(row.credableContriToOverallBusiness)}</TableCell>
+                  <TableCell style={{ textAlign: 'center',cursor:'pointer' }}> 
                     {<Tooltip title={row.remarks} placement="bottom">
                           <div className="truncate">
                           {row.trendDeclineIncreaseConstant}
                           </div>
                       </Tooltip>}
                   </TableCell>
-                  <TableCell style={{ textAlign: 'left' }} >
+                  <TableCell style={{ textAlign: 'center' }} >
                     {row.action}
                   </TableCell>
                 </TableRow>

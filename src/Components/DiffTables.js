@@ -102,7 +102,7 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
+import numeral from "numeral";
 function DiffTable(props) {
   const [isDiffTableVisible, setIsDiffTableVisible] = useState(false);
 
@@ -121,6 +121,19 @@ function DiffTable(props) {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+  const formatCurrency = (value) => {
+    if (typeof value === 'string') {
+        // Check if the string contains only numbers
+        if (/^\d+$/.test(value)) {
+            value = parseInt(value);
+        } else {
+            return value;
+        }
+    }
+    if (value === null || value === undefined) return '-';
+    return numeral(value / 100000).format('0.0') + 'L';
+};
+
 
   return (
     <div className="border border-gray-300 rounded-md shadow-sm w-full flex flex-col mb-4">
@@ -141,26 +154,26 @@ function DiffTable(props) {
             <Table>
               <TableHead>
                 <TableRow className="bg-bcgClr text-left">
-                  <TableCell  style={{ color: 'white',fontWeight:'medium', fontSize:'1vw', textAlign:'left' }}>
+                  <TableCell  style={{ color: 'white',fontWeight:'medium', textAlign:'left' }}>
                     Inclusions
                   </TableCell>
-                  <TableCell style={{ color: 'white',fontWeight:'medium', fontSize:'1vw', textAlign:'left' }}>
+                  <TableCell style={{ color: 'white',fontWeight:'medium', textAlign:'left' }}>
                     Measure
                   </TableCell>
-                  <TableCell style={{ color: 'white',fontWeight:'medium', fontSize:'1vw', textAlign:'left' }}>
+                  <TableCell style={{ color: 'white',fontWeight:'medium', textAlign:'left' }}>
                     Historical trend
                   </TableCell>
-                  <TableCell style={{ color: 'white',fontWeight:'medium', fontSize:'1vw', textAlign:'left' }}>
+                  <TableCell style={{ color: 'white',fontWeight:'medium', textAlign:'left' }}>
                     Current Month Response
                   </TableCell>
-                  <TableCell style={{ color: 'white',fontWeight:'medium', fontSize:'1vw', textAlign:'left' }}>
+                  <TableCell style={{ color: 'white',fontWeight:'medium',  textAlign:'left' }}>
                     Remarks
                   </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {props.Data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-                  <TableRow key={index} className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
+                  <TableRow key={index} className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-gray-100 hover:shadow-md'}>
                     <TableCell  align="left">
                       {row.inclusions}
                     </TableCell>
@@ -168,10 +181,10 @@ function DiffTable(props) {
                       {row.measure}
                     </TableCell>
                     <TableCell  align="left">
-                      {row.historicalTrend}
+                      {formatCurrency(row.historicalTrend)}
                     </TableCell>
                     <TableCell  align="left">
-                      {row.currentMonthResponse}
+                      {formatCurrency(row.currentMonthResponse)}
                     </TableCell>
                     <TableCell align="left">
                       {row.remarks}

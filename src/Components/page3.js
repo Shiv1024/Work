@@ -41,8 +41,7 @@ const Page = () => {
   ];
 
   const salesData = [
-    { inclusions: 'Turnover (Total Value)', measure: 'Outward Supplies basis 3B, net of returns, credit / debit etc', historicalTrend: '21,86,01,914.19', currentMonthResponse: '###########', remarks: '32% Saliency, Jan\'24' },
-    { inclusions: 'Turnover (Average Value)', measure: 'Outward Supplies basis 3B, net of returns, credit / debit etc', historicalTrend: '4,98,16,905.21', currentMonthResponse: '###########', remarks: 'Increasing Trend, Jan\'24' },
+
     { inclusions: 'Invoice value Total', measure: 'Cumulative Monthly Invoice value shared INR Lakhs', historicalTrend: '1787.94', currentMonthResponse: '449.22', remarks: '5 Months' },
     { inclusions: 'Invoice value Total', measure: 'Average Monthly Invoice value in INR Lakhs', historicalTrend: '357.59', currentMonthResponse: '449.22', remarks: null },
     { inclusions: 'Monthwise Invoice value', measure: 'Average', historicalTrend: '1,30,697.70', currentMonthResponse: '1,45,378.96', remarks: null },
