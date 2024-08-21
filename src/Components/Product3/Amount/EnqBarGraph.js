@@ -17,22 +17,22 @@ const BarGraph = ({ data }) => {
       {
         label: 'Guarantor',
         data: guarantor,
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        backgroundColor: 'rgba(231, 98, 97, 0.6)',
       },
       {
         label: 'Individual',
         data: individual,
-        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+        backgroundColor: 'rgba(255, 191, 0, 0.6)',
       },
       {
         label: 'Joint',
         data: joint,
-        backgroundColor: 'rgba(255, 206, 86, 0.6)',
+        backgroundColor: 'rgba(53, 166, 230, 0.6)',
       },
       {
         label: 'Total',
         data: total,
-        backgroundColor: 'rgba(153, 102, 255, 0.6)',
+        backgroundColor: 'rgba(51, 194, 148, 0.6)',
       },
     ],
   };

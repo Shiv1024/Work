@@ -11,6 +11,7 @@ import Option4 from "./Components/Product3/Option4";
 import SMSParsing from './Components/SMS parsing.js';
 // import Fileupload from './Components/Fileupload3.js';
 import Newcreditscorepage from '../src/Components/Bank Score/Newcreditscorepage.js';
+import VolatilityStrip from './Components/VolatilityStrip.js';
 
 function App() {
   const fileUploadRef = useRef();
@@ -52,6 +53,7 @@ function App() {
           {/* <Route path="/new" element={<Fileupload/>}/> */}
           <Route path="/newcreditscorepage" element={<Newcreditscorepage/>}/>
           <Route path="/sms" element={<SMSParsing/>}/>
+          <Route path="/strip" element={<VolatilityStrip value={734}/>} />
       </Routes>
       </Router>
     </div>
