@@ -13,7 +13,7 @@ import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 
 function DiffTable(props) {
-  const [isDiffTableVisible, setIsDiffTableVisible] = useState(false);
+  const [isDiffTableVisible, setIsDiffTableVisible] = useState(true);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [sortConfig, setSortConfig] = useState({ key: '', direction: 'asc' });
@@ -93,9 +93,9 @@ function DiffTable(props) {
 
   return (
     <div className="border border-gray-300 rounded-md shadow-sm w-full flex flex-col mb-4">
-      <div className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer" onClick={toggleDiffTableVisibility}>
+      <div className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer" >
         <span>{props.title}</span>
-        <ArrowDropDownIcon className={`transition-transform transform ${isDiffTableVisible ? 'rotate-180' : 'rotate-0'}`} />
+        {/* <ArrowDropDownIcon className={`transition-transform transform ${isDiffTableVisible ? 'rotate-180' : 'rotate-0'}`} /> */}
       </div>
       {isDiffTableVisible && (
         <div className="flex flex-col justify-between p-4">

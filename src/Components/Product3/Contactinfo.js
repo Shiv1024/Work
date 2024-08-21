@@ -10,7 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 const Contactinfo = () => {
-  const [isDiffTableVisible, setIsDiffTableVisible] = useState(false);
+  const [isDiffTableVisible, setIsDiffTableVisible] = useState(true);
 
   const toggleDiffTableVisibility = () => {
     setIsDiffTableVisible(!isDiffTableVisible);
@@ -91,14 +91,14 @@ const Contactinfo = () => {
     <div className="border border-gray-300 rounded-md shadow-sm w-full flex flex-col mb-4">
     <div
       className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer"
-      onClick={toggleDiffTableVisibility}
+      // onClick={toggleDiffTableVisibility}
     >
       <span>Contact Information</span>
-      <ArrowDropDownIcon
+      {/* <ArrowDropDownIcon
         className={`transition-transform transform ${
           isDiffTableVisible ? 'rotate-180' : 'rotate-0'
-        }`}
-      />
+        }`} */}
+      
     </div>
     {isDiffTableVisible && (
       <div className="flex flex-row space-x-2">
@@ -122,7 +122,7 @@ const Contactinfo = () => {
                 {mobileNumbers.map((number, index) => (
                   <TableRow
                     key={index}
-                    className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}
+                    className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-gray-100 hover:shadow-md'}
                   >
                     <TableCell
                       align="center"
@@ -150,7 +150,7 @@ const Contactinfo = () => {
                 {emailIds.map((email, index) => (
                   <TableRow
                     key={index}
-                    className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}
+                    className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-gray-100 hover:shadow-md'}
                   >
                     <TableCell
                       align="center"
@@ -181,7 +181,7 @@ const Contactinfo = () => {
                 {addresse.map((info, index) => (
                   <TableRow
                     key={index}
-                    className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}
+                    className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-gray-100 hover:shadow-md'}
                   >
                     <TableCell
                       align="center"

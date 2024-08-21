@@ -30,7 +30,7 @@ const Creditscore = () => {
         />
       </div>
       <div className="relative rounded-lg bg-white shadow-md m-3" style={{ flex: '0 1 auto' }}>
-        <h2 className="text-left text-xl font-semibold m-4">Maximum Emi Possible</h2>
+        <h2 className="text-left text-xl font-semibold m-4">Maximum EMI Possible</h2>
         <hr className="mb-6 border-gray-300" />
         <SemiCircularChart value={203417} title={""} />
       </div>

@@ -9,7 +9,7 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 const IdInfo = () => {
-  const [isTableVisible, setIsTableVisible] = useState(false);
+  const [isTableVisible, setIsTableVisible] = useState(true);
 
   const toggleTableVisibility = () => {
     setIsTableVisible(!isTableVisible);
@@ -24,9 +24,10 @@ const IdInfo = () => {
 
   return (
     <div className="border border-gray-300 rounded-md shadow-sm w-full flex flex-col mb-4">
-      <div className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer" onClick={toggleTableVisibility}>
+      <div className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer" 
+      >
         <span>ID Information</span>
-        <ArrowDropDownIcon className={`transition-transform transform ${isTableVisible ? 'rotate-180' : 'rotate-0'}`} />
+        {/* <ArrowDropDownIcon className={`transition-transform transform ${isTableVisible ? 'rotate-180' : 'rotate-0'}`} /> */}
       </div>
       {isTableVisible && (
         <div className="flex flex-col lg:flex-row p-4 gap-4">

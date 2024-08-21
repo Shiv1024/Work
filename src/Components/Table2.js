@@ -1,42 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
-import TablePagination from '@mui/material/TablePagination';
+import {
+  TableContainer, Table, TableHead, TableRow, TableCell, TableBody, TableSortLabel,
+  Paper, TablePagination
+} from '@mui/material';
 import datajson from "../Assets/matching.json";
-const SecondTable = () => {
-  const [data, setData] = useState(datajson)
-  const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
 
-  // useEffect(() => {
-  //   fetch('http://localhost:5000/invoiceMatching')
-  //     .then(response => response.json())
-  //     .then(data => setData(data));
-  // }, []);
+const SecondTable = () => {
+  const [data, setData] = useState(datajson);
+  const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const formatNumber = (number) => {
     return number.toLocaleString('en-US');
   };
 
   const handleSort = (key) => {
-    let direction = 'ascending';
-    if (sortConfig.key === key && sortConfig.direction === 'ascending') {
-      direction = 'descending';
+    let direction = 'asc';
+    if (sortConfig.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc';
     }
     setSortConfig({ key, direction });
   };
 
   const sortedData = [...data].sort((a, b) => {
     if (a[sortConfig.key] < b[sortConfig.key]) {
-      return sortConfig.direction === 'ascending' ? -1 : 1;
+      return sortConfig.direction === 'asc' ? -1 : 1;
     }
     if (a[sortConfig.key] > b[sortConfig.key]) {
-      return sortConfig.direction === 'ascending' ? 1 : -1;
+      return sortConfig.direction === 'asc' ? 1 : -1;
     }
     return 0;
   });
-
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -48,230 +45,154 @@ const SecondTable = () => {
   };
 
   return (
-    <div className="px-8 py-4 flex flex-col">
-      <div className="flex overflow-x-scroll">
-        <table className="flex-shrink-0 mx-auto mt-4 border-collapse border border-gray-400 shadow-lg rounded-lg">
-          <thead>
-            <tr className="border-b border-gray-400 text-white bg-bcgClr">
-              <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
-                onClick={() => handleSort('sno')}
-              >
-                S. No
-                {sortConfig.key === 'sno' && (
-                  sortConfig.direction === 'ascending' ? (
-                    <ArrowDownwardOutlinedIcon />
-                  ) : (
-                    <ArrowUpwardOutlinedIcon />
-                  )
-                )}
-              </th>
-              <th
-                 className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
-                onClick={() => handleSort('source')}
-              >
-                Source
-                {sortConfig.key === 'source' && (
-                  sortConfig.direction === 'ascending' ? (
-                    <ArrowDownwardOutlinedIcon />
-                  ) : (
-                    <ArrowUpwardOutlinedIcon />
-                  )
-                )}
-              </th>
-              <th
-                 className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-36 md:w-48 lg:w-60 text-center cursor-pointer"
-                onClick={() => handleSort('partyName')}
-              >
-                Party Name
-                {sortConfig.key === 'partyName' && (
-                  sortConfig.direction === 'ascending' ? (
-                    <ArrowDownwardOutlinedIcon />
-                  ) : (
-                    <ArrowUpwardOutlinedIcon />
-                  )
-                )}
-              </th>
-              <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-24 lg:w-32 text-center cursor-pointer"
-                onClick={() => handleSort('invoiceDisbursmentdate')}
-              >
-                Invoice Disbursement date
-                {sortConfig.key === 'invoiceDisbursmentdate' && (
-                  sortConfig.direction === 'ascending' ? (
-                    <ArrowDownwardOutlinedIcon />
-                  ) : (
-                    <ArrowUpwardOutlinedIcon />
-                  )
-                )}
-              </th>
-              <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-24 lg:w-32 text-center cursor-pointer"
-                onClick={() => handleSort('gstDate')}
-              >
-                GST Date
-                {sortConfig.key === 'gstDate' && (
-                  sortConfig.direction === 'ascending' ? (
-                    <ArrowDownwardOutlinedIcon />
-                  ) : (
-                    <ArrowUpwardOutlinedIcon />
-                  )
-                )}
-              </th>
-              <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
-                onClick={() => handleSort('value')}
-              >
-                Value
-                {sortConfig.key === 'value' && (
-                  sortConfig.direction === 'ascending' ? (
-                    <ArrowDownwardOutlinedIcon />
-                  ) : (
-                    <ArrowUpwardOutlinedIcon />
-                  )
-                )}
-              </th>
-              <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-24 lg:w-32 text-center cursor-pointer"
-                onClick={() => handleSort('invoiceNumber')}
-              >
-                Invoice Number
-                {sortConfig.key === 'invoiceNumber' && (
-                  sortConfig.direction === 'ascending' ? (
-                    <ArrowDownwardOutlinedIcon />
-                  ) : (
-                    <ArrowUpwardOutlinedIcon />
-                  )
-                )}
-              </th>
-              <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-24 lg:w-32 text-center cursor-pointer"
-                onClick={() => handleSort('status')}
-              >
-                Status
-                {sortConfig.key === 'status' && (
-                  sortConfig.direction === 'ascending' ? (
-                    <ArrowDownwardOutlinedIcon />
-                  ) : (
-                    <ArrowUpwardOutlinedIcon />
-                  )
-                )}
-              </th>
-              <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-16 md:w-20 lg:w-24 text-center cursor-pointer"
-                onClick={() => handleSort('differnceInInvoiceAmountCredGst')}
-              >
-                Difference in invoice amount (cred - gst)
-                {sortConfig.key === 'differnceInInvoiceAmountCredGst' && (
-                  sortConfig.direction === 'ascending' ? (
-                    <ArrowDownwardOutlinedIcon />
-                  ) : (
-                    <ArrowUpwardOutlinedIcon />
-                  )
-                )}
-              </th>
-              <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 w-24 md:w-32 lg:w-40 text-center cursor-pointer"
-                onClick={() => handleSort('remarks')}
-              >
-                Remarks
-                {sortConfig.key === 'remarks' && (
-                  sortConfig.direction === 'ascending' ? (
-                    <ArrowDownwardOutlinedIcon />
-                  ) : (
-                    <ArrowUpwardOutlinedIcon />
-                  )
-                )}
-              </th>
-              <th
-                className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm w-16 md:w-20 lg:w-24 text-center cursor-pointer"
-                onClick={() => handleSort('alert')}
-              >
-                Alert
-                {sortConfig.key === 'alert' && (
-                  sortConfig.direction === 'ascending' ? (
-                    <ArrowDownwardOutlinedIcon />
-                  ) : (
-                    <ArrowUpwardOutlinedIcon />
-                  )
-                )}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
+    <div className="flex flex-col px-8 py-4">
+      <TableContainer component={Paper} className="overflow-x-scroll">
+        <Table>
+          <TableHead>
+            <TableRow style={{color:'white'}}>
+              <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'medium', borderColor:'black'}} sortDirection={sortConfig.key === 'sno' ? sortConfig.direction : false}>
+                <TableSortLabel style={{color:"white", borderBottomWidth:'1px',fontWeight:'medium', borderColor:'black'}}
+                  active={sortConfig.key === 'sno'}
+                  direction={sortConfig.direction}
+                  onClick={() => handleSort('sno')}
+                >
+                  S.No
+                </TableSortLabel>
+              </TableCell>
+              <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'medium', borderColor:'black'}} sortDirection={sortConfig.key === 'source' ? sortConfig.direction : false}>
+                <TableSortLabel style={{color:"white", borderBottomWidth:'1px',fontWeight:'medium', borderColor:'black'}}
+                  active={sortConfig.key === 'source'}
+                  direction={sortConfig.direction}
+                  onClick={() => handleSort('source')}
+                >
+                  Source
+                </TableSortLabel>
+              </TableCell>
+              <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'medium', borderColor:'black'}} sortDirection={sortConfig.key === 'partyName' ? sortConfig.direction : false}>
+                <TableSortLabel style={{color:"white", borderBottomWidth:'1px',fontWeight:'medium', borderColor:'black'}}
+                  active={sortConfig.key === 'partyName'}
+                  direction={sortConfig.direction}
+                  onClick={() => handleSort('partyName')}
+                >
+                  Party Name
+                </TableSortLabel>
+              </TableCell>
+              <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'medium', borderColor:'black'}} sortDirection={sortConfig.key === 'invoiceDisbursmentdate' ? sortConfig.direction : false}>
+                <TableSortLabel style={{color:"white", borderBottomWidth:'1px',fontWeight:'medium', borderColor:'black'}}
+                  active={sortConfig.key === 'invoiceDisbursmentdate'}
+                  direction={sortConfig.direction}
+                  onClick={() => handleSort('invoiceDisbursmentdate')}
+                >
+                  Invoice Disbursement Date
+                </TableSortLabel>
+              </TableCell>
+              <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'medium', borderColor:'black'}} sortDirection={sortConfig.key === 'gstDate' ? sortConfig.direction : false}>
+                <TableSortLabel style={{color:"white", borderBottomWidth:'1px',fontWeight:'medium', borderColor:'black'}}
+                  active={sortConfig.key === 'gstDate'}
+                  direction={sortConfig.direction}
+                  onClick={() => handleSort('gstDate')}
+                >
+                  GST Date
+                </TableSortLabel>
+              </TableCell>
+              <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'medium', borderColor:'black'}} sortDirection={sortConfig.key === 'value' ? sortConfig.direction : false}>
+                <TableSortLabel style={{color:"white", borderBottomWidth:'1px',fontWeight:'medium', borderColor:'black'}}
+                  active={sortConfig.key === 'value'}
+                  direction={sortConfig.direction}
+                  onClick={() => handleSort('value')}
+                >
+                  Value
+                </TableSortLabel>
+              </TableCell>
+              <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'medium', borderColor:'black'}} sortDirection={sortConfig.key === 'invoiceNumber' ? sortConfig.direction : false}>
+                <TableSortLabel style={{color:"white", borderBottomWidth:'1px',fontWeight:'medium', borderColor:'black'}}
+                  active={sortConfig.key === 'invoiceNumber'}
+                  direction={sortConfig.direction}
+                  onClick={() => handleSort('invoiceNumber')}
+                >
+                  Invoice Number
+                </TableSortLabel>
+              </TableCell>
+              <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'medium', borderColor:'black'}} sortDirection={sortConfig.key === 'status' ? sortConfig.direction : false}>
+                <TableSortLabel style={{color:"white", borderBottomWidth:'1px',fontWeight:'medium', borderColor:'black'}}
+                  active={sortConfig.key === 'status'}
+                  direction={sortConfig.direction}
+                  onClick={() => handleSort('status')}
+                >
+                  Status
+                </TableSortLabel>
+              </TableCell>
+              <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'medium', borderColor:'black'}} sortDirection={sortConfig.key === 'differnceInInvoiceAmountCredGst' ? sortConfig.direction : false}>
+                <TableSortLabel style={{color:"white", borderBottomWidth:'1px',fontWeight:'medium', borderColor:'black'}}
+                  active={sortConfig.key === 'differnceInInvoiceAmountCredGst'}
+                  direction={sortConfig.direction}
+                  onClick={() => handleSort('differnceInInvoiceAmountCredGst')}
+                >
+                  Difference in Invoice Amount (Cred - GST)
+                </TableSortLabel>
+              </TableCell>
+              <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'medium', borderColor:'black'}} sortDirection={sortConfig.key === 'remarks' ? sortConfig.direction : false}>
+                <TableSortLabel style={{color:"white", borderBottomWidth:'1px',fontWeight:'medium', borderColor:'black'}}
+                  active={sortConfig.key === 'remarks'}
+                  direction={sortConfig.direction}
+                  onClick={() => handleSort('remarks')}
+                >
+                  Remarks
+                </TableSortLabel>
+              </TableCell>
+              <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'medium', borderColor:'black'}} sortDirection={sortConfig.key === 'alert' ? sortConfig.direction : false}>
+                <TableSortLabel style={{color:"white", borderBottomWidth:'1px',fontWeight:'medium', borderColor:'black'}}
+                  active={sortConfig.key === 'alert'}
+                  direction={sortConfig.direction}
+                  onClick={() => handleSort('alert')}
+                >
+                  Alert
+                </TableSortLabel>
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
             {sortedData
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row, index) => (
-                <tr key={index} className={(page*rowsPerPage + index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-gray-100 hover:shadow-md'}>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
-                    {sortConfig.key === 'sno' && sortConfig.direction === 'descending' ? sortedData.length - index-page*rowsPerPage : index+1+page*rowsPerPage}
-                  </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
-                    ABC
-                  </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-left">
+                <TableRow key={index} className={(page * rowsPerPage + index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-gray-100 hover:shadow-md'}>
+                  <TableCell className="py-2 px-4 text-left">
+                    {sortConfig.key === 'sno' && sortConfig.direction === 'desc' 
+                      ? sortedData.length - index - page * rowsPerPage 
+                      : index + 1 + page * rowsPerPage}
+                  </TableCell>
+                  <TableCell className="py-2 px-4 text-left">ABC</TableCell>
+                  <TableCell className="py-2 px-4 text-left">
                     {row.partyName === "Not in GST" ? row.partyName : "Party XYZ"}
-                  </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
-                    {row.invoiceDisbursmentdate}
-                  </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
+                  </TableCell>
+                  <TableCell className="py-2 px-4 text-left">{row.invoiceDisbursmentdate}</TableCell>
+                  <TableCell className="py-2 px-4 text-left">
                     {row.gstDate === 'NaT' ? null : row.gstDate}
-                  </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
-                    ₹{formatNumber(row.value)}
-                  </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
-                    {row.invoiceNumber}
-                  </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
-                    {row.status}
-                  </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
-                    {row.differnceInInvoiceAmountCredGst}
-                  </td>
-                  <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm border-r border-gray-400 text-center">
-                    {row.remarks}
-                  </td>
-                    <td className="py-1 px-3 md:py-2 md:px-4 lg:py-2 lg:px-4 text-xs md:text-xs lg:text-sm text-center">
-                    {row.alert}
-                  </td>
-                </tr>
+                  </TableCell>
+                  <TableCell className="py-2 px-4 text-left">₹{formatNumber(row.value)}</TableCell>
+                  <TableCell className="py-2 px-4 text-left">{row.invoiceNumber}</TableCell>
+                  <TableCell className="py-2 px-4 text-left">{row.status}</TableCell>
+                  <TableCell className="py-2 px-4 text-left">{row.differnceInInvoiceAmountCredGst}</TableCell>
+                  <TableCell className="py-2 px-4 text-left">{row.remarks}</TableCell>
+                  <TableCell className="py-2 px-4 text-left">{row.alert}</TableCell>
+                </TableRow>
               ))}
-          </tbody>
-          {/* <tfoot>
-            <tr className="border border-gray-400">
-              <td colSpan={11} className="py-1 px-4 text-center">
-                <TablePagination
-                  rowsPerPageOptions={[5, 10, 25]}
-                  component="div"
-                  count={sortedData.length}
-                  rowsPerPage={rowsPerPage}
-                  page={page}
-                  onPageChange={handleChangePage}
-                  onRowsPerPageChange={handleChangeRowsPerPage}
-                />
-              </td>
-            </tr>
-          </tfoot> */}
-        </table>
-
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <div className="sticky bottom-0 bg-white w-full flex justify-start">
+        <div className="w-auto">
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 25]}
+            component="div"
+            count={sortedData.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
         </div>
-
-        <div className="sticky bottom-0 bg-white w-full flex justify-start">
-          <div className="w-auto">
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 25]}
-              component="div"
-              count={sortedData.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-          </div>
-        </div>
-        
+      </div>
     </div>
   );
 };

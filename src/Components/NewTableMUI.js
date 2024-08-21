@@ -155,12 +155,12 @@ const DataTable = () => {
                 { id: 'remarks', label: 'Remarks' },
                 { id: 'alerts', label: 'Alert' }
               ].map((headCell) => (
-                <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'medium', fontSize:'1vw', borderColor:'black'}}
+                <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'medium', borderColor:'black'}}
                   key={headCell.id}
                 //   className="py-2 px-4 text-xs md:text-sm lg:text-base text-center cursor-pointer text-white"
                   sortDirection={sortConfig.key === headCell.id ? sortConfig.direction : false}
                 >
-                  <TableSortLabel style={{color:"white", borderBottomWidth:'1px',fontWeight:'medium', fontSize:'1vw', borderColor:'black'}}
+                  <TableSortLabel style={{color:"white", borderBottomWidth:'1px',fontWeight:'medium', borderColor:'black'}}
                     active={sortConfig.key === headCell.id}
                     direction={sortConfig.direction}
                     onClick={() => handleSort(headCell.id)}
@@ -175,7 +175,7 @@ const DataTable = () => {
           </TableHead>
           <TableBody>
             {sortedData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-              <TableRow key={index} className={(page * rowsPerPage + index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
+              <TableRow key={index} className={(page * rowsPerPage + index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-gray-100 hover:shadow-md'}>
                 <TableCell className="py-2 px-4 text-left">{row.categoryName}</TableCell>
                 <TableCell className="py-2 px-4 text-left">{row.tenureStart}</TableCell>
                 <TableCell className="py-2 px-4 text-left">{row.tenureEnd}</TableCell>

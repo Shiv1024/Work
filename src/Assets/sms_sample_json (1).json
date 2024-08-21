@@ -572,7 +572,7 @@
         {
             "date": "17-01-2023",
             "loan": 820000.0,
-            "noOfEmis": 36,
+            "No of EMI's": 36,
             "ROIPercent": 13.0,
             "accNo": null,
             "reason": "Business Loan",
