@@ -4,6 +4,7 @@ import Cards from "../card.js";
 import Contactinfo from "./Contactinfo.js";
 import IdInfo from "./Governmentids.js";
 import VolatilityGauge from "../VolatilityGauge.js";
+import VolatilityStrip from "../VolatilityStrip.js";
 import HorizontalBar from "../NewCibilScore.js";
 import amountCountData from './Amount/dummydataAmtCnt.json';
 import amountData from "./Amount/dummydataAmt.json";
@@ -83,10 +84,11 @@ const Personalinfo = () => {
           <div className="flex flex-col justify-center items-center mt-0">
             
           
-            <div className="bg-white rounded-lg w-1/4 shadow-2xl m-6">
-              <h2 className="text-left text-xl font-semibold m-4">Bureau Score</h2>
-              <hr className="mb-6 border-gray-300" />
-              <VolatilityGauge value={734} title={"Your Bureau Score is:"} className="text-xl md:text-2xl lg:text-2xl" />
+            <div className="bg-white rounded-lg w-1/3 shadow-2xl m-6">
+              <h2 className="text-center text-xl font-semibold m-4">Bureau Score</h2>
+              <hr className="mb-4 border-gray-300" />
+              {/* <VolatilityGauge value={734} title={"Your Bureau Score is:"} className="text-xl md:text-2xl lg:text-2xl" /> */}
+              <VolatilityStrip value={734} className="mb-4"/>
             </div>
           
 
@@ -158,14 +160,22 @@ const Personalinfo = () => {
         overlayClassName="ReactModal__Overlay"
       >
         <div className="relative">
-          <IconButton
-            onClick={closeModal}
-            className="absolute top-2 right-2 text-red-500"
-            aria-label="Close"
-          >
-            <CloseIcon />
-          </IconButton>
-          <BarGraph data={enquiryCountData} />
+          {/* Flex container for heading and close icon */}
+          <div className="flex justify-between items-center py-2">
+            {/* Empty div to balance the flex for centering the title */}
+            <div className="w-8"></div>
+            <h2 className="text-center text-xl font-semibold flex-grow">Enquiry Count</h2>
+            <IconButton
+              onClick={closeModal}
+              className="text-red-500"
+              aria-label="Close"
+            >
+              <CloseIcon />
+            </IconButton>
+          </div>
+          <div className="mt-6">
+            <BarGraph data={enquiryCountData} />
+          </div>
         </div>
       </Modal>
 
@@ -178,14 +188,22 @@ const Personalinfo = () => {
         overlayClassName="ReactModal__Overlay"
       >
         <div className="relative">
-          <IconButton
-            onClick={closeAmountModal}
-            className="absolute top-2 right-2 text-red-500"
-            aria-label="Close"
-          >
-            <CloseIcon />
-          </IconButton>
-          <AmtBarGraph data={amountData} />
+          {/* Flex container for heading and close icon */}
+          <div className="flex justify-between items-center py-2">
+            {/* Empty div to balance the flex for centering the title */}
+            <div className="w-8"></div>
+            <h2 className="text-center text-xl font-semibold flex-grow">Active Loan Amount</h2>
+            <IconButton
+              onClick={closeAmountModal}
+              className="text-red-500"
+              aria-label="Close"
+            >
+              <CloseIcon />
+            </IconButton>
+          </div>
+          <div className="mt-6">
+            <AmtBarGraph data={amountData} />
+          </div>
         </div>
       </Modal>
     </div>
