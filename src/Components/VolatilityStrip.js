@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated} from '@react-spring/web'
 
 const VolatilityStrip = ({ value }) => {
   const ranges = [

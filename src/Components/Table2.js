@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
+import numeral from 'numeral';
 import {
   TableContainer, Table, TableHead, TableRow, TableCell, TableBody, TableSortLabel,
   Paper, TablePagination
@@ -13,8 +14,9 @@ const SecondTable = () => {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  const formatNumber = (number) => {
-    return number.toLocaleString('en-US');
+  const formatCurrency = (value) => {
+    if (value === null || value === undefined) return '-';
+    return numeral(value / 100000).format('0.0') + 'L';;
   };
 
   const handleSort = (key) => {
@@ -101,7 +103,10 @@ const SecondTable = () => {
                   direction={sortConfig.direction}
                   onClick={() => handleSort('value')}
                 >
+                  <div  className='flex flex-col justify-center items-center'>
                   Value
+                  <span className='text-sm text-nowrap'>(INR in Lakhs)</span>
+                  </div>
                 </TableSortLabel>
               </TableCell>
               <TableCell className='border-b border-gray-400 text-white bg-bcgClr' style={{color:"white", borderBottomWidth:'1px', fontWeight:'medium', borderColor:'black'}} sortDirection={sortConfig.key === 'invoiceNumber' ? sortConfig.direction : false}>
@@ -156,25 +161,25 @@ const SecondTable = () => {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row, index) => (
                 <TableRow key={index} className={(page * rowsPerPage + index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-gray-100 hover:shadow-md'}>
-                  <TableCell className="py-2 px-4 text-left">
+                  <TableCell className="py-2 px-4 text-center">
                     {sortConfig.key === 'sno' && sortConfig.direction === 'desc' 
                       ? sortedData.length - index - page * rowsPerPage 
                       : index + 1 + page * rowsPerPage}
                   </TableCell>
-                  <TableCell className="py-2 px-4 text-left">ABC</TableCell>
-                  <TableCell className="py-2 px-4 text-left">
+                  <TableCell className="py-2 px-4 text-center">ABC</TableCell>
+                  <TableCell className="py-2 px-4 text-center">
                     {row.partyName === "Not in GST" ? row.partyName : "Party XYZ"}
                   </TableCell>
-                  <TableCell className="py-2 px-4 text-left">{row.invoiceDisbursmentdate}</TableCell>
-                  <TableCell className="py-2 px-4 text-left">
+                  <TableCell className="py-2 px-4 text-center">{row.invoiceDisbursmentdate}</TableCell>
+                  <TableCell className="py-2 px-4 text-center">
                     {row.gstDate === 'NaT' ? null : row.gstDate}
                   </TableCell>
-                  <TableCell className="py-2 px-4 text-left">₹{formatNumber(row.value)}</TableCell>
-                  <TableCell className="py-2 px-4 text-left">{row.invoiceNumber}</TableCell>
-                  <TableCell className="py-2 px-4 text-left">{row.status}</TableCell>
-                  <TableCell className="py-2 px-4 text-left">{row.differnceInInvoiceAmountCredGst}</TableCell>
-                  <TableCell className="py-2 px-4 text-left">{row.remarks}</TableCell>
-                  <TableCell className="py-2 px-4 text-left">{row.alert}</TableCell>
+                  <TableCell className="py-2 px-4 text-center">{formatCurrency(row.value)}</TableCell>
+                  <TableCell className="py-2 px-4 text-center">{row.invoiceNumber}</TableCell>
+                  <TableCell className="py-2 px-4 text-center">{row.status}</TableCell>
+                  <TableCell className="py-2 px-4 text-center">{row.differnceInInvoiceAmountCredGst}</TableCell>
+                  <TableCell className="py-2 px-4 text-center">{row.remarks}</TableCell>
+                  <TableCell className="py-2 px-4 text-center">{row.alert}</TableCell>
                 </TableRow>
               ))}
           </TableBody>

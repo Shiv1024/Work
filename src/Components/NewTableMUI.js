@@ -148,7 +148,7 @@ const DataTable = () => {
                 { id: 'tenureStart', label: 'Tenure Start' },
                 { id: 'tenureEnd', label: 'Tenure End' },
                 { id: 'totalNo', label: 'Total No' },
-                { id: 'value', label: 'Value INR Lakhs' },
+                { id: 'value', label: 'Value' },
                 { id: 'durationNo', label: 'Common Duration Nos' },
                 { id: 'durationValue', label: 'Common Duration Value' },
                 { id: 'balance', label: 'Balance' },
@@ -167,7 +167,14 @@ const DataTable = () => {
                     
                     // IconComponent={sortConfig.key === headCell.id ? (ArrowUpwardOutlinedIcon) : null}
                   >
-                    {headCell.label}
+                    {headCell.label === 'Value' ? (
+                        <div className='flex flex-col justify-center items-center'>
+                          <span>{headCell.label}</span>
+                          <span className='text-sm text-nowrap'>(INR in Lakhs)</span>
+                        </div>
+                      ) : (
+                        headCell.label
+                    )}
                   </TableSortLabel>
                 </TableCell>
               ))}
