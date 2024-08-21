@@ -89,33 +89,45 @@ const Contactinfo = () => {
       // )}
     // </div>
     <div className="border border-gray-300 rounded-md shadow-sm w-full flex flex-col mb-4">
-      <div
-        className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer"
-        onClick={toggleDiffTableVisibility}
-      >
-        <span>Contact Information</span>
-        <ArrowDropDownIcon
-          className={`transition-transform transform ${
-            isDiffTableVisible ? 'rotate-180' : 'rotate-0'
-          }`}
-        />
-      </div>
-      {isDiffTableVisible && (
-        <div className="flex flex-col lg:flex-row">
-         <div className="w-full lg:w-1/2  lg:mb-0 p-4 lg:pl-4 lg:pr-2 py-4">
+    <div
+      className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer"
+      onClick={toggleDiffTableVisibility}
+    >
+      <span>Contact Information</span>
+      <ArrowDropDownIcon
+        className={`transition-transform transform ${
+          isDiffTableVisible ? 'rotate-180' : 'rotate-0'
+        }`}
+      />
+    </div>
+    {isDiffTableVisible && (
+      <div className="flex flex-row space-x-2">
+        <div className="w-full lg:w-1/5 p-2"> 
           <TableContainer component={Paper}>
             <Table>
               <TableHead>
                 <TableRow className="bg-bcgClr text-center">
-                  <TableCell  style={{ color: 'white', textAlign:'center' }}>
+                  <TableCell
+                    style={{
+                      color: 'white',
+                      textAlign: 'center',
+                      
+                    }}
+                  >
                     Mobile Numbers
                   </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {mobileNumbers.map((number, index) => (
-                  <TableRow key={index} className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
-                    <TableCell align="center">
+                  <TableRow
+                    key={index}
+                    className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}
+                  >
+                    <TableCell
+                      align="center"
+                      className="p-1" 
+                    >
                       {number}
                     </TableCell>
                   </TableRow>
@@ -123,21 +135,27 @@ const Contactinfo = () => {
               </TableBody>
             </Table>
           </TableContainer>
-          </div>
-          <div className="w-full lg:w-1/2  lg:mb-0 p-4 lg:pl-2 lg:pr-4 py-4">
+        </div>
+        <div className="w-full lg:w-1/5 p-2"> 
           <TableContainer component={Paper}>
             <Table>
               <TableHead>
                 <TableRow className="bg-bcgClr text-center">
-                  <TableCell  style={{ color: 'white', textAlign:'center' }}>
+                  <TableCell style={{ color: 'white', textAlign: 'center'}}>
                     Email Ids
                   </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {emailIds.map((email, index) => (
-                  <TableRow key={index} className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
-                    <TableCell align="center">
+                  <TableRow
+                    key={index}
+                    className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}
+                  >
+                    <TableCell
+                      align="center"
+                      className="p-1"
+                    >
                       {email}
                     </TableCell>
                   </TableRow>
@@ -145,31 +163,37 @@ const Contactinfo = () => {
               </TableBody>
             </Table>
           </TableContainer>
-          </div>
-          
         </div>
-      )}
-      {isDiffTableVisible && (
-        <div className="p-4">
-        <TableContainer component={Paper}>
+        <div className="w-full lg:w-3/5 p-2"> 
+          <TableContainer component={Paper}>
             <Table>
               <TableHead>
                 <TableRow className="bg-bcgClr text-center">
-                  <TableCell  style={{ color: 'white', textAlign:'center' }}>
+                  <TableCell style={{ color: 'white', textAlign: 'center', }}>
                     Address
                   </TableCell>
-                  <TableCell  style={{ color: 'white', textAlign:'center' }}>
+                  <TableCell style={{ color: 'white', textAlign: 'center', }}>
                     Reported On
                   </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {addresse.map((info, index) => (
-                  <TableRow key={index} className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}>
-                    <TableCell align="center">
+                  <TableRow
+                    key={index}
+                    className={(index) % 2 === 0 ? 'bg-white hover:shadow-md' : 'bg-bgClr2 hover:shadow-md'}
+                  >
+                    <TableCell
+                      align="center"
+                      className="p-1"
+                      style={{   }}
+                    >
                       {info.address}
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell
+                      align="center"
+                      className="p-1"
+                    >
                       {info.reportedOn}
                     </TableCell>
                   </TableRow>
@@ -178,8 +202,11 @@ const Contactinfo = () => {
             </Table>
           </TableContainer>
         </div>
-      )}
-    </div>
+      </div>
+    )}
+  </div>
+  
+  
   );
 };
 

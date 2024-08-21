@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+import { ArrowBack } from "@mui/icons-material";
 import Sidebar from "./Sidebar";
 import Table1 from "./Table1";
 import Table2 from "./Table2";
@@ -21,7 +21,7 @@ const TablePage = () => {
                     <div className="w-full border-l border-gray-600 h-12 md:h-16 lg:h-20 mb-4 bg-bcgClr bg-gradient-to-tl to-bcgClr from-bgToClr text-white flex items-center">
                         <div className="p-4">
                            <button className="px-2 py-2 hover:scale-105 active:scale-95" onClick={handleBackClick}>
-                             <ArrowBackIosIcon />
+                             <ArrowBack />
                            </button>
                         </div>
                         <h1 className="text-white text-2xl py-4 px-4 font-medium mx-auto">Client's Name</h1>

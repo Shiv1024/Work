@@ -12,7 +12,7 @@ const Sidebar = () => {
     const getActiveClass = (path) => {
         return location.pathname === path
             ? "bg-white text-bcgClr"
-            : "text-white hover:bg-white hover:text-bcgClr";
+            : "bg-white text-bcgClr";
     };
 
     return (
@@ -28,17 +28,17 @@ const Sidebar = () => {
             </div>
             <div className="mt-32 flex-1">
                 <hr className="mb-6 border-gray-300" />
-                <Link to={"/creditscorepage"}>
+                {/* <Link to={"/creditscorepage"}>
                     <div className="mb-2 cursor-pointer">
                         <p className={`block px-2 py-1 text-xs md:text-sm md:px-4 md:py-2 lg:text-base lg:px-4 lg:py-2 text-left rounded transition-colors duration-300 ease-in-out ${getActiveClass("/creditscorepage")}`}>
                             <CreditScoreIcon className="mr-2 inline-block"/>
                             Credit Score 
                         </p>
                     </div>
-                </Link>
+                </Link> */}
                 <Link to={"/newcreditscorepage"}>
                     <div className="mb-2 cursor-pointer">
-                        <p className={`block px-2 py-1 text-xs md:text-sm md:px-4 md:py-2 lg:text-base lg:px-4 lg:py-2 text-left rounded transition-colors duration-300 ease-in-out ${getActiveClass("/newcreditscorepage")}`}>
+                        <p className={`block px-2 py-1 text-xs md:text-sm md:px-4 md:py-2 lg:text-base lg:px-4 lg:py-2 text-left rounded transition-colors duration-300 ease-in-out ${getActiveClass("/newcreditscorepage")} `}>
                             <CreditScoreIcon className="mr-2 inline-block"/>
                             New Credit Score
                         </p>

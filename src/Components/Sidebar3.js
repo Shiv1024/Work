@@ -25,11 +25,11 @@ const Sidebar = () => {
                 <img src={FullWhiteIcon} alt="Full White Icon" />
             </div>
             {/* <h2 className="mt-20 text-base md:text-xl lg:text-2xl text-center p-4">Information</h2> */}
-            <div className="mt-32 flex-1">
-            <hr className="mb-6 border-gray-300" />
+            <div className="mt-36 flex-1">
+                <hr className="mb-6 border-gray-300" />
                 <Link to={"/info"}>
                     <div className="mb-2 cursor-pointer">
-                    <p className={`block px-2 py-1 text-xs md:text-sm md:pr-4 md:py-2 lg:text-base lg:pr-4 lg:py-2 text-left rounded whitespace-nowrap transition-colors duration-300 ${getActiveClass("/info")}`}>
+                    <p className={`block px-2 py-1 text-xs md:text-sm md:px-4 md:py-2 lg:text-base lg:px-4 lg:py-2 text-left rounded whitespace-nowrap transition-colors duration-300 ${getActiveClass("/info")}`}>
                         <AccountCircleIcon className="mr-2 inline-block" />
                         Customer Information
                     </p>
@@ -38,7 +38,7 @@ const Sidebar = () => {
 
                 <Link to={"/cibilinfo"}>
                     <div className="mb-2 cursor-pointer">
-                    <p className={`block px-2 py-1 text-xs md:text-sm md:py-2 lg:text-base lg:pr-4 lg:py-2 text-left rounded whitespace-nowrap transition-colors duration-300 ${getActiveClass("/cibilinfo")}`}>
+                    <p className={`block px-2 py-1 text-xs md:text-sm md:py-2 lg:text-base lg:px-4 lg:py-2 text-left rounded whitespace-nowrap transition-colors duration-300 ${getActiveClass("/cibilinfo")}`}>
                         <InfoIcon className="mr-2 inline-block" />
                         Personal & Company Info
                     </p>
