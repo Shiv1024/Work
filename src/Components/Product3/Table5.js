@@ -10,7 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
 import Paper from '@mui/material/Paper';
 import { TableContainer } from '@mui/material';
-
+import numeral from 'numeral';
 const Table5 = ({ wholeInfo, flgComp }) => {
   const [data, setData] = useState(wholeInfo);
   const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
@@ -65,12 +65,16 @@ const Table5 = ({ wholeInfo, flgComp }) => {
     const [year, month, day] = dateStr.split('-');
     return `${day}/${month}/${year}`;
   }
+  const formatCurrency = (value) => {
+    if (value === null || value === undefined) return '-';
+    return numeral(value / 100000).format('0.0') + 'L';;
+  };
   return (
     <TableContainer component={Paper}>
       <div className="flex overflow-x-scroll">
-        <Table className="flex-shrink-0 bg-white border-collapse border border-gray-200">
+        <Table className="flex-shrink-0 border-collapse border border-gray-200">
           <TableHead >
-            <TableRow className="bg-bcgClr text-white">
+            <TableRow className="bg-bcgClr ">
               {[
                 { label: 'Active/Inactive', key: 'status' },
                 { label: 'TYPE', key: 'type' },
@@ -102,13 +106,13 @@ const Table5 = ({ wholeInfo, flgComp }) => {
                       className="px-6 py-3 border-b border-gray-200  text-left text-xs font-medium  uppercase cursor-pointer"
                       sortDirection={sortConfig.key === column.key ? sortConfig.direction : false}
                     >
-                      <TableSortLabel
+                      <TableSortLabel style={{color:'white'}} className='text-nowrap'
                         active={sortConfig.key === column.key}
                         direction={sortConfig.direction === 'ascending' ? 'asc' : 'desc'}
                         onClick={() => handleSort(column.key)}
                         IconComponent={sortConfig.direction === 'asc' ? ArrowDownwardOutlinedIcon : ArrowUpwardOutlinedIcon}
                       >
-                        {column.label}
+                      {column.label}      
                       </TableSortLabel>
                     </TableCell>
                   )
@@ -127,20 +131,20 @@ const Table5 = ({ wholeInfo, flgComp }) => {
                   <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatDate(row.startDate)}</TableCell>
                   <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatDate(row.endDate)}</TableCell>
                   {!flgComp && <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.closed === 'N/A' ? row.closed : formatDate(row.closed)}</TableCell>}
-                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.sanctioned.toLocaleString('en-IN')}</TableCell>
-                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.outstandingBalance.toLocaleString('en-IN')}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatCurrency(row.sanctioned)}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatCurrency(row.outstandingBalance)}</TableCell>
                   <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.overdue.toLocaleString('en-IN')}</TableCell>
-                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.emi.toLocaleString('en-IN')}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatCurrency(row.emi)}</TableCell>
                   <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.elapsedTenure}</TableCell>
                   <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.remainingTenure}</TableCell>
                   <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.tenure}</TableCell>
                   <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.interestRate}</TableCell>
-                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.highCredit.toLocaleString('en-IN')}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatCurrency(row.highCredit)}</TableCell>
                   <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.latestMMYY}</TableCell>
                   <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.averageDPD}</TableCell>
                   <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.maxDPD}</TableCell>
                   {flgComp && <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.flag}</TableCell>}
-                  {flgComp && <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.amountLastRepaid.toLocaleString('en-IN')}</TableCell>}
+                  {flgComp && <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatCurrency(row.amountLastRepaid)}</TableCell>}
                   {flgComp && <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.repaymentFrequency}</TableCell>}
                 </TableRow>
               ))}
