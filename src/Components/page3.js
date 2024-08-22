@@ -3,12 +3,19 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowBack } from "@mui/icons-material";
 import Sidebar from './Sidebar';
 import DiffTable from "./DiffTables.js";
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 const Page = () => {
   const navigate = useNavigate();
+
   const handleBackClick = () => {
-    navigate(`/clients`);
+    navigate('/clients');
   };
+
+  const handleExitClick = () => {
+    navigate('/');
+  };
+
   const periodData = [
     { inclusions: 'Oct 2023 to Feb 2024', measure: null, historicalTrend: 'Oct 2023 to Jan 2024', currentMonthResponse: 'Feb 2024', remarks: 'If Feb 2024 NA, last available month data used' }
   ];
@@ -41,7 +48,6 @@ const Page = () => {
   ];
 
   const salesData = [
-
     { inclusions: 'Invoice value Total', measure: 'Cumulative Monthly Invoice value shared INR Lakhs', historicalTrend: '1787.94', currentMonthResponse: '449.22', remarks: '5 Months' },
     { inclusions: 'Invoice value Total', measure: 'Average Monthly Invoice value in INR Lakhs', historicalTrend: '357.59', currentMonthResponse: '449.22', remarks: null },
     { inclusions: 'Monthwise Invoice value', measure: 'Average', historicalTrend: '1,30,697.70', currentMonthResponse: '1,45,378.96', remarks: null },
@@ -64,38 +70,52 @@ const Page = () => {
     <div className="flex min-h-screen">
       <Sidebar />
       <div className="flex-1 ml-36 md:ml-52 lg:ml-60 flex flex-col overflow-hidden">
-      <div className="flex-1 overflow-y-auto">
-        <div className="w-full border-l border-gray-600 h-12 md:h-16 lg:h-20 mb-4 bg-bcgClr bg-gradient-to-tl to-bcgClr from-bgToClr text-white flex items-center">
-            <div className="p-4">
-               <button className="px-2 py-2 hover:scale-105 active:scale-95" onClick={handleBackClick}>
-                 <ArrowBack />
-               </button>
+        <div className="flex-1 overflow-y-auto">
+          <div className="w-full border-l border-gray-600 h-12 md:h-16 lg:h-20 mb-4 bg-bcgClr bg-gradient-to-tl to-bcgClr from-bgToClr text-white flex items-center">
+            <div className="p-4 relative group">
+              <button className="px-2 py-2 hover:scale-105 active:scale-95" onClick={handleBackClick}>
+                <ArrowBack />
+              </button>
+              <div className="absolute top-1/2 right-0 transform translate-x-1/2 translate-y-1/4 mt-2 px-4 py-2 bg-black text-white text-sm rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
+                Home
+              </div>
             </div>
-             <h1 className="text-white text-2xl py-4 px-4 font-medium mx-auto">Client's Name</h1>
+            <h1 className="text-white text-2xl py-4 px-4 font-medium mx-auto">Client's Name</h1>
+            <div className="relative group">
+              <button className="pr-4 py-2 hover:scale-105 active:scale-95" onClick={handleExitClick}>
+                <ExitToAppIcon  
+                  className="cursor-pointer transform rotate-180"
+                  style={{ fontSize: '32px' }} 
+                /> 
+              </button>
+              <div className="absolute top-1/2 left-0 transform -translate-x-full translate-y-1/8 mt-2 px-4 py-2 bg-black text-white text-sm rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
+                Back to Dashboard
+              </div>
+            </div>
+          </div>
+          <div className='px-8 py-4'>
+            <DiffTable 
+              Name="Period"
+              Data={periodData}
+            />
+            <DiffTable 
+              Name="Filings"
+              Data={fillingData}
+            />
+            <DiffTable 
+              Name="Customers"
+              Data={customersData}
+            />
+            <DiffTable 
+              Name="Sales"
+              Data={salesData}
+            />
+            <DiffTable 
+              Name="Invoices"
+              Data={invoicesData}
+            />
+          </div>
         </div>
-        <div className='px-8 py-4'>
-        <DiffTable 
-        Name = "Period"
-        Data = {periodData}
-        />
-        <DiffTable 
-        Name = "Filings"
-        Data = {fillingData}
-        />
-        <DiffTable 
-        Name = "Customers"
-        Data = {customersData}
-        />
-        <DiffTable 
-        Name = "Sales"
-        Data = {salesData}
-        />
-        <DiffTable 
-        Name = "Invoices"
-        Data = {invoicesData}
-        />
-        </div>
-      </div>
       </div>
     </div>
   );

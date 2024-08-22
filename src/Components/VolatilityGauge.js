@@ -22,7 +22,7 @@ const VolatilityGauge = (props) => {
 
   return (
     <div
-      style={{ width: '100%', height: '230px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+      style={{ width: '100%', height: '270px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
     >
       <div style={{ width: '80%', textAlign: 'center'}}>
         <GaugeChart
@@ -37,11 +37,11 @@ const VolatilityGauge = (props) => {
           // needleBaseColor={props.color}
         />
       </div>
-      <div style={{ textAlign: 'center', fontSize: '18px',padding: '4px', color: `${gaugeValue <= 0.333 ? '#e76261' : (gaugeValue <= 0.58 ? '#FFBF00' : (gaugeValue <= 0.75 ? '#35a6e6' : '#33c294'))}` }}>
+      <div style={{ textAlign: 'center', fontSize: '28px',padding: '0', color: `${gaugeValue <= 0.333 ? '#e76261' : (gaugeValue <= 0.58 ? '#FFBF00' : (gaugeValue <= 0.75 ? '#35a6e6' : '#33c294'))}` }}>
         <span style={{ fontWeight: 600 }}>{props.value}</span>
       </div>
-      <div style={{ textAlign: 'center', fontSize: '18px', padding: '4px'  }}>
-        <span style={{ fontWeight: 600 }}>{props.title} <span style={{ color: `${gaugeValue <= 0.333 ? '#e76261' : (gaugeValue <= 0.58 ? '#FFBF00' : (gaugeValue <= 0.75 ? '#35a6e6' : '#33c294'))}` }}>{gaugeText}</span></span>
+      <div style={{ textAlign: 'center', fontSize: '20px', paddingBottom: '4px'  }}>
+        <span style={{ fontWeight: 600 }}>{props.title} <span style={{ fontSize:'24px' ,color: `${gaugeValue <= 0.333 ? '#e76261' : (gaugeValue <= 0.58 ? '#FFBF00' : (gaugeValue <= 0.75 ? '#35a6e6' : '#33c294'))}` }}>{gaugeText}</span></span>
       </div>
     </div>
   );
