@@ -58,7 +58,7 @@ const HorizontalBar = (props) => {
         {props.head}
       </div>
       <div className="flex">
-      <div style={{ width: props.iscurrency ? '450px' : '470px', height: '5px', display: 'flex' }} className='pl-3 pr-2 cursor-pointer'>
+      <div style={{ width: '85%', height: '5px', display: 'flex' }} className='pl-3 pr-2 cursor-pointer'>
         <Tooltip title={`${props.isEnquiry ? `Enquiries in 3 Months: ${displayValue1} ${categoryData?`(${formatNumber(categoryData.enquiries3Months)})`: ''}   `: `Guarantor: ${displayValue1} ${amountcount?`(${amountcount.guarantor})`:''}`}  `} arrow>
           <div 
             style={{ width: width1, backgroundColor: '#e76261' }} 

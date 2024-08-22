@@ -85,11 +85,11 @@ const Personalinfo = () => {
           <div className="flex flex-col justify-center items-center mt-0">
             
           
-            <div className="bg-white rounded-lg w-1/3 shadow-2xl p-2 m-5">
+            <div className="bg-white rounded-lg w-[97%] shadow-2xl p-2 m-5">
               <h2 className="text-center text-xl font-semibold m-3">Bureau Score</h2>
               <hr className="mb-4 border-gray-300" />
               {/* <VolatilityGauge value={734} title={"Your Bureau Score is:"} className="text-xl md:text-2xl lg:text-2xl" /> */}
-              <VolatilityStrip value={734} className="mb-4"/>
+              {/* <VolatilityStrip value={734} className="mb-4"/> */}
               <VolatilityStrip2 score={734} className="mb-4"/>
             </div>
           

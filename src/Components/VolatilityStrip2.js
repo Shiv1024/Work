@@ -40,7 +40,7 @@ const VolatilityStrip2 = ({ score }) => {
       <div className="w-1/4 h-full bg-blue-500"></div>
       <div className="w-1/4 h-full bg-green-500"></div>
       <div
-        className={`absolute ${getPosition()} transform translate-x-1/3 top-1/2 -translate-y-1/2 text-white font-bold ${getWidth()}`}
+        className={`absolute ${getPosition()} transform top-1/2 -translate-y-1/2 text-white font-bold text-center ${getWidth()}`}
       >
         {score}
       </div>
