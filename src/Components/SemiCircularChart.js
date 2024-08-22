@@ -87,9 +87,9 @@ const formatCurrency = (value) => {
 };
 return (
   <div
-    style={{ width: '400px', height: '200px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', position: 'relative' }}
+    style={{ width: '100%', height: '270px', display: 'flex',marginTop: '12px', flexDirection: 'column', alignItems: 'center', justifyContent: 'top', position: 'relative' }}
   >
-    <div style={{ width: '80%', position: 'relative' }}>
+    <div style={{ width: '80%' }}>
       <GaugeChart
         id="volatility-gauge"
         nrOfLevels={4}
@@ -104,15 +104,18 @@ return (
       <div
         style={{
           position: 'absolute',
-          top: '50%',
+          top: '40%',
           left: '50%',
-          transform: 'translate(-50%, -50%)',
-          fontSize: '30px',
+          transform: 'translate(-50%, 0%)',
+          fontSize: '34px',
           fontWeight: '700',
           color: `${gaugeValue <= 0.333 ? '#e76261' : (gaugeValue <= 0.58 ? '#FFBF00' : (gaugeValue <= 0.75 ? '#35a6e6' : '#33c294'))}`
         }}
       >
         {formatCurrency(props.value)}
+      </div>
+      <div style={{ textAlign: 'center', fontSize: '20px', fontWeight: 600, marginTop:'5px'}}>
+        <span>Maximum EMI Possible</span>
       </div>
     </div>
   </div>
