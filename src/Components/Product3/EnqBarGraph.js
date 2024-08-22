@@ -17,22 +17,22 @@ const BarGraph = ({ data }) => {
       {
         label: 'Enquiries in 3 months',
         data: enquiries3Months,
-        backgroundColor: 'rgba(231, 98, 97, 0.6)',
+        backgroundColor: 'rgba(231, 98, 97, 1)',
       },
       {
         label: 'Enquiries in 6 months',
         data: enquiries6Months,
-        backgroundColor: 'rgba(255, 191, 0, 0.6)',
+        backgroundColor: 'rgba(255, 191, 0, 1)',
       },
       {
         label: 'Enquiries beyond 6 months',
         data: enquiriesBeyond6Months,
-        backgroundColor: 'rgba(53, 166, 230, 0.6)',
+        backgroundColor: 'rgba(53, 166, 230, 1)',
       },
       {
         label: 'Total Enquiries',
         data: totalEnquiries,
-        backgroundColor: 'rgba(51, 194, 148, 0.6)',
+        backgroundColor: 'rgba(51, 194, 148, 1)',
       },
     ],
   };

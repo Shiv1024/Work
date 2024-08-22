@@ -3,10 +3,10 @@ import Sidebar from "../Sidebar3";
 import Cards from "../card.js";
 import Contactinfo from "./Contactinfo.js";
 import IdInfo from "./Governmentids.js";
-import VolatilityGauge from "../VolatilityGauge.js";
+// import VolatilityGauge from "../VolatilityGauge.js";
 import VolatilityStrip from "../VolatilityStrip.js";
 import HorizontalBar from "../NewCibilScore.js";
-import amountCountData from './Amount/dummydataAmtCnt.json';
+// import amountCountData from './Amount/dummydataAmtCnt.json';
 import amountData from "./Amount/dummydataAmt.json";
 import BarGraph from "./EnqBarGraph.js";
 import AmtBarGraph from "./Amount/EnqBarGraph.js";
@@ -14,6 +14,7 @@ import Modal from 'react-modal';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import BarChartIcon from '@mui/icons-material/BarChart';
+import VolatilityStrip2 from "../VolatilityStrip2.js";
 
 Modal.setAppElement('#root'); // Set app root for accessibility
 
@@ -37,15 +38,15 @@ const Personalinfo = () => {
     { id: 6, category: 'Total', enquiries3Months: 0, enquiries6Months: 13, enquiriesBeyond6Months: 130, total: 143 },
   ];
 
-  const enquiryAmountData = [
-    { category: 'Business Loan', enquiries3Months: 0, enquiries6Months: 15500000, enquiriesBeyond6Months: 158641199, total: 174141199},
-    { category: 'Credit Card', enquiries3Months: 0, enquiries6Months: 600000, enquiriesBeyond6Months: 84000, total: 684000 },
-    { category: 'Other', enquiries3Months: 0, enquiries6Months: 30000000, enquiriesBeyond6Months: 75703310, total: 105703310 },
-    { category: 'Asset Loan', enquiries3Months: 0, enquiries6Months: 0, enquiriesBeyond6Months: 131246000, total: 131246000 },
-    { category: 'Personal Loan', enquiries3Months: 0, enquiries6Months: 0, enquiriesBeyond6Months: 9719000, total: 9719000 },
-    { category: 'Working Capital Limit', enquiries3Months: 0, enquiries6Months: 0, enquiriesBeyond6Months: 23555000, total: 23555000 },
-    { category: 'Total', enquiries3Months: 0, enquiries6Months: 46100000, enquiriesBeyond6Months: 398948509, total: 445048509 },
-  ];
+  // const enquiryAmountData = [
+  //   { category: 'Business Loan', enquiries3Months: 0, enquiries6Months: 15500000, enquiriesBeyond6Months: 158641199, total: 174141199},
+  //   { category: 'Credit Card', enquiries3Months: 0, enquiries6Months: 600000, enquiriesBeyond6Months: 84000, total: 684000 },
+  //   { category: 'Other', enquiries3Months: 0, enquiries6Months: 30000000, enquiriesBeyond6Months: 75703310, total: 105703310 },
+  //   { category: 'Asset Loan', enquiries3Months: 0, enquiries6Months: 0, enquiriesBeyond6Months: 131246000, total: 131246000 },
+  //   { category: 'Personal Loan', enquiries3Months: 0, enquiries6Months: 0, enquiriesBeyond6Months: 9719000, total: 9719000 },
+  //   { category: 'Working Capital Limit', enquiries3Months: 0, enquiries6Months: 0, enquiriesBeyond6Months: 23555000, total: 23555000 },
+  //   { category: 'Total', enquiries3Months: 0, enquiries6Months: 46100000, enquiriesBeyond6Months: 398948509, total: 445048509 },
+  // ];
 
   const ageconversion = (birthdateInput) => {
     const date = new Date();
@@ -89,11 +90,12 @@ const Personalinfo = () => {
               <hr className="mb-4 border-gray-300" />
               {/* <VolatilityGauge value={734} title={"Your Bureau Score is:"} className="text-xl md:text-2xl lg:text-2xl" /> */}
               <VolatilityStrip value={734} className="mb-4"/>
+              <VolatilityStrip2 score={734} className="mb-4"/>
             </div>
           
 
-            <div className="flex justify-evenly items-center mt-5 mb-10">
-              <div className="bg-white rounded-lg shadow-xl pb-9 pt-6 pl-6 pr-2 mx-8">
+            <div className="flex justify-evenly items-center mt-5 mb-10 w-full">
+              <div className="bg-white rounded-lg shadow-xl pb-9 pt-6 pl-6 pr-2 mr-1 ml-2 w-1/2">
                 <div className="flex justify-between items-center">
                   <h2 className="text-center text-xl font-semibold mb-4 flex-grow">Enquiry Count</h2>
                   <button onClick={openModal} className="mr-6">
@@ -117,7 +119,7 @@ const Personalinfo = () => {
                 ))}
               </div>
 
-              <div className="bg-white rounded-lg shadow-xl pb-9 pt-6 pl-6 pr-2 mx-8">
+              <div className="bg-white rounded-lg shadow-xl pb-9 pt-6 pl-6 pr-2 mr-2 ml-1 w-1/2">
                 <div className="flex justify-between items-center">
                   <h2 className="text-center text-xl font-semibold mb-4 flex-grow">Active Loan Amount</h2>
                   <button onClick={openAmountModal} className="mr-6">
@@ -141,6 +143,7 @@ const Personalinfo = () => {
                 ))}
               </div>
             </div>
+
           </div>
 
           <Cards cardinfo={cardinfo} />
