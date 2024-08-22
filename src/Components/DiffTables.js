@@ -138,7 +138,7 @@ function DiffTable(props) {
   return (
     <div className="border border-gray-300 rounded-md shadow-sm w-full flex flex-col mb-4">
       <div
-        className="bg-bgClr2 p-4 flex justify-between items-center rounded-t-md cursor-pointer"
+        className="bg-bgClr2 p-4 font-medium flex justify-between items-center rounded-t-md cursor-pointer"
         onClick={toggleDiffTableVisibility}
       >
         <span>{props.Name}</span>

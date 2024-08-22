@@ -19,10 +19,10 @@ const Contactinfo = () => {
   const mobileNumbers = ["8980022750", "919664652047", "919664652047","9684745778"];
   const emailIds = ["jayjhaveri8161@gmail.com", "jayjhaveri8161@gmail.com", "saffronyarns@gmail.com", "saffronyarns@gmail.com"];
   const addresse = [
-    { address: "PLOT NO 12 MOHANDWAR SOCIETY BHARTHANA SURAT GUJARAT 395007", reportedOn: "31-01-2024" },
-    { address: "E3ROAD NO 8 SALABD PURA RUPAM CINEMA SURAT, GUJARAT SURAT GUJARAT 395003", reportedOn: "31-12-2023" },
-    { address: "3-2885, SALABAT PURA, NEAR RUP AM CINEMA SURAT CITY SURAT GUJARAT 395003", reportedOn: "31-12-2023" },
-    { address: "PLOT NO. 12, BHARTHANA MOHANDWAR SOCIETY , GUJARAT 395007", reportedOn: "31-12-2023" }
+    { address: "MOHANDWAR SOCIETY BHARTHANA SURAT GUJARAT 395007", reportedOn: "31-01-2024" },
+    { address: "SALABD PURA RUPAM CINEMA SURAT, GUJARAT SURAT GUJARAT 395003", reportedOn: "31-12-2023" },
+    { address: "SALABAT PURA, NEAR RUP AM CINEMA SURAT GUJARAT 395003", reportedOn: "31-12-2023" },
+    { address: "BHARTHANA MOHANDWAR SOCIETY , GUJARAT 395007", reportedOn: "31-12-2023" }
   ];
 
   return (
@@ -101,12 +101,12 @@ const Contactinfo = () => {
       
     </div>
     {isDiffTableVisible && (
-      <div className="flex flex-row space-x-2">
+      <div className="flex flex-row space-x-0">
         <div className="w-full lg:w-1/5 p-2"> 
           <TableContainer component={Paper}>
             <Table>
               <TableHead>
-                <TableRow className="bg-bcgClr text-center">
+                <TableRow className="bg-bcgClr font-medium text-center">
                   <TableCell
                     style={{
                       color: 'white',
@@ -126,7 +126,7 @@ const Contactinfo = () => {
                   >
                     <TableCell
                       align="center"
-                      className="p-1" 
+                      className="p-0" 
                     >
                       {number}
                     </TableCell>
