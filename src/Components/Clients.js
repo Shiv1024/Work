@@ -269,15 +269,19 @@ const Clients = () => {
               ))}
             </TableBody>
           </Table>
+          <div className="sticky bottom-0 bg-white w-full flex justify-start">
+        <div className="w-auto">
           <TablePagination
-            rowsPerPageOptions={[10, 25, 35]}
+            rowsPerPageOptions={[5, 10, 25]}
             component="div"
-            count={data.length}
+            count={sortedData.length}
             rowsPerPage={rowsPerPage}
             page={page}
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
+        </div>
+      </div>
         </TableContainer>
         </div>
       </div>

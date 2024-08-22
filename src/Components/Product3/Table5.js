@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
 import ArrowDownwardOutlinedIcon from '@mui/icons-material/ArrowDownwardOutlined';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
+import TableRow from '@mui/material/TableRow';
+import TableSortLabel from '@mui/material/TableSortLabel';
+import Paper from '@mui/material/Paper';
+import { TableContainer } from '@mui/material';
 
 const Table5 = ({ wholeInfo, flgComp }) => {
   const [data, setData] = useState(wholeInfo);
@@ -10,19 +18,19 @@ const Table5 = ({ wholeInfo, flgComp }) => {
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
   const handleSort = (key) => {
-    let direction = 'ascending';
-    if (sortConfig.key === key && sortConfig.direction === 'ascending') {
-      direction = 'descending';
+    let direction = 'asc';
+    if (sortConfig.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc';
     }
     setSortConfig({ key, direction });
   };
 
   const sortedData = [...data].sort((a, b) => {
     if (a[sortConfig.key] < b[sortConfig.key]) {
-      return sortConfig.direction === 'ascending' ? -1 : 1;
+      return sortConfig.direction === 'asc' ? -1 : 1;
     }
     if (a[sortConfig.key] > b[sortConfig.key]) {
-      return sortConfig.direction === 'ascending' ? 1 : -1;
+      return sortConfig.direction === 'asc' ? 1 : -1;
     }
     return 0;
   });
@@ -56,15 +64,13 @@ const Table5 = ({ wholeInfo, flgComp }) => {
   const formatDate = (dateStr) => {
     const [year, month, day] = dateStr.split('-');
     return `${day}/${month}/${year}`;
-  };
-  
-
+  }
   return (
-    <div className="flex flex-col justify-center items-start">
+    <TableContainer component={Paper}>
       <div className="flex overflow-x-scroll">
-        <table className="flex-shrink-0 bg-white border-collapse border border-gray-200">
-          <thead>
-            <tr>
+        <Table className="flex-shrink-0 bg-white border-collapse border border-gray-200">
+          <TableHead >
+            <TableRow className="bg-bcgClr text-white">
               {[
                 { label: 'Active/Inactive', key: 'status' },
                 { label: 'TYPE', key: 'type' },
@@ -91,66 +97,70 @@ const Table5 = ({ wholeInfo, flgComp }) => {
               ].map(
                 (column) =>
                   column && (
-                    <th
+                    <TableCell
                       key={column.key}
-                      className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer"
-                      onClick={() => handleSort(column.key)}
+                      className="px-6 py-3 border-b border-gray-200  text-left text-xs font-medium  uppercase cursor-pointer"
+                      sortDirection={sortConfig.key === column.key ? sortConfig.direction : false}
                     >
-                      {column.label}
-                      {sortConfig.key === column.key && (
-                        sortConfig.direction === 'ascending' ? (
-                          <ArrowDownwardOutlinedIcon fontSize="small" />
-                        ) : (
-                          <ArrowUpwardOutlinedIcon fontSize="small" />
-                        )
-                      )}
-                    </th>
+                      <TableSortLabel
+                        active={sortConfig.key === column.key}
+                        direction={sortConfig.direction === 'ascending' ? 'asc' : 'desc'}
+                        onClick={() => handleSort(column.key)}
+                        IconComponent={sortConfig.direction === 'asc' ? ArrowDownwardOutlinedIcon : ArrowUpwardOutlinedIcon}
+                      >
+                        {column.label}
+                      </TableSortLabel>
+                    </TableCell>
                   )
               )}
-            </tr>
-          </thead>
-          <tbody>
+            </TableRow>
+          </TableHead>
+          <TableBody>
             {sortedData
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row, index) => (
-                <tr key={index}>
-                  <td className={`px-6 py-4 whitespace-nowrap text-sm font-medium ${getStatusClass(row.status)}`}>{row.status}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.type}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.category}</td>
-                  {!flgComp && <td className={`px-6 py-4 whitespace-nowrap text-sm ${getOwnershipClass(row.ownership)}`}>{row.ownership}</td>}
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatDate(row.startDate)}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatDate(row.endDate)}</td>
-                  {!flgComp && <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.closed === 'N/A' ? row.closed : formatDate(row.closed)}</td>}
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.sanctioned.toLocaleString('en-IN')}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.outstandingBalance.toLocaleString('en-IN')}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.overdue.toLocaleString('en-IN')}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.emi.toLocaleString('en-IN')}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.elapsedTenure}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.remainingTenure}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.tenure}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.interestRate}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.highCredit.toLocaleString('en-IN')}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.latestMMYY}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.averageDPD}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.maxDPD}</td>
-                  {flgComp && <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.flag}</td>}
-                  {flgComp && <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.amountLastRepaid.toLocaleString('en-IN')}</td>}
-                  {flgComp && <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.repaymentFrequency}</td>}
-                </tr>
+                <TableRow key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-100'}>
+                  <TableCell className={`px-6 py-4 whitespace-nowrap text-sm font-medium ${getStatusClass(row.status)}`}>{row.status}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.type}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.category}</TableCell>
+                  {!flgComp && <TableCell className={`px-6 py-4 whitespace-nowrap text-sm ${getOwnershipClass(row.ownership)}`}>{row.ownership}</TableCell>}
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatDate(row.startDate)}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatDate(row.endDate)}</TableCell>
+                  {!flgComp && <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.closed === 'N/A' ? row.closed : formatDate(row.closed)}</TableCell>}
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.sanctioned.toLocaleString('en-IN')}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.outstandingBalance.toLocaleString('en-IN')}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.overdue.toLocaleString('en-IN')}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.emi.toLocaleString('en-IN')}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.elapsedTenure}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.remainingTenure}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.tenure}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.interestRate}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.highCredit.toLocaleString('en-IN')}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.latestMMYY}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.averageDPD}</TableCell>
+                  <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.maxDPD}</TableCell>
+                  {flgComp && <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.flag}</TableCell>}
+                  {flgComp && <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.amountLastRepaid.toLocaleString('en-IN')}</TableCell>}
+                  {flgComp && <TableCell className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{row.repaymentFrequency}</TableCell>}
+                </TableRow>
               ))}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       </div>
-      <TablePagination
-        rowsPerPageOptions={[5, 10, 25]}
-        component="div"
-        count={sortedData.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
-    </div>
+      <div className="sticky bottom-0 bg-white w-full flex justify-start">
+        <div className="w-auto">
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 25]}
+            component="div"
+            count={sortedData.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </div>
+      </div>
+    </TableContainer>
   );
 };
 
