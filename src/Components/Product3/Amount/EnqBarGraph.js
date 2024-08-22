@@ -1,6 +1,7 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import numeral from 'numeral';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -11,28 +12,41 @@ const BarGraph = ({ data }) => {
   const joint = data.map(item => item.joint);
   const total = data.map(item => item.total);
 
+  const formatNumber = (num) => {
+    const absNum = Math.abs(num);
+    if (absNum >= 100000) {
+      return numeral(num / 100000).format('0') + 'L';
+    } 
+    else if (absNum >= 1000) {
+      return numeral(num / 1000).format('0') + 'K';
+    } 
+    else {
+      return numeral(num).format('0,0');
+    }
+  };
+
   const chartData = {
     labels: labels,
     datasets: [
       {
         label: 'Guarantor',
         data: guarantor,
-        backgroundColor: 'rgba(231, 98, 97, 0.6)',
+        backgroundColor: 'rgba(231, 98, 97, 1)',
       },
       {
         label: 'Individual',
         data: individual,
-        backgroundColor: 'rgba(255, 191, 0, 0.6)',
+        backgroundColor: 'rgba(255, 191, 0, 1)',
       },
       {
         label: 'Joint',
         data: joint,
-        backgroundColor: 'rgba(53, 166, 230, 0.6)',
+        backgroundColor: 'rgba(53, 166, 230, 1)',
       },
       {
         label: 'Total',
         data: total,
-        backgroundColor: 'rgba(51, 194, 148, 0.6)',
+        backgroundColor: 'rgba(51, 194, 148, 1)',
       },
     ],
   };
@@ -43,8 +57,7 @@ const BarGraph = ({ data }) => {
       y: {
         ticks: {
           callback: function(value) {
-            // Using Intl.NumberFormat for Indian style formatting
-            return new Intl.NumberFormat('en-IN').format(value);
+            return formatNumber(value);
           }
         }
       }
@@ -57,8 +70,7 @@ const BarGraph = ({ data }) => {
             if (label) {
               label += ': ';
             }
-            // Format the tooltip value as well
-            label += new Intl.NumberFormat('en-IN').format(context.parsed.y);
+            label += formatNumber(context.parsed.y);
             return label;
           }
         }
