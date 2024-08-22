@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import Sidebar from "../Sidebar3";
 import Table5 from './Table5'; // Ensure this path is correct based on your project structure
+import { useNavigate } from 'react-router-dom';
+import { ArrowBack } from "@mui/icons-material";
 
 function Option4() {
+  const navigate = useNavigate();
+  const handleBackClick = () => {
+    navigate(`/info`);
+  };
+
   const [isCompany, setIsCompany] = useState(false);
 
   const handleClick = () => {
@@ -158,23 +165,33 @@ function Option4() {
   
 
   return (
-    <div className="pt-1 bg-bg-mainClr h-screen">
-      <div className='flex-none'>
+    <div className="flex bg-bg-mainClr min-h-screen">
         <Sidebar />
+        <div className="flex-1 ml-36 md:ml-52 lg:ml-60 flex flex-col overflow-hidden">
+            <div className="flex-1 overflow-y-auto">
+              <div className="w-full border-l border-gray-600 h-12 md:h-16 lg:h-20 mb-4 bg-bcgClr bg-gradient-to-tl to-bcgClr from-bgToClr text-white flex items-center">
+                    <div className="p-4">
+                       <button className="px-2 py-2 hover:scale-105 active:scale-95" onClick={handleBackClick}>
+                         <ArrowBack />
+                       </button>
+                    </div>
+                     <h1 className="text-white text-2xl py-4 px-4 font-medium mx-auto">Client's Name</h1>
+              </div>
+          <div className="flex flex-col items-start justify-center p-4 ">
+             <button 
+               className={`px-4 py-2 rounded ${isCompany ? 'bg-blue-500 text-white' : 'bg-green-500 text-white'}`} 
+               onClick={handleClick}
+             >
+               {isCompany ? "Company" : "Personal"}
+             </button>
+             <div className="mt-6 w-full">
+               <Table5 
+               flgComp={isCompany}
+               wholeInfo={sampleData} 
+               />
+             </div>
+          </div>
       </div>
-      <div className="ml-36 md:ml-52 lg:ml-60 flex flex-col items-start justify-center mt-4 p-4 ">
-        <button 
-          className={`px-4 py-2 rounded ${isCompany ? 'bg-blue-500 text-white' : 'bg-green-500 text-white'}`} 
-          onClick={handleClick}
-        >
-          {isCompany ? "Company" : "Personal"}
-        </button>
-        <div className="mt-6 w-full">
-          <Table5 
-          flgComp={isCompany}
-          wholeInfo={sampleData} 
-          />
-        </div>
       </div>
     </div>
   );

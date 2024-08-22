@@ -85,8 +85,8 @@ const Personalinfo = () => {
           <div className="flex flex-col justify-center items-center mt-0">
             
           
-            <div className="bg-white rounded-lg w-1/3 shadow-2xl m-6">
-              <h2 className="text-center text-xl font-semibold m-4">Bureau Score</h2>
+            <div className="bg-white rounded-lg w-1/3 shadow-2xl p-2 m-5">
+              <h2 className="text-center text-xl font-semibold m-3">Bureau Score</h2>
               <hr className="mb-4 border-gray-300" />
               {/* <VolatilityGauge value={734} title={"Your Bureau Score is:"} className="text-xl md:text-2xl lg:text-2xl" /> */}
               <VolatilityStrip value={734} className="mb-4"/>
@@ -94,8 +94,8 @@ const Personalinfo = () => {
             </div>
           
 
-            <div className="flex justify-evenly items-center mt-5 mb-10 w-full">
-              <div className="bg-white rounded-lg shadow-xl pb-9 pt-6 pl-6 pr-2 mr-1 ml-2 w-1/2">
+            <div className="flex justify-evenly items-center p-4 mt-5 mb-10 w-full">
+              <div className="bg-white rounded-lg shadow-xl pb-6 pt-4 pl-2 pr-2 mr-1 ml-2 w-1/2">
                 <div className="flex justify-between items-center">
                   <h2 className="text-center text-xl font-semibold mb-4 flex-grow">Enquiry Count</h2>
                   <button onClick={openModal} className="mr-6">
@@ -119,7 +119,7 @@ const Personalinfo = () => {
                 ))}
               </div>
 
-              <div className="bg-white rounded-lg shadow-xl pb-9 pt-6 pl-6 pr-2 mr-2 ml-1 w-1/2">
+              <div className="bg-white rounded-lg shadow-xl pb-6 pt-4 pl-2 pr-2 mr-2 ml-1 w-1/2">
                 <div className="flex justify-between items-center">
                   <h2 className="text-center text-xl font-semibold mb-4 flex-grow">Active Loan Amount</h2>
                   <button onClick={openAmountModal} className="mr-6">

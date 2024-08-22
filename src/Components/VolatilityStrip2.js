@@ -46,7 +46,7 @@ const VolatilityStrip2 = ({ score }) => {
       </div>
     </div>
     <div className="text-center text-lg font-semibold bg-white p-2 rounded">
-        <span className="text-black">Your score is: </span>
+        <span className="text-black">Your Bureau Score is: </span>
         <span className={`font-bold ${getTextColor()}`}>
           {getCategory()}
         </span>
