@@ -43,6 +43,9 @@ const Creditscore = () => {
           className="text-lg md:text-xl lg:text-2xl"
         />
       </div>
+
+    
+
       <div className="relative rounded-lg bg-white shadow-md w-2/5 m-3 mt-0" style={{ flex: '0 1 auto' }}>
         {/* <h2 className="text-center text-lg font-semibold m-4">Maximum EMI Possible</h2> */}
         {/* <hr className="mb-3 border-gray-300" /> */}
@@ -50,7 +53,44 @@ const Creditscore = () => {
       </div>
       </div>
 
-    <div className='flex w-full justify-center'>
+
+      <div className='flex w-full justify-center'>
+      <div className="relative rounded-lg bg-white shadow-md w-1/4 m-3 mt-0" style={{ flex: '0 1 auto' }}>
+        
+        <VolatilityGauge
+          value={607.4}
+          title={"Bank Statement:"}
+          className="text-lg md:text-xl lg:text-2xl"
+        />
+      </div>
+
+
+      <div className="relative rounded-lg bg-white shadow-md w-1/4 m-3 mt-0" style={{ flex: '0 1 auto' }}>
+        
+        <VolatilityGauge
+          value={650.44}
+          title={"GST:"}
+          className="text-lg md:text-xl lg:text-2xl"
+        />
+      </div>
+
+
+      <div className="relative rounded-lg bg-white shadow-md w-1/4 m-3 mt-0" style={{ flex: '0 1 auto' }}>
+        
+        <VolatilityGauge
+          value={734}
+          title={"Bureau Score:"}
+          className="text-lg md:text-xl lg:text-2xl"
+        />
+      </div>
+
+
+      </div>
+
+
+
+
+    {/* <div className='flex w-full justify-center'>
     <div className="relative bg-white rounded-lg shadow-md m-2 w-[26.5%]" style={{ flex: '0 1 auto' }}>
         <div className="p-3 bg-white rounded-lg shadow-lg border-l-4 h-full border-blue-500 hover:shadow-2xl transition-shadow duration-300">
           <div className="font-semibold text-xl text-center">
@@ -89,7 +129,7 @@ const Creditscore = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
 
 
       <div className='flex w-full justify-center'>
