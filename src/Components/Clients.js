@@ -20,6 +20,7 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import numeral from 'numeral';
+import { TableSortLabel } from '@mui/material';
 const loanSanctionOptions = [
   { value: '', label: 'All' },
   { value: '0-200', label: '0-200' },
@@ -170,7 +171,7 @@ const Clients = () => {
           <Table>
             <TableHead>
               <TableRow className="bg-bcgClr" >
-                <TableCell style={{ color: 'white', textAlign: 'center', fontWeight:'medium' }}>
+                <TableCell className='text-nowrap' style={{ color: 'white', textAlign: 'center', fontWeight:'medium' }}>
                 <div className="flex items-center justify-between">
                     <span>Borrower</span>
                     {profilingFilter && (
@@ -198,7 +199,7 @@ const Clients = () => {
                     </Menu>
                   </div>
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'center' , fontWeight:'medium'}}>
+                <TableCell style={{ color: 'white', textAlign: 'center' , fontWeight:'medium'}}  className='text-nowrap'>
                   <div className="flex items-center justify-between text-nowrap">
                     <div className='flex flex-col'>
                     <span>Loan Sanction</span>
@@ -229,33 +230,38 @@ const Clients = () => {
                     </Menu>
                   </div>
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'center', fontWeight:'medium'}}>
+                <TableCell className='text-nowrap' style={{ color: 'white', textAlign: 'center', fontWeight:'medium'}}>
                    <div className='flex flex-col text-nowrap'>
                     <span>Limit Used</span>
                     <span>(INR in Lakhs)</span>
                     </div>
                 </TableCell>
-                <TableCell onClick={() => handleSort('noOfMajorFlags')} style={{ color: 'white', textAlign: 'center', fontWeight:'medium' }}>
-                  <div className='flex flex-row items-center cursor-pointer '>
-                    <div className='text-wrap mr-2'>No. of Major Flags</div>
-                    <Tooltip title="Sort" placement="bottom">
-                      {sortConfig.key === 'noOfMajorFlags' && (sortConfig.direction === 'ascending' ? <ArrowDownwardOutlinedIcon /> : <ArrowUpwardOutlinedIcon />)}
-                    </Tooltip>
-                  </div>
-                </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'center', fontWeight:'medium' }}>
+                <TableCell
+                      className=" text-center  font-medium cursor-pointer"
+                      sortDirection={sortConfig.key === ' noOfMajorFlags'? sortConfig.direction : false}
+                    >
+                      <TableSortLabel style={{color:'white'}} className='text-nowrap'
+                        active={sortConfig.key === 'noOfMajorFlags'}
+                        direction={sortConfig.direction === 'ascending' ? 'asc' : 'desc'}
+                        onClick={() => handleSort('noOfMajorFlags')}
+                        IconComponent={sortConfig.direction === 'asc' ? ArrowDownwardOutlinedIcon : ArrowUpwardOutlinedIcon}
+                      >
+                      No. of Major Flags      
+                      </TableSortLabel>
+                    </TableCell>
+                <TableCell className='text-nowrap' style={{ color: 'white', textAlign: 'center', fontWeight:'medium' }}>
                   Flag Description
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'center', fontWeight:'medium'}}>
+                <TableCell className='text-nowrap' style={{ color: 'white', textAlign: 'center', fontWeight:'medium'}}>
                   Invoice Matching Y/N
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'center', fontWeight:'medium' }}>
+                <TableCell className='text-nowrap' style={{ color: 'white', textAlign: 'center', fontWeight:'medium' }}>
                   Saliency
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'center', fontWeight:'medium' }}>
+                <TableCell className='text-nowrap' style={{ color: 'white', textAlign: 'center', fontWeight:'medium' }}>
                   Trend
                 </TableCell>
-                <TableCell style={{ color: 'white', textAlign: 'center' , fontWeight:'medium'}}>
+                <TableCell className='text-nowrap' style={{ color: 'white', textAlign: 'center' , fontWeight:'medium'}}>
                   Action
                 </TableCell>
               </TableRow>
