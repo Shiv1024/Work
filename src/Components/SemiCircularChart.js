@@ -114,7 +114,7 @@ return (
       >
         {formatCurrency(props.value)}
       </div>
-      <div style={{ textAlign: 'center', fontSize: '20px', fontWeight: 600, marginTop:'5px'}}>
+      <div style={{ textAlign: 'center', fontSize: '24px', fontWeight: 600, marginTop:'5px'}}>
         <span>Maximum EMI Possible</span>
       </div>
     </div>

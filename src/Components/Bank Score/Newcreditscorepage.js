@@ -33,7 +33,7 @@ const Creditscore = () => {
     <div className="flex flex-col mt-3 bg-mainClr from-white to-blue-100">
     {/* <div className="flex justify-center items-start mt-4"> */}
       <div className='flex w-full justify-center'>
-      <div className="relative rounded-lg bg-white shadow-md w-2/5 m-3 mt-0" style={{ flex: '0 1 auto' }}>
+      <div className="relative rounded-lg bg-white shadow-md w-[40%] m-3 mt-0" style={{ flex: '0 1 auto' }}>
         {/* <h2 className="text-center text-lg font-semibold m-4">Final Score</h2> */}
       
         {/* <hr className="mb-3 border-gray-300" /> */}
@@ -46,7 +46,7 @@ const Creditscore = () => {
 
     
 
-      <div className="relative rounded-lg bg-white shadow-md w-2/5 m-3 mt-0" style={{ flex: '0 1 auto' }}>
+      <div className="relative rounded-lg bg-white shadow-md w-[40%] m-3 mt-0" style={{ flex: '0 1 auto' }}>
         {/* <h2 className="text-center text-lg font-semibold m-4">Maximum EMI Possible</h2> */}
         {/* <hr className="mb-3 border-gray-300" /> */}
         <SemiCircularChart value={203417} title={""} />
@@ -55,7 +55,7 @@ const Creditscore = () => {
 
 
       <div className='flex w-full justify-center'>
-      <div className="relative rounded-lg bg-white shadow-md w-1/4 m-3 mt-0" style={{ flex: '0 1 auto' }}>
+      <div className="relative rounded-lg bg-white shadow-md w-[26%] m-3 mt-0" style={{ flex: '0 1 auto' }}>
         
         <VolatilityGauge
           value={607.4}
@@ -65,7 +65,7 @@ const Creditscore = () => {
       </div>
 
 
-      <div className="relative rounded-lg bg-white shadow-md w-1/4 m-3 mt-0" style={{ flex: '0 1 auto' }}>
+      <div className="relative rounded-lg bg-white shadow-md w-[26%] m-3 mt-0" style={{ flex: '0 1 auto' }}>
         
         <VolatilityGauge
           value={650.44}
@@ -75,7 +75,7 @@ const Creditscore = () => {
       </div>
 
 
-      <div className="relative rounded-lg bg-white shadow-md w-1/4 m-3 mt-0" style={{ flex: '0 1 auto' }}>
+      <div className="relative rounded-lg bg-white shadow-md w-[26%] m-3 mt-0" style={{ flex: '0 1 auto' }}>
         
         <VolatilityGauge
           value={734}
