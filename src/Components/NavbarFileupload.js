@@ -11,7 +11,7 @@ const Navbar = (props) => {
   return (
     <div className="bg-white border-b-2 border-gray-300">
       <div className="p-3 flex flex-row text-sm font-semibold">
-        {["EWS", "Credit Scoring", "Cibil Parsing", "SMS Parsing"].map((option) => (
+        {["EWS", "Credit Scoring", "Bureau Parsing", "SMS Parsing"].map((option) => (
           <button
             key={option}
             className={`px-4 py-2 transition-colors duration-300 ${

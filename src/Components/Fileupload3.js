@@ -64,7 +64,7 @@ const Fileupload = ({ onFileUpload,onFileclose }) => {
         case "Credit Scoring":
           navigate("/creditscorepage");
           break;
-        case "Cibil Parsing":
+        case "Bureau Parsing":
           navigate("/info");
           break;
         case "SMS Parsing":
